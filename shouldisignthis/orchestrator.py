@@ -10,11 +10,65 @@ from google.adk.plugins.logging_plugin import LoggingPlugin
 from google.genai import types
 
 from shouldisignthis.database import session_service
+from shouldisignthis.agents.drafter import get_drafter_agent, get_comparison_drafter_agent
 from shouldisignthis.agents.auditor import get_auditor_agent
 from shouldisignthis.agents.debate_team import get_debate_team
 from shouldisignthis.agents.bailiff import get_citation_loop
 from shouldisignthis.agents.judge import get_judge_agent
-from shouldisignthis.agents.drafter import get_drafter_agent
+from shouldisignthis.agents.comparator import get_comparator_agent
+
+# ... (existing imports)
+
+# --- STAGE 5: COMPARATOR (Face-Off) ---
+async def run_stage_5_comparator(user_id: str, session_id: str, verdict_a: dict, verdict_b: dict, api_key: str = None):
+    """
+    Runs the Comparator agent to judge two contracts.
+    """
+    app_name = "Comparator_App"
+    
+    # Construct the input context
+    comparison_input = {
+        "contract_a": verdict_a,
+        "contract_b": verdict_b
+    }
+    
+    message = types.Content(parts=[types.Part(text=f"COMPARE CONTRACTS:\n{json.dumps(comparison_input, indent=2)}")])
+    
+    session = await _run_agent(
+        agent_factory=get_comparator_agent,
+        app_name=app_name,
+        user_id=user_id,
+        session_id=session_id,
+        message=message,
+        initial_state={},
+        api_key=api_key
+    )
+    
+    # Extract output
+    return parse_json(session.state.get('comparison_result'))
+
+# --- STAGE 6: COMPARISON DRAFTER (Action) ---
+async def run_stage_6_comparison_drafter(user_id: str, session_id: str, comparison_result: dict, api_key: str = None):
+    """
+    Runs the Drafter agent to generate a decision email based on the comparison.
+    """
+    app_name = "ComparisonDrafter_App"
+    
+    message = types.Content(parts=[types.Part(text=f"GENERATE DECISION BRIEF:\n{json.dumps(comparison_result, indent=2)}")])
+    
+    session = await _run_agent(
+        agent_factory=get_comparison_drafter_agent,
+        app_name=app_name,
+        user_id=user_id,
+        session_id=session_id,
+        message=message,
+        initial_state={},
+        api_key=api_key
+    )
+    
+    # Extract output
+    return parse_json(session.state.get('drafted_email'))
+
 
 # --- HELPER FUNCTIONS ---
 def parse_json(raw: Union[str, Any]) -> Union[Dict, list, Any]:
@@ -30,11 +84,10 @@ def parse_json(raw: Union[str, Any]) -> Union[Dict, list, Any]:
         except json.JSONDecodeError:
             # 2. Try extracting from first { to last }
             try:
-                start = raw.find('{')
-                end = raw.rfind('}')
-                if start != -1 and end != -1:
-                    json_str = raw[start:end+1]
-                    return json.loads(json_str)
+                import re
+                match = re.search(r'\{.*\}', raw, re.DOTALL)
+                if match:
+                    return json.loads(match.group())
             except Exception:
                 pass
             

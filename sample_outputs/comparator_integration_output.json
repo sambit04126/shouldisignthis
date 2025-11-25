@@ -1,0 +1,36 @@
+{
+  "better_risk_score": "Contract B",
+  "comparison_summary": "Based on the provided analysis, Contract B has a significantly lower numerical risk score. Contract A is characterized by actively predatory and unconscionable terms, including unlimited liability and illusory compensation, posing an extreme and direct financial risk. In contrast, Contract B's risks stem from critical omissions, such as the lack of a Scope of Work and a dispute resolution clause. While these omissions create significant ambiguity and potential for future conflict, the core terms that are present are considered standard and commercially reasonable.",
+  "key_differences": [
+    {
+      "category": "Liability",
+      "contract_a_observation": "Imposes unlimited, uncapped liability on one party, extending even to unforeseeable events like acts of God.",
+      "contract_b_observation": "The analysis does not highlight any unusual liability clauses, suggesting they may be standard or unaddressed. The risk stems more from ambiguity in deliverables.",
+      "risk_assessment": "Contract A's liability term presents a catastrophic and unacceptable level of financial risk. Contract B's risk profile is substantially lower in this regard, as the immediate concern is ambiguity rather than a specific, unfair liability clause."
+    },
+    {
+      "category": "Payment & Compensation",
+      "contract_a_observation": "Payment terms are described as 'illusory' and represent a 'complete failure of consideration' (0.0001 Bitcoin per century).",
+      "contract_b_observation": "Core financial terms are described as 'standard,' implying a commercially reasonable compensation structure.",
+      "risk_assessment": "Contract A offers no meaningful compensation, making the agreement fundamentally non-viable from a commercial standpoint. Contract B presents a standard, lower-risk approach to compensation, though disputes could arise due to the undefined scope of work."
+    },
+    {
+      "category": "Termination Rights",
+      "contract_a_observation": "Grants unilateral, at-will termination rights to one party, creating a severe power imbalance.",
+      "contract_b_observation": "Termination terms are characterized as 'standard,' which typically implies mutual rights for both parties to terminate, often with a notice period.",
+      "risk_assessment": "The one-sided termination clause in Contract A creates instability and high risk for the disadvantaged party. Contract B's standard approach provides a more balanced, predictable, and lower-risk framework for ending the engagement."
+    },
+    {
+      "category": "Scope of Work (SOW)",
+      "contract_a_observation": "The analysis does not mention an SOW, as the contract's primary issues are its fundamentally predatory clauses.",
+      "contract_b_observation": "There is a complete absence of a Scope of Work (SOW), which is identified as a critical flaw creating ambiguity in deliverables.",
+      "risk_assessment": "The absence of an SOW in Contract B is a major source of risk, potentially leading to scope creep and payment disputes. While a significant issue, it is a risk of ambiguity, whereas Contract A's risks are explicitly defined and hostile."
+    },
+    {
+      "category": "Dispute Resolution",
+      "contract_a_observation": "The analysis does not specify a dispute resolution clause, but the overall one-sided nature of the contract implies any disputes would be heavily biased.",
+      "contract_b_observation": "Lacks a defined dispute resolution mechanism, which can complicate and increase the cost of resolving disagreements.",
+      "risk_assessment": "The lack of a formal process in Contract B elevates the risk of costly legal conflicts. Contract A is structured so unfairly that a formal dispute resolution process would likely be ineffective for the disadvantaged party anyway."
+    }
+  ]
+}

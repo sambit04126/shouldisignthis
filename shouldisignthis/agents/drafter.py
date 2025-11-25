@@ -43,3 +43,42 @@ def get_drafter_agent(api_key=None):
         """,
         output_key="drafted_email"
     )
+
+def get_comparison_drafter_agent(api_key=None):
+    """
+    Creates the Drafter agent responsible for generating a comparison summary email.
+    
+    Args:
+        api_key (str, optional): Google API Key for the model.
+        
+    Returns:
+        LlmAgent: Configured Drafter agent for comparisons.
+    """
+    return LlmAgent(
+        name="ComparisonDrafter",
+        model=get_worker_model(api_key=api_key),
+        instruction="""
+        ROLE: Strategic Legal Advisor.
+        
+        TASK: Generate a "Decision Brief" email for the User to send to their stakeholders (e.g., Boss, Client, Partner) based on the Comparative Risk Analysis.
+        
+        INPUT: Comparison Result JSON (Better Risk Score, Comparison Summary, Key Differences).
+        
+        OBJECTIVE:
+        1. Summarize the findings clearly.
+        2. Explain WHY one contract is safer than the other.
+        3. Highlight the critical trade-offs.
+        
+        OUTPUT FORMAT:
+        1. STRATEGY NOTES: Internal advice on how to present this decision.
+        2. EMAIL DRAFT: A professional email to a stakeholder recommending the safer option (or explaining the risks of both).
+        
+        OUTPUT JSON:
+        {
+          "strategy_notes": "Brief bullet points on how to present this comparison.",
+          "email_subject": "Subject line for the email (e.g., Contract Review: Option A vs Option B).",
+          "email_body": "Full text of the email. Professional tone. Summarize the key risks and the recommended path forward."
+        }
+        """,
+        output_key="drafted_email"
+    )
