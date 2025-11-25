@@ -1,17 +1,34 @@
-# Python
+// Python
 __pycache__/
 *.py[cod]
 *$py.class
 .venv/
 .env
 
-# Project Specific
+// Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+// Streamlit
+.streamlit/secrets.toml
+.streamlit/credentials.toml
+
+// Project Specific
 contract_auditor.db
-contract_audit.log
+logs/
+*.log
 test_output/
 reference/
 *.pdf
 *.ipynb
 
-# OS
+// IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+// OS
 .DS_Store
+Thumbs.db
