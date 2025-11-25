@@ -1,0 +1,28 @@
+api:
+  google_api_key: "YOUR_API_KEY_HERE" # Replace with your key or set GOOGLE_API_KEY env var
+
+models:
+  auditor: "gemini-2.5-pro"
+  worker: "gemini-2.0-flash-lite"
+  judge: "gemini-2.5-pro" 
+
+
+retry_policy:
+  attempts: 5
+  exp_base: 2
+  initial_delay: 1
+  http_status_codes: [429, 500, 503]
+
+safety_settings:
+  HARM_CATEGORY_HATE_SPEECH: "BLOCK_ONLY_HIGH"
+  HARM_CATEGORY_DANGEROUS_CONTENT: "BLOCK_ONLY_HIGH"
+  HARM_CATEGORY_HARASSMENT: "BLOCK_ONLY_HIGH"
+  HARM_CATEGORY_SEXUALLY_EXPLICIT: "BLOCK_ONLY_HIGH"
+
+app_config:
+  demo_mode: false
+  max_qa_iterations: 2
+  confidence_threshold: 80
+  extraction_min_rate: 0.5
+  extraction_min_confidence: 0.4
+  timeout_seconds: 30

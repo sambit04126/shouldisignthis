@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.env
+
+# Project Specific
+contract_auditor.db
+contract_audit.log
+test_output/
+reference/
+*.pdf
+*.ipynb
+
+# OS
+.DS_Store
