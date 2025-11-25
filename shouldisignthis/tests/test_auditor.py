@@ -2,6 +2,7 @@ import asyncio
 import os
 import sys
 import json
+import pytest
 from reportlab.pdfgen import canvas
 from google.genai import types
 from google.adk.apps.app import App
@@ -32,6 +33,7 @@ def create_sample_contract(filename):
     c.save()
     print(f"📄 Created sample contract: {filename}")
 
+@pytest.mark.asyncio
 async def test_auditor():
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)

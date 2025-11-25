@@ -4,14 +4,12 @@ import sys
 import json
 import uuid
 import time
-from io import BytesIO
-from reportlab.pdfgen import canvas
+import pytest
 from shouldisignthis.config import configure_logging
 
 # Add parent dir to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-# Import App Stages
 # Import App Stages
 from shouldisignthis.orchestrator import (
     run_stage_1, 
@@ -25,35 +23,26 @@ from shouldisignthis.orchestrator import (
 # Setup
 configure_logging()
 OUTPUT_DIR = "test_output"
+SAMPLE_CONTRACT_PATH = os.path.join(os.path.dirname(__file__), "sample_contracts", "sample_contract.pdf")
 
-def generate_mock_contract():
-    """Generates a simple PDF contract for testing."""
-    buffer = BytesIO()
-    p = canvas.Canvas(buffer)
-    p.drawString(100, 800, "FREELANCE SERVICES AGREEMENT")
-    p.drawString(100, 780, "This Agreement is made between Client Inc. and Freelancer Joe.")
-    p.drawString(100, 760, "1. Services: Python Development.")
-    p.drawString(100, 740, "2. Payment: $100/hr, Net 60 terms.") # Unfavorable
-    p.drawString(100, 720, "3. Termination: 30 days notice.")
-    p.drawString(100, 700, "4. Liability: Capped at $1,000.") # Low cap
-    p.drawString(100, 680, "5. IP: Client owns all work product immediately.")
-    p.drawString(100, 660, "Signed: ____________________")
-    p.showPage()
-    p.save()
-    buffer.seek(0)
-    return buffer.getvalue()
-
+@pytest.mark.asyncio
 async def test_integration():
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
         
     print("\n🚀 Starting Integration Test (End-to-End Pipeline)...")
     
-    # 0. Generate Contract
-    pdf_bytes = generate_mock_contract()
+    # 0. Load Contract
+    if not os.path.exists(SAMPLE_CONTRACT_PATH):
+        print(f"❌ Sample contract not found at: {SAMPLE_CONTRACT_PATH}")
+        return
+
+    with open(SAMPLE_CONTRACT_PATH, "rb") as f:
+        pdf_bytes = f.read()
+
     user_id = "integration_test_user"
     session_id = str(uuid.uuid4())
-    print(f"📄 Generated Mock Contract ({len(pdf_bytes)} bytes)")
+    print(f"📄 Loaded Mock Contract ({len(pdf_bytes)} bytes) from {SAMPLE_CONTRACT_PATH}")
     
     # 1. STAGE 1: Auditor
     print("\n--- STAGE 1: AUDITOR ---")

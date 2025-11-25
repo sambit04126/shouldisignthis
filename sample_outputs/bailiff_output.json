@@ -1,0 +1,22 @@
+{
+  "bailiff_verdict": {
+    "status": "CLEAN",
+    "corrections_needed": [],
+    "verified_arguments": {
+      "counters": [
+        {
+          "topic": "Liability Cap",
+          "counter": "The contract caps liability at $5,000.",
+          "confidence": "HIGH"
+        },
+        {
+          "topic": "Payment",
+          "counter": "The contract says payment is Net 30.",
+          "confidence": "HIGH"
+        }
+      ]
+    }
+  },
+  "final_arguments": "Case closed.\n",
+  "duration": 6.762186050415039
+}

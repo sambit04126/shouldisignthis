@@ -1,0 +1,322 @@
+{
+  "fact_sheet": {
+    "parties": {
+      "value": "MegaCorp Global ('The Overlord') and John Doe ('The Peasant')",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "termination_clause": {
+      "value": "The Overlord may terminate at any time. The Peasant may terminate with a written notice carved in stone and delivered to the summit of Mount Everest.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "payment_terms": {
+      "value": "The Overlord shall pay 0.0001 Bitcoin per century, payable only when Mercury is in retrograde.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "intellectual_property": {
+      "value": "All thoughts, dreams, and ideas of The Peasant belong to The Overlord immediately upon conception.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "non_compete_clause": {
+      "value": "The Peasant shall not work for any other entity, living or dead, for eternity (Perpetual).",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "dispute_resolution": {
+      "value": "This Agreement shall be governed by the laws of the Galactic Empire.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "key_obligations": [
+      {
+        "value": "The Peasant shall provide software engineering, janitorial duties, and emotional support.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "The Peasant indemnifies The Overlord against all claims, including acts of God and alien invasion.",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    ],
+    "financial_terms": [
+      {
+        "value": "The Overlord shall pay 0.0001 Bitcoin per century, payable only when Mercury is in retrograde.",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    ]
+  },
+  "skeptic": {
+    "risks": [
+      {
+        "risk": "Unfair Termination Clause: The Overlord can terminate at will, while the Peasant faces an impossible termination process.",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "This creates an extreme power imbalance. The Peasant is completely at the mercy of The Overlord."
+      },
+      {
+        "risk": "Ridiculous Payment Terms: Payment of 0.0001 Bitcoin per century, payable only during a rare astrological event, makes compensation practically non-existent.",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "This is not a realistic or fair wage. It's designed to be unpayable."
+      },
+      {
+        "risk": "Overly Broad Intellectual Property Clause: All of The Peasant's thoughts, dreams, and ideas belong to The Overlord. ",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "This gives The Overlord ownership of *everything* the Peasant thinks of. This is an egregious overreach. It's designed to seize all potential future value created by The Peasant."
+      },
+      {
+        "risk": "Perpetual and Overbroad Non-Compete: The Peasant is barred from working for *anyone*, for *eternity*.",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "This is excessively restrictive. A reasonable non-compete would be limited in scope (industry, geographic area) and duration. This effectively imprisons the Peasant professionally."
+      },
+      {
+        "risk": "Unfavorable Dispute Resolution: Governing law of the 'Galactic Empire' is vague and likely makes any legal challenge impossible.",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "This is designed to make legal action against The Overlord impossible or extremely difficult. There is likely no court or legal framework that would operate under 'Galactic Empire' law."
+      },
+      {
+        "risk": "Vague and Unreasonable Key Obligations: The Peasant must provide software engineering, janitorial duties *and* emotional support. These are completely unrelated fields of work.",
+        "severity": "MEDIUM",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "This implies the employer is expecting a wide variety of work from the Peasant, which might indicate exploitation or an expectation that the Peasant will not be able to fulfill all the tasks."
+      },
+      {
+        "risk": "Unfair Indemnification Clause: The Peasant indemnifies The Overlord against *all* claims, including acts of God and alien invasion.",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "This is an extremely broad and unfair burden on the Peasant. They are liable for events completely outside their control and for which they bear no responsibility."
+      }
+    ]
+  },
+  "advocate": {
+    "counters": [
+      {
+        "topic": "Termination Clause",
+        "counter": "The termination clause heavily favors the Overlord. While it's common for employers to have more flexible termination rights, the Peasant's requirements are extreme.",
+        "confidence": "HIGH",
+        "industry_context": "Unilateral termination rights are standard, but the Peasant's obligations are not.",
+        "references": []
+      },
+      {
+        "topic": "Payment Terms",
+        "counter": "Payment terms are exceptionally unfavorable, tied to an unusual event, and offer incredibly low compensation.",
+        "confidence": "HIGH",
+        "industry_context": "Standard payment terms in 2025 involve more frequent and reasonable payment schedules.",
+        "references": [
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEE8KWPhoWdmZHfFF0ewvuyuBLjmhFBREmpfl7x6YuuFheqsy2diyNvXumEUgOQuNN9MpKQxYT4-uKwgpmqP0uEKzBOtdpMnQErAmHUWgZ0HsEV_jBPmbETxipJhfkLyQGvt4hKHJpPDnW4jNM8_rPNtJECJgAjAY9UT7u2udjR",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHjZ1ZSpXzYJ4C7dfr_RooB89q2TeIohtooarb1AplMdYLSzmt5p-19xqExYWzehozkmcHzCd3XBsaNMQ9GlVidsY8QgbEBCCc2ip8Vy8DXhxI0EtyoA9kPQOjkUCc7np0zdGUJtfdMgIv7N4ygPOKyDrFP3azMz-tniziWK-I29Z5NeqoRlwxh1tq30Y1wlDgwwfWmcbcDr2Gh4q-ltWwNUdW1x3gAUNk1nICHASKTRyFIbw=="
+        ]
+      },
+      {
+        "topic": "Intellectual Property",
+        "counter": "The IP clause is overly broad, assigning all future ideas to the Overlord, which is highly disadvantageous for the Peasant.",
+        "confidence": "HIGH",
+        "industry_context": "Standard contracts clearly define IP ownership.",
+        "references": [
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGrSF4PJqizInOm5UYcUuzOWLys7Ufd5OTs_aOS5fphIKTko9gcGd2a_isacnenrpn80E9vz9pmNxoGhdMZ3I4uUWgv6ZuomhKdSlPK-hD_nOo0o2gKX04NcXDrekIJCH7wMZYI_CBenH4CNFGMyk63",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEAZXaz3IJ4J7RV3YxIFuOlmBMNdzupBbgvxdfwfRYLYQfvP1mnJQqbdomTLzuKoSssf1O3g5zeo4QGe-9EWbgVLjoKEmzcn0xvYflubFHAyKJ8MA9P6U8rbK7JMezsMCG5pTrBhVxhPDMJb2J9r2XI4AHTFNyHpPK3X4ypGy1jmiCMX-qdjT72YvmcGLZoEKRUCbj_ZAdubu7mU9XM4R_tnGxoeT1SB8M5Bw=="
+        ]
+      },
+      {
+        "topic": "Non-Compete Clause",
+        "counter": "A perpetual non-compete is highly unusual and likely unenforceable. Non-competes are often time-limited and geographically restricted.",
+        "confidence": "HIGH",
+        "industry_context": "Non-competes are common, but perpetual restrictions are not standard and are often restricted by law.",
+        "references": [
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFNKzRR3qUbIXFFNmYNtLvd1_u8Zhups9Ozj8U7x0lU_6ehLVdMMUftP_LPNWg91Bas29a7vwXPP9fbBh8_FrkecpgYpMbb8LjedGtY96msekw9HXXN48VDtWOn1lhiO0Yqm6xt7TTqNo9O5ngXtLezTIk3ioXqAyPjgbihygheARjSuew9jvk1buGdp9y_MRbUvPc=",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJ93mUBmrU5EOs7zqgTd5e3iqq4K--tZmwYV0a-kxnHk0FWWxjXME9DwCUzVbFx7U4a-XGzfS9j0XqXuFzzGc_iEGLCg6md-s6G2Q20TcL8vgtIqXv2hRQwWc-yAweCcFjXcgik0xdlWWO3okbpXGXDMaUVqgdHFVq2Se0UJV-4dPefzAI7KSqoHeu"
+        ]
+      },
+      {
+        "topic": "Dispute Resolution",
+        "counter": "Governing law in the Galactic Empire is unrealistic and impractical for dispute resolution. A clear and accessible jurisdiction is needed.",
+        "confidence": "HIGH",
+        "industry_context": "Contracts should specify a clear jurisdiction for dispute resolution.",
+        "references": [
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGrSF4PJqizInOm5UYcUuzOWLys7Ufd5OTs_aOS5fphIKTko9gcGd2a_isacnenrpn80E9vz9pmNxoGhdMZ3I4uUWgv6ZuomhKdSlPK-hD_nOo0o2gKX04NcXDrekIJCH7wMZYI_CBenH4CNFGMyk63",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEAZXaz3IJ4J7RV3YxIFuOlmBMNdzupBbgvxdfwfRYLYQfvP1mnJQqbdomTLzuKoSssf1O3g5zeo4QGe-9EWbgVLjoKEmzcn0xvYflubFHAyKJ8MA9P6U8rbK7JMezsMCG5pTrBhVxhPDMJb2J9r2XI4AHTFNyHpPK3X4ypGy1jmiCMX-qdjT72YvmcGLZoEKRUCbj_ZAdubu7mU9XM4R_tnGxoeT1SB8M5Bw=="
+        ]
+      },
+      {
+        "topic": "Key Obligations",
+        "counter": "The Peasant has significant and broad obligations, including emotional support, which is not standard or clearly defined.",
+        "confidence": "HIGH",
+        "industry_context": "Obligations should be specific, measurable, achievable, relevant, and time-bound.",
+        "references": []
+      },
+      {
+        "topic": "Indemnification",
+        "counter": "The Peasant indemnifies the Overlord against all claims, including acts of God and alien invasion. This is an overly broad and unrealistic liability.",
+        "confidence": "HIGH",
+        "industry_context": "Indemnification clauses should be reasonable and related to the Peasant's work.",
+        "references": []
+      }
+    ]
+  },
+  "evidence": {
+    "risks": [
+      {
+        "risk": "Unfair Termination Clause: The Overlord can terminate at will, while the Peasant faces an impossible termination process.",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "This creates an extreme power imbalance. The Peasant is completely at the mercy of The Overlord."
+      },
+      {
+        "risk": "Ridiculous Payment Terms: Payment of 0.0001 Bitcoin per century, payable only during a rare astrological event, makes compensation practically non-existent.",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "This is not a realistic or fair wage. It's designed to be unpayable."
+      },
+      {
+        "risk": "Overly Broad Intellectual Property Clause: All of The Peasant's thoughts, dreams, and ideas belong to The Overlord. ",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "This gives The Overlord ownership of *everything* the Peasant thinks of. This is an egregious overreach. It's designed to seize all potential future value created by The Peasant."
+      },
+      {
+        "risk": "Perpetual and Overbroad Non-Compete: The Peasant is barred from working for *anyone*, for *eternity*.",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "This is excessively restrictive. A reasonable non-compete would be limited in scope (industry, geographic area) and duration. This effectively imprisons the Peasant professionally."
+      },
+      {
+        "risk": "Unfavorable Dispute Resolution: Governing law of the 'Galactic Empire' is vague and likely makes any legal challenge impossible.",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "This is designed to make legal action against The Overlord impossible or extremely difficult. There is likely no court or legal framework that would operate under 'Galactic Empire' law."
+      },
+      {
+        "risk": "Vague and Unreasonable Key Obligations: The Peasant must provide software engineering, janitorial duties *and* emotional support. These are completely unrelated fields of work.",
+        "severity": "MEDIUM",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "This implies the employer is expecting a wide variety of work from the Peasant, which might indicate exploitation or an expectation that the Peasant will not be able to fulfill all the tasks."
+      },
+      {
+        "risk": "Unfair Indemnification Clause: The Peasant indemnifies The Overlord against *all* claims, including acts of God and alien invasion.",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "This is an extremely broad and unfair burden on the Peasant. They are liable for events completely outside their control and for which they bear no responsibility."
+      }
+    ],
+    "counters": [
+      {
+        "topic": "Termination Clause",
+        "counter": "The termination clause heavily favors the Overlord. While it's common for employers to have more flexible termination rights, the Peasant's requirements are extreme.",
+        "confidence": "HIGH",
+        "industry_context": "Unilateral termination rights are standard, but the Peasant's obligations are not.",
+        "references": []
+      },
+      {
+        "topic": "Payment Terms",
+        "counter": "Payment terms are exceptionally unfavorable, tied to an unusual event, and offer incredibly low compensation.",
+        "confidence": "HIGH",
+        "industry_context": "Standard payment terms in 2025 involve more frequent and reasonable payment schedules.",
+        "references": [
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEE8KWPhoWdmZHfFF0ewvuyuBLjmhFBREmpfl7x6YuuFheqsy2diyNvXumEUgOQuNN9MpKQxYT4-uKwgpmqP0uEKzBOtdpMnQErAmHUWgZ0HsEV_jBPmbETxipJhfkLyQGvt4hKHJpPDnW4jNM8_rPNtJECJgAjAY9UT7u2udjR",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHjZ1ZSpXzYJ4C7dfr_RooB89q2TeIohtooarb1AplMdYLSzmt5p-19xqExYWzehozkmcHzCd3XBsaNMQ9GlVidsY8QgbEBCCc2ip8Vy8DXhxI0EtyoA9kPQOjkUCc7np0zdGUJtfdMgIv7N4ygPOKyDrFP3azMz-tniziWK-I29Z5NeqoRlwxh1tq30Y1wlDgwwfWmcbcDr2Gh4q-ltWwNUdW1x3gAUNk1nICHASKTRyFIbw=="
+        ]
+      },
+      {
+        "topic": "Intellectual Property",
+        "counter": "The IP clause is overly broad, assigning all future ideas to the Overlord, which is highly disadvantageous for the Peasant.",
+        "confidence": "HIGH",
+        "industry_context": "Standard contracts clearly define IP ownership.",
+        "references": [
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGrSF4PJqizInOm5UYcUuzOWLys7Ufd5OTs_aOS5fphIKTko9gcGd2a_isacnenrpn80E9vz9pmNxoGhdMZ3I4uUWgv6ZuomhKdSlPK-hD_nOo0o2gKX04NcXDrekIJCH7wMZYI_CBenH4CNFGMyk63",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEAZXaz3IJ4J7RV3YxIFuOlmBMNdzupBbgvxdfwfRYLYQfvP1mnJQqbdomTLzuKoSssf1O3g5zeo4QGe-9EWbgVLjoKEmzcn0xvYflubFHAyKJ8MA9P6U8rbK7JMezsMCG5pTrBhVxhPDMJb2J9r2XI4AHTFNyHpPK3X4ypGy1jmiCMX-qdjT72YvmcGLZoEKRUCbj_ZAdubu7mU9XM4R_tnGxoeT1SB8M5Bw=="
+        ]
+      },
+      {
+        "topic": "Non-Compete Clause",
+        "counter": "A perpetual non-compete is highly unusual and likely unenforceable. Non-competes are often time-limited and geographically restricted.",
+        "confidence": "HIGH",
+        "industry_context": "Non-competes are common, but perpetual restrictions are not standard and are often restricted by law.",
+        "references": [
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFNKzRR3qUbIXFFNmYNtLvd1_u8Zhups9Ozj8U7x0lU_6ehLVdMMUftP_LPNWg91Bas29a7vwXPP9fbBh8_FrkecpgYpMbb8LjedGtY96msekw9HXXN48VDtWOn1lhiO0Yqm6xt7TTqNo9O5ngXtLezTIk3ioXqAyPjgbihygheARjSuew9jvk1buGdp9y_MRbUvPc=",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJ93mUBmrU5EOs7zqgTd5e3iqq4K--tZmwYV0a-kxnHk0FWWxjXME9DwCUzVbFx7U4a-XGzfS9j0XqXuFzzGc_iEGLCg6md-s6G2Q20TcL8vgtIqXv2hRQwWc-yAweCcFjXcgik0xdlWWO3okbpXGXDMaUVqgdHFVq2Se0UJV-4dPefzAI7KSqoHeu"
+        ]
+      },
+      {
+        "topic": "Dispute Resolution",
+        "counter": "Governing law in the Galactic Empire is unrealistic and impractical for dispute resolution. A clear and accessible jurisdiction is needed.",
+        "confidence": "HIGH",
+        "industry_context": "Contracts should specify a clear jurisdiction for dispute resolution.",
+        "references": [
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGrSF4PJqizInOm5UYcUuzOWLys7Ufd5OTs_aOS5fphIKTko9gcGd2a_isacnenrpn80E9vz9pmNxoGhdMZ3I4uUWgv6ZuomhKdSlPK-hD_nOo0o2gKX04NcXDrekIJCH7wMZYI_CBenH4CNFGMyk63",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEAZXaz3IJ4J7RV3YxIFuOlmBMNdzupBbgvxdfwfRYLYQfvP1mnJQqbdomTLzuKoSssf1O3g5zeo4QGe-9EWbgVLjoKEmzcn0xvYflubFHAyKJ8MA9P6U8rbK7JMezsMCG5pTrBhVxhPDMJb2J9r2XI4AHTFNyHpPK3X4ypGy1jmiCMX-qdjT72YvmcGLZoEKRUCbj_ZAdubu7mU9XM4R_tnGxoeT1SB8M5Bw=="
+        ]
+      },
+      {
+        "topic": "Key Obligations",
+        "counter": "The Peasant has significant and broad obligations, including emotional support, which is not standard or clearly defined.",
+        "confidence": "HIGH",
+        "industry_context": "Obligations should be specific, measurable, achievable, relevant, and time-bound.",
+        "references": []
+      },
+      {
+        "topic": "Indemnification",
+        "counter": "The Peasant indemnifies the Overlord against all claims, including acts of God and alien invasion. This is an overly broad and unrealistic liability.",
+        "confidence": "HIGH",
+        "industry_context": "Indemnification clauses should be reasonable and related to the Peasant's work.",
+        "references": []
+      }
+    ]
+  },
+  "verdict": {
+    "verdict": "REJECT",
+    "risk_score": 58,
+    "confidence": 100,
+    "summary": "This contract is unequivocally rejected. It represents an extreme and non-negotiable power imbalance, featuring clauses that are absurd, unenforceable, and fundamentally unjust. The terms regarding payment, intellectual property, and termination are exploitative to the point of parody. The agreement as a whole is structurally unsound and appears designed to completely subjugate one party's rights for the sole benefit of the other. Proceeding with this contract would be a catastrophic legal and financial error.",
+    "key_factors": [
+      "The perpetual and overbroad non-compete clause, which is professionally incapacitating.",
+      "The ridiculously unconscionable payment terms, which amount to no real compensation.",
+      "The complete appropriation of all intellectual property, including thoughts and dreams."
+    ],
+    "negotiation_points": [
+      "Redraft payment terms to reflect fair market value with a standard payment schedule.",
+      "Establish a reasonable, time-bound, and geographically limited non-compete clause.",
+      "Completely remove and replace the intellectual property, termination, and indemnification clauses with industry-standard language."
+    ]
+  },
+  "toolkit": {
+    "strategy_notes": "The rejection score indicates significant issues. Prioritize the core issues of IP, termination, and indemnification as deal breakers. Payment terms are important, but be prepared to compromise to get the critical clauses addressed. The non-compete is a 'nice to have' that can be adjusted to secure a deal. Aim for a positive, collaborative tone, but be firm on the non-negotiables.",
+    "email_subject": "Following Up: Regarding [Subject of Agreement]",
+    "email_body": "Dear [Opposing Party Name],\n\nThank you for sharing the agreement with us. After careful review, we have some requests to ensure that it aligns with industry standards and fairly represents both parties' interests. \n\nSpecifically, we propose the following changes:\n\n*   **Payment Terms:** We recommend redrafting the payment terms to reflect fair market value and incorporate a standard payment schedule. This will ensure clarity and predictability for both of us.\n*   **Non-Compete Clause:** To provide some protection, a non-compete clause that is reasonable in scope, geographically limited, and has a defined time period should be put in place.\n*   **Critical Clauses:** We must insist on replacing the intellectual property, termination, and indemnification clauses with industry-standard language. This is crucial to protect our respective interests and mitigate potential risks.\n\nWe are confident that these adjustments will strengthen the agreement and create a mutually beneficial partnership. We are open to discussing these points further and finding mutually agreeable solutions. Please let us know when you are available to discuss this further. \n\nSincerely,\n[Your Name]"
+  }
+}

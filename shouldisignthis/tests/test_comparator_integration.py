@@ -4,8 +4,6 @@ import sys
 import json
 import uuid
 import time
-from io import BytesIO
-from reportlab.pdfgen import canvas
 from shouldisignthis.config import configure_logging
 
 # Add parent dir to path
@@ -24,29 +22,7 @@ from shouldisignthis.orchestrator import (
 # Setup
 configure_logging()
 OUTPUT_DIR = "test_output"
-
-def generate_complex_contract():
-    """Generates a complex PDF contract for testing (The 'Bad' Contract)."""
-    buffer = BytesIO()
-    c = canvas.Canvas(buffer)
-    c.drawString(100, 800, "MASTER UNIVERSAL SERVITUDE AGREEMENT")
-    c.drawString(100, 780, "Between MegaCorp ('Overlord') and User ('Peasant').")
-    
-    c.drawString(100, 750, "1. SERVICES")
-    c.drawString(100, 735, "Peasant shall provide all services required by Overlord.")
-    
-    c.drawString(100, 705, "2. PAYMENT")
-    c.drawString(100, 690, "Overlord shall pay 0.0001 Bitcoin per century.")
-    
-    c.drawString(100, 660, "3. LIABILITY")
-    c.drawString(100, 645, "Peasant is liable for all damages, including acts of God.")
-    
-    c.drawString(100, 615, "4. TERMINATION")
-    c.drawString(100, 600, "Overlord may terminate anytime. Peasant cannot terminate.")
-    
-    c.save()
-    buffer.seek(0)
-    return buffer.getvalue()
+SAMPLE_CONTRACTS_DIR = os.path.join(os.path.dirname(__file__), "sample_contracts")
 
 async def run_pipeline(file_bytes, mime_type, user_id, session_id, label):
     """Runs Stages 1-3 for a single contract."""
@@ -86,23 +62,18 @@ async def run_comparator_test():
     print("\n🥊 Starting Comparator Integration Test...")
     
     # 1. Load Contracts
-    # Complex (Bad)
-    complex_bytes = generate_complex_contract()
+    complex_path = os.path.join(SAMPLE_CONTRACTS_DIR, "complex_contract.pdf")
+    simple_path = os.path.join(SAMPLE_CONTRACTS_DIR, "sample_contract.pdf")
+
+    if not os.path.exists(complex_path) or not os.path.exists(simple_path):
+        print(f"❌ Sample contracts not found in {SAMPLE_CONTRACTS_DIR}")
+        return
+
+    with open(complex_path, "rb") as f:
+        complex_bytes = f.read()
     
-    # Simple (Good/Standard) - assuming sample_contract.pdf is standard
-    try:
-        with open("sample_contract.pdf", "rb") as f:
-            simple_bytes = f.read()
-    except FileNotFoundError:
-        print("❌ sample_contract.pdf not found. Generating a simple one.")
-        # Generate a simple one if missing
-        buffer = BytesIO()
-        c = canvas.Canvas(buffer)
-        c.drawString(100, 800, "STANDARD SERVICE AGREEMENT")
-        c.drawString(100, 780, "Fair terms. Standard liability cap. 30 day termination.")
-        c.save()
-        buffer.seek(0)
-        simple_bytes = buffer.getvalue()
+    with open(simple_path, "rb") as f:
+        simple_bytes = f.read()
 
     # 2. Run Parallel Pipelines
     print("\n--- RUNNING PARALLEL PIPELINES ---")

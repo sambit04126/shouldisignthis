@@ -4,6 +4,7 @@ import sys
 import json
 import uuid
 import time
+import pytest
 from google.genai import types
 from google.adk.apps.app import App
 from google.adk.runners import Runner
@@ -20,6 +21,7 @@ from shouldisignthis.config import configure_logging
 configure_logging()
 OUTPUT_DIR = "test_output"
 
+@pytest.mark.asyncio
 async def test_bailiff():
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)

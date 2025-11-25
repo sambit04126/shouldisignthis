@@ -4,3 +4,6 @@ streamlit
 reportlab
 pyyaml
 sqlalchemy
+pytest
+pytest-asyncio
+

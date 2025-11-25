@@ -4,15 +4,13 @@ import sys
 import json
 import uuid
 import time
-from io import BytesIO
-from reportlab.pdfgen import canvas
 from shouldisignthis.config import configure_logging
 
 # Add parent dir to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 # Import App Stages
-from shouldisignthis.app import (
+from shouldisignthis.orchestrator import (
     run_stage_1, 
     run_stage_2, 
     run_stage_2_5, 
@@ -24,39 +22,7 @@ from shouldisignthis.app import (
 # Setup
 configure_logging()
 OUTPUT_DIR = "test_output"
-
-def generate_complex_contract():
-    """Generates a complex PDF contract for testing."""
-    buffer = BytesIO()
-    c = canvas.Canvas(buffer)
-    c.drawString(100, 800, "MASTER UNIVERSAL SERVITUDE & SOUL BINDING AGREEMENT")
-    c.drawString(100, 780, "This Agreement is made between MegaCorp Global ('The Overlord') and John Doe ('The Peasant').")
-    
-    c.drawString(100, 750, "1. SERVICES")
-    c.drawString(100, 735, "The Peasant shall provide software engineering, janitorial duties, and emotional support.")
-    
-    c.drawString(100, 705, "2. PAYMENT TERMS")
-    c.drawString(100, 690, "The Overlord shall pay 0.0001 Bitcoin per century, payable only when Mercury is in retrograde.")
-    
-    c.drawString(100, 660, "3. EXCLUSIVITY & NON-COMPETE")
-    c.drawString(100, 645, "The Peasant shall not work for any other entity, living or dead, for eternity (Perpetual).")
-    
-    c.drawString(100, 615, "4. INTELLECTUAL PROPERTY")
-    c.drawString(100, 600, "All thoughts, dreams, and ideas of The Peasant belong to The Overlord immediately upon conception.")
-    
-    c.drawString(100, 570, "5. INDEMNIFICATION")
-    c.drawString(100, 555, "The Peasant indemnifies The Overlord against all claims, including acts of God and alien invasions.")
-    
-    c.drawString(100, 525, "6. TERMINATION")
-    c.drawString(100, 510, "The Overlord may terminate at any time. The Peasant may terminate with a written notice")
-    c.drawString(100, 495, "carved in stone and delivered to the summit of Mount Everest.")
-    
-    c.drawString(100, 465, "7. GOVERNING LAW")
-    c.drawString(100, 450, "This Agreement shall be governed by the laws of the Galactic Empire.")
-    
-    c.save()
-    buffer.seek(0)
-    return buffer.getvalue()
+SAMPLE_CONTRACT_PATH = os.path.join(os.path.dirname(__file__), "sample_contracts", "complex_contract.pdf")
 
 async def run_complex_test():
     if not os.path.exists(OUTPUT_DIR):
@@ -64,11 +30,17 @@ async def run_complex_test():
         
     print("\n🚀 Starting Complex Integration Test...")
     
-    # 0. Generate Contract
-    pdf_bytes = generate_complex_contract()
+    # 0. Load Contract
+    if not os.path.exists(SAMPLE_CONTRACT_PATH):
+        print(f"❌ Sample contract not found at: {SAMPLE_CONTRACT_PATH}")
+        return
+
+    with open(SAMPLE_CONTRACT_PATH, "rb") as f:
+        pdf_bytes = f.read()
+
     user_id = "complex_test_user"
     session_id = str(uuid.uuid4())
-    print(f"📄 Generated Complex Contract ({len(pdf_bytes)} bytes)")
+    print(f"📄 Loaded Complex Contract ({len(pdf_bytes)} bytes) from {SAMPLE_CONTRACT_PATH}")
     
     # 1. STAGE 1: Auditor
     print("\n--- STAGE 1: AUDITOR ---")
