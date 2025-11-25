@@ -12,7 +12,8 @@ from shouldisignthis.config import configure_logging
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 # Import App Stages
-from shouldisignthis.app import (
+# Import App Stages
+from shouldisignthis.orchestrator import (
     run_stage_1, 
     run_stage_2, 
     run_stage_2_5, 

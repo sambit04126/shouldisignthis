@@ -12,7 +12,7 @@ from google.adk.plugins.logging_plugin import LoggingPlugin
 # Add parent dir to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from shouldisignthis.agents.debate_team import debate_team
+from shouldisignthis.agents.debate_team import get_debate_team
 from shouldisignthis.database import session_service
 from shouldisignthis.config import configure_logging
 
@@ -38,7 +38,7 @@ async def test_debate():
     print(f"📋 Input Fact Sheet: {json.dumps(fact_sheet, indent=2)}")
     
     # Create App & Runner
-    app = App(name="Debate_Test", root_agent=debate_team, plugins=[LoggingPlugin()])
+    app = App(name="Debate_Test", root_agent=get_debate_team(), plugins=[LoggingPlugin()])
     runner = Runner(app=app, session_service=session_service)
     
     # Create Session

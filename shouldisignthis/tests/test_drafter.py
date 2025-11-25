@@ -12,7 +12,7 @@ from google.adk.plugins.logging_plugin import LoggingPlugin
 # Add parent dir to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from shouldisignthis.agents.drafter import drafter_agent
+from shouldisignthis.agents.drafter import get_drafter_agent
 from shouldisignthis.database import session_service
 from shouldisignthis.config import configure_logging
 
@@ -42,7 +42,7 @@ async def test_drafter():
     print(f"📋 Input Verdict: {json.dumps(final_verdict, indent=2)}")
     
     # Create App & Runner
-    app = App(name="Drafter_Test", root_agent=drafter_agent, plugins=[LoggingPlugin()])
+    app = App(name="Drafter_Test", root_agent=get_drafter_agent(), plugins=[LoggingPlugin()])
     runner = Runner(app=app, session_service=session_service)
     
     # Create Session

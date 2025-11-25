@@ -25,16 +25,27 @@ if "GOOGLE_API_KEY" not in os.environ:
     print("⚠️ WARNING: GOOGLE_API_KEY not found in environment variables or config.yaml.")
 
 # 2. LOGGING SETUP
+# 2. LOGGING SETUP
 def configure_logging():
+    log_cfg = APP_CONFIG.get("logging", {})
+    log_dir = log_cfg.get("log_dir", "logs")
+    log_file = log_cfg.get("log_file", "contract_audit.log")
+    
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+        
+    log_path = os.path.join(log_dir, log_file)
+    
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - [ShouldISignThis_Trace] - %(levelname)s - %(message)s',
         handlers=[
             logging.StreamHandler(sys.stdout),
-            logging.FileHandler("contract_audit.log")
+            logging.FileHandler(log_path)
         ],
         force=True
     )
+    print(f"📝 Logging to: {log_path}")
 
 # 3. SAFETY SETTINGS
 SAFE_CONTRACT_SETTINGS = APP_CONFIG.get("safety_settings", {
@@ -68,26 +79,29 @@ CONFIG = {
 # 6. MODEL DEFINITIONS
 models_cfg = APP_CONFIG.get("models", {})
 
-# AUDITOR: Gemini 1.5 Pro (2M context for PDF/Image)
-AUDITOR_MODEL = Gemini(
-    model=models_cfg.get("auditor", "gemini-2.5-pro"),
-    retry_options=RETRY_POLICY,
-    safety_settings=SAFE_CONTRACT_SETTINGS
-)
+def get_auditor_model(api_key=None):
+    return Gemini(
+        model=models_cfg["auditor"],
+        api_key=api_key,
+        retry_options=RETRY_POLICY,
+        safety_settings=SAFE_CONTRACT_SETTINGS
+    )
 
-# WORKER: Gemini 2.0 Flash (Fast inference for debate)
-WORKER_MODEL = Gemini(
-    model=models_cfg.get("worker", "gemini-2.0-flash-lite"),
-    retry_options=RETRY_POLICY,
-    safety_settings=SAFE_CONTRACT_SETTINGS
-)
+def get_worker_model(api_key=None):
+    return Gemini(
+        model=models_cfg["worker"],
+        api_key=api_key,
+        retry_options=RETRY_POLICY,
+        safety_settings=SAFE_CONTRACT_SETTINGS
+    )
 
-# JUDGE: Gemini 1.5 Pro (Reasoning)
-JUDGE_MODEL = Gemini(
-    model=models_cfg.get("judge", "gemini-2.5-pro"),
-    retry_options=RETRY_POLICY,
-    safety_settings=SAFE_CONTRACT_SETTINGS
-)
+def get_judge_model(api_key=None):
+    return Gemini(
+        model=models_cfg["judge"],
+        api_key=api_key,
+        retry_options=RETRY_POLICY,
+        safety_settings=SAFE_CONTRACT_SETTINGS
+    )
 
 # 7. VERDICT CONSTANTS
 class Verdict:

@@ -12,7 +12,7 @@ from google.adk.plugins.logging_plugin import LoggingPlugin
 # Add parent dir to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from shouldisignthis.agents.judge import judge_agent
+from shouldisignthis.agents.judge import get_judge_agent
 from shouldisignthis.database import session_service
 from shouldisignthis.config import configure_logging
 
@@ -53,7 +53,7 @@ async def test_judge():
     print(f"📋 Input Arguments: {json.dumps(final_arguments, indent=2)}")
     
     # Create App & Runner
-    app = App(name="Judge_Test", root_agent=judge_agent, plugins=[LoggingPlugin()])
+    app = App(name="Judge_Test", root_agent=get_judge_agent(), plugins=[LoggingPlugin()])
     runner = Runner(app=app, session_service=session_service)
     
     # Create Session

@@ -1,62 +1,80 @@
 # ⚖️ ShouldISignThis? - The AI Consensus Engine for Contract Review
 
-**A Multi-Agent System for Everyone**
+> **"Don't just sign it. Debate it."**
+
+**ShouldISignThis?** is an advanced multi-agent system that simulates a legal team to review contracts. Instead of a single LLM providing a generic summary, it orchestrates a team of specialized AI agents to argue, verify, and judge the document, ensuring you get a balanced and fact-checked analysis.
 
 ---
-
-## 🚩 The Problem
-Every day, people sign contracts they don't fully understand—from apartment leases and employment offers to service agreements and software licenses. Legal counsel is expensive ($300+/hr), and reading dense legalese is time-consuming and error-prone. This leads to:
-- **Unfavorable Terms**: Hidden fees, restrictive clauses, or unfair obligations.
-- **Hidden Risks**: Missing protections or unlimited liability.
-- **Power Imbalance**: Inability to negotiate effectively against corporate legal teams.
-
-## 💡 The Solution
-**ShouldISignThis?** is an AI-powered "Consensus Engine" that doesn't just read your contract—it **debates** it. Instead of a single LLM giving a generic summary, we deploy a team of specialized agents to argue for and against the contract terms, fact-check each other, and reach a balanced verdict.
 
 ## 🏗️ Architecture
-The system utilizes a **Multi-Agent Architecture** powered by Google Gemini models, orchestrated via the Google Agent Development Kit (ADK).
 
-### The 4-Stage Pipeline
+The system utilizes a **Parallel-Sequential-Loop** architecture powered by Google Gemini models and the Google Agent Development Kit (ADK).
 
-1.  **Stage 1: The Auditor (Ingestion)**
-    *   **Role**: Extracts facts and verifies the document is a valid contract.
-    *   **Model**: `gemini-2.5-pro`
-    *   **Output**: Structured Fact Sheet (Parties, Dates, Terms).
+### The Workflow
 
-2.  **Stage 2: The Debate Team (Parallel Execution)**
-    *   **The Skeptic 😠**: Ruthlessly finds every risk, gap, and trap.
-    *   **The Advocate 🛡️**: Defends the clauses using industry standards and web search.
-    *   **Pattern**: These agents run **in parallel** to maximize diverse perspectives.
-
-3.  **Stage 2.5: The Bailiff (Self-Correction Loop)**
-    *   **Role**: Hallucination Check. Verifies that the Skeptic's claims actually exist in the text.
-    *   **Pattern**: **Loop Agent**. If the Bailiff finds a hallucination, the Clerk corrects it and resubmits for verification.
-
-4.  **Stage 3: The Judge (Verdict)**
-    *   **Role**: Weighs the arguments from the Debate Team and issues a final Verdict & Risk Score.
-    *   **Model**: `gemini-2.5-pro`
-    *   **Output**: "ACCEPT", "REJECT", or "ACCEPT WITH CAUTION".
-
-5.  **Stage 4: The Drafter (Action)**
-    *   **Role**: Generates a "Negotiation Toolkit" with strategy notes and a ready-to-send email.
-    *   **Model**: `gemini-2.0-flash-lite`
+```mermaid
+graph TD
+    User([User Uploads Contract]) --> Auditor[Stage 1: The Auditor]
+    Auditor -->|Fact Sheet| Debate{Stage 2: Debate Team}
+    
+    subgraph "Stage 2: Parallel Debate"
+        Debate -->|Analyze Risks| Skeptic[😠 The Skeptic]
+        Debate -->|Find Precedents| Advocate[🛡️ The Advocate]
+    end
+    
+    Skeptic -->|Risks| Bailiff[Stage 2.5: The Bailiff]
+    Advocate -->|Defense| Bailiff
+    
+    subgraph "Stage 2.5: Verification Loop"
+        Bailiff -->|Verify Claims| Clerk[The Clerk]
+        Clerk -->|Correction Needed?| Bailiff
+    end
+    
+    Bailiff -->|Verified Evidence| Judge[Stage 3: The Judge]
+    Judge -->|Verdict & Score| Drafter[Stage 4: The Drafter]
+    Drafter -->|Negotiation Toolkit| Output([Final Output])
+```
 
 ---
 
-## 🛠️ Tech Stack
--   **Framework**: Google ADK (Agent Development Kit)
--   **Models**: Gemini 2.5 Pro, Gemini 2.0 Flash Lite
--   **UI**: Streamlit
--   **Database**: SQLite (Session Management)
--   **Tools**: Google Search, Risk Calculator
+## 🤖 The Agents
+
+| Agent | Role | Model | Description |
+| :--- | :--- | :--- | :--- |
+| **🔍 Auditor** | Ingestion | `gemini-2.5-pro` | Extracts key facts (Dates, Parties, Terms) and validates the document is a contract. |
+| **😠 Skeptic** | Risk Analysis | `gemini-2.0-flash-lite` | A paranoid lawyer who finds every potential trap, ambiguity, and risk. |
+| **🛡️ Advocate** | Defense | `gemini-2.0-flash-lite` | A pragmatic deal-maker who uses **Google Search** to find industry standards to defend the terms. |
+| **🕵️ Bailiff** | Verification | `gemini-2.0-flash-lite` | **Self-Correction Loop**. Verifies that the Skeptic's claims are actually supported by the contract text (Anti-Hallucination). |
+| **👨‍⚖️ Judge** | Verdict | `gemini-2.5-pro` | Weighs the arguments, calculates a Risk Score (0-100), and issues a final verdict (Accept/Caution/Reject). |
+| **✍️ Drafter** | Action | `gemini-2.0-flash-lite` | Generates a "Negotiation Toolkit" containing strategy notes and a ready-to-send email script. |
+
+---
+
+## 🛠️ Technical Implementation
+
+### Core Technologies
+*   **Orchestration**: Custom `orchestrator.py` handling async agent execution.
+*   **Framework**: Google ADK (Agent Development Kit).
+*   **Models**: Gemini 2.5 Pro (Reasoning) & Gemini 2.0 Flash Lite (Speed).
+*   **State Management**: SQLite database for session persistence.
+*   **UI**: Streamlit for real-time pipeline visualization.
+
+### Key Features
+*   **Parallel Execution**: The Skeptic and Advocate run concurrently to reduce latency.
+*   **Self-Correction**: The Bailiff/Clerk loop actively detects and fixes hallucinations before they reach the Judge.
+*   **Tool Use**: Agents have access to `RiskCalculator` and `GoogleSearch`.
+*   **Security**:
+    *   Secure API Key propagation (no global env vars).
+    *   10MB File Upload Limit.
+    *   Input sanitization.
 
 ---
 
 ## 🚀 Setup & Usage
 
 ### Prerequisites
--   Python 3.10+
--   Google Cloud API Key (with Gemini API access)
+*   Python 3.10+
+*   Google Cloud API Key (with Gemini API access)
 
 ### Installation
 
@@ -73,12 +91,9 @@ The system utilizes a **Multi-Agent Architecture** powered by Google Gemini mode
     pip install -r requirements.txt
     ```
 
-3.  **Configure API Key**
-    Create a `.env` file or export your key:
-    ```bash
-    export GOOGLE_API_KEY="your_api_key_here"
-    ```
-    *Alternatively, you can enter it in the Streamlit Sidebar.*
+3.  **Configuration**
+    *   **API Key**: You can enter it in the UI or set it in `shouldisignthis/config.yaml`.
+    *   **Logging**: Logs are saved to `logs/contract_audit.log` (Configurable in `config.yaml`).
 
 ### Running the App
 ```bash
@@ -86,23 +101,25 @@ streamlit run shouldisignthis/app.py
 ```
 
 ### Running Tests
-The project includes a comprehensive test suite for each agent and an end-to-end integration test.
+The project includes a comprehensive test suite.
 ```bash
-# Run the full integration test
+# Run the full end-to-end integration test
 python3 -m shouldisignthis.tests.test_integration
 
 # Run individual agent tests
-python3 shouldisignthis/tests/test_judge.py
-python3 shouldisignthis/tests/test_debate.py
+python3 -m shouldisignthis.tests.test_judge
 ```
 
 ---
 
 ## 📂 Project Structure
+
 ```text
 shouldisignthis/
-├── app.py                  # Main Streamlit Application
-├── config.py               # Configuration & Constants
+├── app.py                  # Main Streamlit Application (UI)
+├── orchestrator.py         # Agent Orchestration Logic
+├── config.py               # Configuration Loader
+├── config.yaml             # App Configuration (Models, Logging)
 ├── database.py             # SQLite Session Service
 ├── agents/                 # Agent Definitions
 │   ├── auditor.py          # Stage 1

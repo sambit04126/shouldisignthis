@@ -10,188 +10,40 @@ from google.adk.runners import Runner
 from google.adk.plugins.logging_plugin import LoggingPlugin
 from google.genai import types
 
-# Import Config & DB
-from shouldisignthis.config import configure_logging, DEMO_MODE
-from shouldisignthis.database import session_service
+# --- PATH FIX ---
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-# Import Agents
-from shouldisignthis.agents.auditor import auditor_agent
-from shouldisignthis.agents.debate_team import debate_team
-from shouldisignthis.agents.bailiff import citation_loop
-from shouldisignthis.agents.judge import judge_agent
-from shouldisignthis.agents.drafter import drafter_agent
+# Import Config
+from shouldisignthis.config import configure_logging, DEMO_MODE
+
+# Import Orchestrator
+from shouldisignthis.orchestrator import (
+    run_stage_1,
+    run_stage_2,
+    run_stage_2_5,
+    run_stage_3,
+    run_stage_4,
+    parse_json
+)
 
 # --- SETUP ---
 st.set_page_config(page_title="ShouldISignThis?", page_icon="⚖️", layout="wide")
 configure_logging()
-
-# --- HELPER FUNCTIONS ---
-def parse_json(raw):
-    if isinstance(raw, str):
-        try:
-            return json.loads(raw.replace("```json", "").replace("```", "").strip())
-        except Exception as e:
-            print(f"❌ JSON Parse Error: {e}")
-            print(f"❌ Raw Content: {raw}")
-            return None
-    return raw
-
-# --- ORCHESTRATION (ASYNC WRAPPERS) ---
-
-async def run_stage_1(file_bytes, mime_type, user_id, session_id):
-    """Auditor Stage"""
-    audit_msg = types.Content(
-        role="user", 
-        parts=[
-            types.Part.from_bytes(data=file_bytes, mime_type=mime_type),
-            types.Part(text="Analyze this contract. Extract full text and facts.")
-        ]
-    )
-    
-    app = App(name="Auditor_App", root_agent=auditor_agent, plugins=[LoggingPlugin()])
-    runner = Runner(app=app, session_service=session_service)
-    
-    # Create Session
-    await session_service.create_session(
-        app_name="Auditor_App", user_id=user_id, session_id=session_id, state={}
-    )
-    
-    async for event in runner.run_async(user_id=user_id, session_id=session_id, new_message=audit_msg):
-        pass # Logs handled by plugin/stdout
-        
-    # Get Result
-    session = await session_service.get_session(app_name="Auditor_App", user_id=user_id, session_id=session_id)
-    return parse_json(session.state.get('auditor_output'))
-
-async def run_stage_2(user_id, session_id, fact_sheet):
-    """Debate Team Stage"""
-    app = App(name="Debate_App", root_agent=debate_team, plugins=[LoggingPlugin()])
-    runner = Runner(app=app, session_service=session_service)
-    
-    # Create Session for Debate App
-    await session_service.create_session(
-        app_name="Debate_App", 
-        user_id=user_id, 
-        session_id=session_id, 
-        state={}
-    )
-    
-    prompt = f"""
-    FACT SHEET:
-    {json.dumps(fact_sheet, indent=2)}
-
-    Analyze these contract terms.
-    """
-    msg = types.Content(role="user", parts=[types.Part(text=prompt)])
-    
-    start_time = time.time()
-    async for event in runner.run_async(user_id=user_id, session_id=session_id, new_message=msg):
-        pass
-    duration = time.time() - start_time
-    
-    session = await session_service.get_session(app_name="Debate_App", user_id=user_id, session_id=session_id)
-    return session.state, duration
-
-async def run_stage_2_5(user_id, session_id, risks, counters, full_text):
-    """Bailiff Loop Stage"""
-    # Inject State
-    session = await session_service.get_session(app_name="Auditor_App", user_id=user_id, session_id=session_id)
-    new_state = session.state.copy()
-    new_state['current_arguments'] = {"risks": risks, "counters": counters}
-    new_state['full_text'] = full_text
-    
-    await session_service.delete_session(app_name="Auditor_App", user_id=user_id, session_id=session_id)
-    await session_service.create_session(app_name="Auditor_App", user_id=user_id, session_id=session_id, state=new_state)
-    
-    app = App(name="Auditor_App", root_agent=citation_loop, plugins=[LoggingPlugin()])
-    runner = Runner(app=app, session_service=session_service)
-    
-    msg = types.Content(role="user", parts=[types.Part(text="Verify these arguments.")])
-    
-    async for event in runner.run_async(user_id=user_id, session_id=session_id, new_message=msg):
-        pass
-        
-    session = await session_service.get_session(app_name="Auditor_App", user_id=user_id, session_id=session_id)
-    
-    # Logic to pick best evidence
-    bailiff_verdict = parse_json(session.state.get('bailiff_verdict'))
-    clerk_output = parse_json(session.state.get('current_arguments'))
-    
-    final_args = None
-    if bailiff_verdict and bailiff_verdict.get("status") == "CLEAN":
-        final_args = bailiff_verdict.get("verified_arguments")
-    elif isinstance(clerk_output, dict) and "risks" in clerk_output:
-        final_args = clerk_output
-    
-    if not final_args:
-        final_args = {"risks": risks, "counters": counters} # Fallback
-        
-    # Save Validated Evidence
-    final_state = session.state.copy()
-    final_state['validated_evidence'] = final_args
-    await session_service.delete_session(app_name="Auditor_App", user_id=user_id, session_id=session_id)
-    await session_service.create_session(app_name="Auditor_App", user_id=user_id, session_id=session_id, state=final_state)
-    
-    return final_args
-
-async def run_stage_3(user_id, session_id, fact_sheet, evidence):
-    """Judge Stage"""
-    app = App(name="Auditor_App", root_agent=judge_agent, plugins=[LoggingPlugin()])
-    runner = Runner(app=app, session_service=session_service)
-    
-    context_msg = f"""
-    CASE FILE: {session_id}
-    
-    --- FACT SHEET ---
-    {json.dumps(fact_sheet, indent=2)}
-    
-    --- EVIDENCE FOR REVIEW ---
-    RISKS: {json.dumps(evidence.get('risks', []), indent=2)}
-    COUNTERS: {json.dumps(evidence.get('counters', []), indent=2)}
-    
-    Review the evidence and issue your verdict.
-    """
-    msg = types.Content(role="user", parts=[types.Part(text=context_msg)])
-    
-    async for event in runner.run_async(user_id=user_id, session_id=session_id, new_message=msg):
-        pass
-        
-    session = await session_service.get_session(app_name="Auditor_App", user_id=user_id, session_id=session_id)
-    return parse_json(session.state.get('final_verdict'))
-
-async def run_stage_4(user_id, session_id, verdict_data, tone):
-    """Drafter Stage"""
-    app = App(name="Auditor_App", root_agent=drafter_agent, plugins=[LoggingPlugin()])
-    runner = Runner(app=app, session_service=session_service)
-    
-    prompt_context = f"""
-    GENERATE NEGOTIATION TOOLKIT
-    
-    VERDICT: {verdict_data.get('verdict')} (Score: {verdict_data.get('risk_score')})
-    
-    NEGOTIATION POINTS TO COVER:
-    {json.dumps(verdict_data.get('negotiation_points', []), indent=2)}
-    
-    TONE: {tone}
-    """
-    msg = types.Content(role="user", parts=[types.Part(text=prompt_context)])
-    
-    async for event in runner.run_async(user_id=user_id, session_id=session_id, new_message=msg):
-        pass
-        
-    session = await session_service.get_session(app_name="Auditor_App", user_id=user_id, session_id=session_id)
-    return parse_json(session.state.get('drafted_email'))
 
 
 # --- UI LAYOUT ---
 st.title("🏛️ ShouldISignThis?")
 st.markdown("**The AI Consensus Engine for Contract Review**")
 
+# 1. DISCLAIMER
+st.warning("⚠️ **DISCLAIMER**: This tool is for educational and demonstration purposes only. It does not provide legal advice. Do not rely on these results for binding agreements. Always consult a qualified attorney.")
+
 with st.sidebar:
     st.header("Configuration")
     api_key = st.text_input("Google API Key", type="password", value=os.environ.get("GOOGLE_API_KEY", ""))
-    if api_key:
-        os.environ["GOOGLE_API_KEY"] = api_key
+    # Security: Do not set os.environ globally in multi-user app
     
     st.divider()
     st.info("Architecture: Parallel-Sequential-Loop")
@@ -210,90 +62,152 @@ if "pipeline_data" not in st.session_state:
     st.session_state.pipeline_data = {}
 
 # --- MAIN FLOW ---
-uploaded_file = st.file_uploader("Upload Contract (PDF/Image)", type=["pdf", "png", "jpg", "jpeg"])
+def reset_pipeline():
+    st.session_state.pipeline_data = {}
+    st.session_state.session_id = str(uuid.uuid4())
+
+uploaded_file = st.file_uploader("Upload Contract (PDF/Image)", type=["pdf", "png", "jpg", "jpeg"], on_change=reset_pipeline)
 
 if uploaded_file:
+    # Security: File Size Limit (5MB)
+    if uploaded_file.size > 5 * 1024 * 1024:
+        st.error("❌ File too large. Maximum size is 5MB.")
+        st.stop()
+
     st.success(f"File uploaded: {uploaded_file.name}")
     
-    if st.button("Start Analysis"):
+    # START BUTTON (Triggers Stages 1-3)
+    if st.button("Start Analysis", type="primary"):
+        # Reset Pipeline Data on new run
+        st.session_state.pipeline_data = {}
+        
         # STAGE 1
-        with st.status("Stage 1: Auditor (Ingestion & Safety)", expanded=True) as status:
-            st.write("Reading file...")
+        with st.status("🔍 **Stage 1: The Auditor is scanning the document...**", expanded=True) as status:
+            st.write("Extracting text and identifying key clauses...")
             file_bytes = uploaded_file.getvalue()
             mime_type = uploaded_file.type
             
-            auditor_out = asyncio.run(run_stage_1(file_bytes, mime_type, "streamlit_user", st.session_state.session_id))
+            auditor_out = asyncio.run(run_stage_1(file_bytes, mime_type, "streamlit_user", st.session_state.session_id, api_key=api_key))
             
             if auditor_out and auditor_out.get("is_contract"):
                 st.session_state.pipeline_data['auditor'] = auditor_out
-                st.write("✅ Contract Verified & Safe")
-                st.json(auditor_out.get("fact_sheet"))
-                status.update(label="Stage 1 Complete", state="complete", expanded=False)
+                status.update(label="✅ Stage 1 Complete: Contract Ingested", state="complete", expanded=False)
             else:
                 st.error("Document rejected: Not a contract or unsafe.")
                 st.stop()
 
         # STAGE 2
-        with st.status("Stage 2: Debate Team (Parallel Execution)", expanded=True) as status:
-            st.write("⚡ Running Skeptic & Advocate simultaneously...")
+        with st.status("⚔️ **Stage 2: The Debate Team is arguing...**", expanded=True) as status:
+            st.write("The **Skeptic** is hunting for risks while the **Advocate** searches for industry norms...")
             fact_sheet = st.session_state.pipeline_data['auditor'].get('fact_sheet')
             
-            state, duration = asyncio.run(run_stage_2("streamlit_user", st.session_state.session_id, fact_sheet))
-            
+            state, duration = asyncio.run(run_stage_2("streamlit_user", st.session_state.session_id, fact_sheet, api_key=api_key))
             st.session_state.pipeline_data['stage2_state'] = state
-            
-            col1, col2 = st.columns(2)
-            with col1:
-                st.subheader("😠 Skeptic")
-                skeptic_risks = parse_json(state.get('skeptic_risks'))
-                st.json(skeptic_risks)
-            with col2:
-                st.subheader("🛡️ Advocate")
-                advocate_defense = parse_json(state.get('advocate_defense'))
-                st.json(advocate_defense)
-                
-            st.caption(f"Parallel Execution Time: {duration:.2f}s")
-            status.update(label="Stage 2 Complete", state="complete", expanded=False)
+            status.update(label="✅ Stage 2 Complete: Arguments Filed", state="complete", expanded=False)
 
         # STAGE 2.5
-        with st.status("Stage 2.5: Bailiff (Hallucination Check)", expanded=True) as status:
-            st.write("Verifying claims against full text...")
+        with st.status("🕵️ **Stage 2.5: The Bailiff is verifying facts...**", expanded=True) as status:
+            st.write("Checking for hallucinations and verifying citations against the contract text...")
             
             risks = parse_json(st.session_state.pipeline_data['stage2_state'].get('skeptic_risks', {})).get('risks', [])
             counters = parse_json(st.session_state.pipeline_data['stage2_state'].get('advocate_defense', {})).get('counters', [])
             full_text = st.session_state.pipeline_data['auditor'].get('full_text')
             
-            validated_evidence = asyncio.run(run_stage_2_5("streamlit_user", st.session_state.session_id, risks, counters, full_text))
+            validated_evidence = asyncio.run(run_stage_2_5("streamlit_user", st.session_state.session_id, risks, counters, full_text, api_key=api_key))
             st.session_state.pipeline_data['evidence'] = validated_evidence
-            
-            st.write("✅ Evidence Validated")
-            st.json(validated_evidence)
-            status.update(label="Stage 2.5 Complete", state="complete", expanded=False)
+            status.update(label="✅ Stage 2.5 Complete: Evidence Secured", state="complete", expanded=False)
 
         # STAGE 3
-        with st.status("Stage 3: The Judge (Verdict)", expanded=True) as status:
-            st.write("Calculating Risk Score...")
+        with st.status("👨‍⚖️ **Stage 3: The Judge is deliberating...**", expanded=True) as status:
+            st.write("Weighing the arguments and calculating the final Risk Score...")
             
-            verdict = asyncio.run(run_stage_3("streamlit_user", st.session_state.session_id, fact_sheet, st.session_state.pipeline_data['evidence']))
+            verdict = asyncio.run(run_stage_3("streamlit_user", st.session_state.session_id, fact_sheet, st.session_state.pipeline_data['evidence'], api_key=api_key))
             st.session_state.pipeline_data['verdict'] = verdict
-            
-            score = verdict.get('risk_score')
-            st.metric("Risk Score", f"{score}/100", delta="-High Risk" if score < 70 else "Acceptable")
-            st.write(f"**Verdict:** {verdict.get('verdict')}")
-            st.info(verdict.get('summary'))
-            status.update(label="Stage 3 Complete", state="complete", expanded=False)
+            status.update(label="✅ Stage 3 Complete: Verdict Issued", state="complete", expanded=False)
 
-        # STAGE 4
-        st.header("Stage 4: Negotiation Toolkit")
+    # --- DISPLAY RESULTS (Persistent) ---
+    if 'auditor' in st.session_state.pipeline_data:
+        with st.expander("✅ Stage 1: Fact Sheet", expanded=False):
+            st.json(st.session_state.pipeline_data['auditor'].get("fact_sheet"))
+
+    if 'stage2_state' in st.session_state.pipeline_data:
+        with st.expander("✅ Stage 2: Debate Arguments", expanded=False):
+            col1, col2 = st.columns(2)
+            with col1:
+                st.subheader("😠 Skeptic")
+                st.json(parse_json(st.session_state.pipeline_data['stage2_state'].get('skeptic_risks')))
+            with col2:
+                st.subheader("🛡️ Advocate")
+                st.json(parse_json(st.session_state.pipeline_data['stage2_state'].get('advocate_defense')))
+
+    if 'evidence' in st.session_state.pipeline_data:
+        with st.expander("✅ Stage 2.5: Validated Evidence", expanded=False):
+            st.json(st.session_state.pipeline_data['evidence'])
+
+    if 'verdict' in st.session_state.pipeline_data:
+        verdict = st.session_state.pipeline_data['verdict']
+        score = verdict.get('risk_score')
+        v_str = verdict.get('verdict', 'UNKNOWN').upper()
+        
+        st.divider()
+        st.header("👨‍⚖️ Final Verdict")
+        
+        col_v1, col_v2 = st.columns([1, 3])
+        with col_v1:
+            st.metric("Risk Score", f"{score}/100", delta="-High Risk" if score < 70 else "Acceptable")
+        with col_v2:
+            if "REJECT" in v_str:
+                st.error(f"🚫 **VERDICT: {v_str}**")
+                st.markdown(f"**Reason:** {verdict.get('summary')}")
+            elif "CAUTION" in v_str:
+                st.warning(f"⚠️ **VERDICT: {v_str}**")
+                st.markdown(f"**Reason:** {verdict.get('summary')}")
+            else:
+                st.success(f"✅ **VERDICT: {v_str}**")
+                st.info(verdict.get('summary'))
+
+        # --- STAGE 4: AUTO DRAFTER ---
+        st.divider()
+        st.header("✍️ Negotiation Toolkit")
+        
         tone = st.selectbox("Select Tone", ["Professional", "Firm & Direct", "Collaborative"], index=0)
         
-        if st.button("Generate Toolkit"):
-            with st.spinner("Drafting email..."):
-                toolkit = asyncio.run(run_stage_4("streamlit_user", st.session_state.session_id, st.session_state.pipeline_data['verdict'], tone))
-                
-                st.subheader("Strategy Notes")
-                st.write(toolkit.get('strategy_notes'))
-                
-                st.subheader("Draft Email")
-                st.text_area("Subject", toolkit.get('email_subject'))
-                st.text_area("Body", toolkit.get('email_body'), height=300)
+        # Auto-Run Logic: If verdict exists but toolkit doesn't OR tone changed (simple check: just run if missing)
+        # For simplicity in this demo, we run if missing. If user changes tone, we need a button or auto-rerun.
+        # Let's add a "Regenerate" button, but auto-run first time.
+        
+        if 'toolkit' not in st.session_state.pipeline_data:
+             with st.spinner("The Drafter is writing your email..."):
+                toolkit = asyncio.run(run_stage_4("streamlit_user", st.session_state.session_id, verdict, tone, api_key=api_key))
+                st.session_state.pipeline_data['toolkit'] = toolkit
+        
+        if st.button("🔄 Regenerate Email"):
+             with st.spinner("The Drafter is rewriting..."):
+                toolkit = asyncio.run(run_stage_4("streamlit_user", st.session_state.session_id, verdict, tone, api_key=api_key))
+                st.session_state.pipeline_data['toolkit'] = toolkit
+        
+        if 'toolkit' in st.session_state.pipeline_data:
+            toolkit = st.session_state.pipeline_data['toolkit']
+            
+            st.subheader("Strategy Notes")
+            st.info(toolkit.get('strategy_notes'))
+            
+            st.subheader("Draft Email")
+            email_subject = toolkit.get('email_subject')
+            email_body = toolkit.get('email_body')
+            
+            st.text_input("Subject", value=email_subject, key="final_subject")
+            st.text_area("Body (Editable)", value=email_body, height=300, key="final_body")
+            
+            # Prepare Mailto Link
+            import urllib.parse
+            
+            # Get latest values from state if edited, else use defaults
+            final_subject = st.session_state.get("final_subject", email_subject)
+            final_body = st.session_state.get("final_body", email_body)
+            
+            subject_enc = urllib.parse.quote(final_subject)
+            body_enc = urllib.parse.quote(final_body)
+            mailto_link = f"mailto:?subject={subject_enc}&body={body_enc}"
+            
+            st.link_button("🚀 Open in Email Client", mailto_link, type="primary")

@@ -26,3 +26,7 @@ app_config:
   extraction_min_rate: 0.5
   extraction_min_confidence: 0.4
   timeout_seconds: 30
+
+logging:
+  log_dir: "logs"
+  log_file: "contract_audit.log"

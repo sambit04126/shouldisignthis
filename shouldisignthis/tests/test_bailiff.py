@@ -12,7 +12,7 @@ from google.adk.plugins.logging_plugin import LoggingPlugin
 # Add parent dir to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from shouldisignthis.agents.bailiff import citation_loop
+from shouldisignthis.agents.bailiff import get_citation_loop
 from shouldisignthis.database import session_service
 from shouldisignthis.config import configure_logging
 
@@ -55,7 +55,7 @@ async def test_bailiff():
     print(f"📋 Input Arguments: {json.dumps(current_arguments, indent=2)}")
     
     # Create App & Runner
-    app = App(name="Bailiff_Test", root_agent=citation_loop, plugins=[LoggingPlugin()])
+    app = App(name="Bailiff_Test", root_agent=get_citation_loop(), plugins=[LoggingPlugin()])
     runner = Runner(app=app, session_service=session_service)
     
     # Create Session

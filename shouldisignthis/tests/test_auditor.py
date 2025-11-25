@@ -11,7 +11,7 @@ from google.adk.plugins.logging_plugin import LoggingPlugin
 # Add parent dir to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from shouldisignthis.agents.auditor import auditor_agent
+from shouldisignthis.agents.auditor import get_auditor_agent
 from shouldisignthis.database import session_service
 from shouldisignthis.config import configure_logging
 
@@ -45,7 +45,7 @@ async def test_auditor():
     print("\n🤖 Running Auditor Agent...")
     
     # Create App & Runner
-    app = App(name="Auditor_Test", root_agent=auditor_agent, plugins=[LoggingPlugin()])
+    app = App(name="Auditor_Test", root_agent=get_auditor_agent(), plugins=[LoggingPlugin()])
     runner = Runner(app=app, session_service=session_service)
     
     # Create Session
