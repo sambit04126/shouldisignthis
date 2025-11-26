@@ -68,7 +68,8 @@ with st.sidebar:
         ["Should I Sign This?", "Which One Should I Sign?"],
         index=0 if st.session_state.nav_mode == "Should I Sign This?" else 1,
         key="temp_nav_mode",
-        on_change=handle_mode_change
+        on_change=handle_mode_change,
+        disabled=st.session_state.get("analyzing", False)
     )
     
     env_api_key = os.environ.get("GOOGLE_API_KEY", "")
