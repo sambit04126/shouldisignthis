@@ -27,7 +27,14 @@ with st.sidebar:
     st.divider()
     
     st.header("Configuration")
-    api_key = st.text_input("Google API Key", type="password", value=os.environ.get("GOOGLE_API_KEY", ""))
+    env_api_key = os.environ.get("GOOGLE_API_KEY", "")
+    if env_api_key:
+        api_key = env_api_key
+    else:
+        st.header("Configuration")
+        api_key = st.text_input("Google API Key", type="password", value="")
+        if not api_key:
+            st.warning("⚠️ Please enter your Google API Key to proceed.")
     
     st.divider()
     if mode == "Should I Sign This?":
