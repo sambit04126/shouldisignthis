@@ -22,53 +22,11 @@ with st.sidebar:
     if "nav_mode" not in st.session_state:
         st.session_state.nav_mode = "Should I Sign This?"
 
-    @st.dialog("⚠️ Warning: Progress will be lost")
-    def show_mode_warning(new_mode):
-        st.write(f"Switching to **{new_mode}** will clear your current analysis and results.")
-        st.write("Are you sure you want to switch?")
-        
-        col1, col2 = st.columns(2)
-        if col1.button("Yes, Switch Mode", type="primary"):
-            st.session_state.analyzing = False
-            st.session_state.nav_mode = new_mode
-            st.rerun()
-            
-        if col2.button("Cancel"):
-            st.rerun()
-
-    def handle_mode_change():
-        # Check if we have active data that would be lost
-        current_mode = st.session_state.nav_mode
-        has_data = False
-        
-        if current_mode == "Should I Sign This?":
-            # Check if single mode has data
-            if st.session_state.get("pipeline_data"):
-                has_data = True
-        else:
-            # Check if compare mode has data
-            if st.session_state.get("pipeline_data_a") or st.session_state.get("pipeline_data_b"):
-                has_data = True
-
-        is_running = st.session_state.get("analyzing", False)
-
-        # If analyzing OR has data, revert change and show warning
-        if is_running or has_data:
-            # The widget value has already changed to the new mode
-            new_mode = st.session_state.temp_nav_mode
-            # Revert the widget to the old mode for now
-            st.session_state.temp_nav_mode = st.session_state.nav_mode
-            show_mode_warning(new_mode)
-        else:
-            # Safe to switch
-            st.session_state.nav_mode = st.session_state.temp_nav_mode
-
     mode = st.radio(
         "Select Mode",
         ["Should I Sign This?", "Which One Should I Sign?"],
         index=0 if st.session_state.nav_mode == "Should I Sign This?" else 1,
-        key="temp_nav_mode",
-        on_change=handle_mode_change,
+        key="nav_mode",
         disabled=st.session_state.get("analyzing", False)
     )
     
