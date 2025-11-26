@@ -14,7 +14,7 @@ from google.adk.plugins.logging_plugin import LoggingPlugin
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 from shouldisignthis.agents.debate_team import get_debate_team
-from shouldisignthis.database import session_service
+from shouldisignthis.database import get_session_service
 from shouldisignthis.config import configure_logging
 
 # Setup
@@ -41,12 +41,12 @@ async def test_debate():
     
     # Create App & Runner
     app = App(name="Debate_Test", root_agent=get_debate_team(), plugins=[LoggingPlugin()])
-    runner = Runner(app=app, session_service=session_service)
+    runner = Runner(app=app, session_service=get_session_service())
     
     # Create Session
     session_id = str(uuid.uuid4())
     user_id = "test_user"
-    await session_service.create_session(app_name="Debate_Test", user_id=user_id, session_id=session_id, state={'auditor_output': fact_sheet})
+    await get_session_service().create_session(app_name="Debate_Test", user_id=user_id, session_id=session_id, state={'auditor_output': fact_sheet})
     
     # Input Message
     prompt = f"""
@@ -71,7 +71,7 @@ async def test_debate():
     print(f"⏱️ Execution Time: {duration:.2f}s")
         
     # Get Result
-    session = await session_service.get_session(app_name="Debate_Test", user_id=user_id, session_id=session_id)
+    session = await get_session_service().get_session(app_name="Debate_Test", user_id=user_id, session_id=session_id)
     
     # Extract Outputs
     skeptic_risks = session.state.get('skeptic_risks')

@@ -14,7 +14,7 @@ from google.adk.plugins.logging_plugin import LoggingPlugin
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 from shouldisignthis.agents.drafter import get_drafter_agent
-from shouldisignthis.database import session_service
+from shouldisignthis.database import get_session_service
 from shouldisignthis.config import configure_logging
 
 # Setup
@@ -45,12 +45,12 @@ async def test_drafter():
     
     # Create App & Runner
     app = App(name="Drafter_Test", root_agent=get_drafter_agent(), plugins=[LoggingPlugin()])
-    runner = Runner(app=app, session_service=session_service)
+    runner = Runner(app=app, session_service=get_session_service())
     
     # Create Session
     session_id = str(uuid.uuid4())
     user_id = "test_user"
-    await session_service.create_session(
+    await get_session_service().create_session(
         app_name="Drafter_Test", 
         user_id=user_id, 
         session_id=session_id, 
@@ -87,7 +87,7 @@ async def test_drafter():
     print(f"⏱️ Execution Time: {duration:.2f}s")
         
     # Get Result
-    session = await session_service.get_session(app_name="Drafter_Test", user_id=user_id, session_id=session_id)
+    session = await get_session_service().get_session(app_name="Drafter_Test", user_id=user_id, session_id=session_id)
     
     # Extract Outputs
     drafted_email = session.state.get('drafted_email')

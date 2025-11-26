@@ -8,7 +8,7 @@ try:
     from shouldisignthis.config import get_auditor_model
     print("✅ Config imported")
     
-    from shouldisignthis.database import session_service
+    from shouldisignthis.database import get_session_service
     print("✅ Database imported")
     
     from shouldisignthis.agents.auditor import get_auditor_agent

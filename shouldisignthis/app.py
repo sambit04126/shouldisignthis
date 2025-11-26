@@ -18,26 +18,56 @@ with st.sidebar:
     st.title("⚖️ ShouldISignThis?")
     st.markdown("The AI Consensus Engine for Contract Review")
     
+    # --- MODE SWITCH LOGIC ---
+    if "nav_mode" not in st.session_state:
+        st.session_state.nav_mode = "Should I Sign This?"
+
+    @st.dialog("⚠️ Warning: Progress will be lost")
+    def show_mode_warning(new_mode):
+        st.write(f"You are currently running an analysis. Switching to **{new_mode}** will stop the current process and lose all progress.")
+        st.write("Are you sure you want to switch?")
+        
+        col1, col2 = st.columns(2)
+        if col1.button("Yes, Switch Mode", type="primary"):
+            st.session_state.analyzing = False
+            st.session_state.nav_mode = new_mode
+            st.rerun()
+            
+        if col2.button("Cancel"):
+            st.rerun()
+
+    def handle_mode_change():
+        # If analyzing, revert change and show warning
+        if st.session_state.get("analyzing", False):
+            # The widget value has already changed to the new mode
+            new_mode = st.session_state.temp_nav_mode
+            # Revert the widget to the old mode for now
+            st.session_state.temp_nav_mode = st.session_state.nav_mode
+            show_mode_warning(new_mode)
+        else:
+            # Safe to switch
+            st.session_state.nav_mode = st.session_state.temp_nav_mode
+
     mode = st.radio(
         "Select Mode",
         ["Should I Sign This?", "Which One Should I Sign?"],
-        index=0
+        index=0 if st.session_state.nav_mode == "Should I Sign This?" else 1,
+        key="temp_nav_mode",
+        on_change=handle_mode_change
     )
     
-    st.divider()
-    
-    st.header("Configuration")
     env_api_key = os.environ.get("GOOGLE_API_KEY", "")
     if env_api_key:
         api_key = env_api_key
     else:
+        st.divider()
         st.header("Configuration")
         api_key = st.text_input("Google API Key", type="password", value="")
         if not api_key:
             st.warning("⚠️ Please enter your Google API Key to proceed.")
     
     st.divider()
-    if mode == "Should I Sign This?":
+    if st.session_state.nav_mode == "Should I Sign This?":
         st.info("Architecture: Parallel-Sequential-Loop")
         st.markdown("""
         - **Stage 1**: Auditor (Ingestion)
@@ -55,7 +85,7 @@ with st.sidebar:
         """)
 
 # --- MAIN RENDER ---
-if mode == "Should I Sign This?":
+if st.session_state.nav_mode == "Should I Sign This?":
     render_single_mode(api_key)
 else:
     render_compare_mode(api_key)

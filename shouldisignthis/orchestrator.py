@@ -9,7 +9,7 @@ from google.adk.runners import Runner
 from google.adk.plugins.logging_plugin import LoggingPlugin
 from google.genai import types
 
-from shouldisignthis.database import session_service
+from shouldisignthis.database import get_session_service
 from shouldisignthis.agents.drafter import get_drafter_agent, get_comparison_drafter_agent
 from shouldisignthis.agents.auditor import get_auditor_agent
 from shouldisignthis.agents.debate_team import get_debate_team
@@ -109,24 +109,24 @@ async def _run_agent(
     Generic helper to run an ADK agent.
     """
     if delete_existing_session:
-        await session_service.delete_session(app_name=app_name, user_id=user_id, session_id=session_id)
+        await get_session_service().delete_session(app_name=app_name, user_id=user_id, session_id=session_id)
 
     # Create Session if needed or update state
     if initial_state is not None:
         try:
-            await session_service.create_session(
+            await get_session_service().create_session(
                 app_name=app_name, user_id=user_id, session_id=session_id, state=initial_state
             )
         except Exception:
             pass
 
     app = App(name=app_name, root_agent=agent_factory(api_key=api_key), plugins=[LoggingPlugin()])
-    runner = Runner(app=app, session_service=session_service)
+    runner = Runner(app=app, session_service=get_session_service())
     
     async for event in runner.run_async(user_id=user_id, session_id=session_id, new_message=message):
         pass # Logs handled by plugin
         
-    session = await session_service.get_session(app_name=app_name, user_id=user_id, session_id=session_id)
+    session = await get_session_service().get_session(app_name=app_name, user_id=user_id, session_id=session_id)
     return session
 
 # --- STAGE RUNNERS ---

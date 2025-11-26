@@ -13,7 +13,7 @@ from google.adk.plugins.logging_plugin import LoggingPlugin
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 from shouldisignthis.agents.auditor import get_auditor_agent
-from shouldisignthis.database import session_service
+from shouldisignthis.database import get_session_service
 from shouldisignthis.config import configure_logging
 
 # Setup
@@ -48,13 +48,13 @@ async def test_auditor():
     
     # Create App & Runner
     app = App(name="Auditor_Test", root_agent=get_auditor_agent(), plugins=[LoggingPlugin()])
-    runner = Runner(app=app, session_service=session_service)
+    runner = Runner(app=app, session_service=get_session_service())
     
     # Create Session
     import uuid
     session_id = str(uuid.uuid4())
     user_id = "test_user"
-    await session_service.create_session(app_name="Auditor_Test", user_id=user_id, session_id=session_id, state={})
+    await get_session_service().create_session(app_name="Auditor_Test", user_id=user_id, session_id=session_id, state={})
     
     # Input Message
     msg = types.Content(
@@ -70,7 +70,7 @@ async def test_auditor():
         pass
         
     # Get Result
-    session = await session_service.get_session(app_name="Auditor_Test", user_id=user_id, session_id=session_id)
+    session = await get_session_service().get_session(app_name="Auditor_Test", user_id=user_id, session_id=session_id)
     output = session.state.get('auditor_output')
     
     print("\n✅ Auditor Output:")
