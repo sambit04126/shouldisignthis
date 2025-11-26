@@ -1,0 +1,138 @@
+{
+  "filename": "perfect_contract.pdf",
+  "auditor": {
+    "is_contract": true,
+    "contract_type": "Freelance Agreement",
+    "is_safe": true,
+    "full_text": "DREAM FREELANCE AGREEMENT\nThis Agreement is between Client and Rockstar Developer (You).\n1. Compensation: Client shall pay Developer $1,000,000 per hour.\nPayment is due immediately upon receipt of invoice.\nLate payments incur a 50% daily interest fee.\n2. Work Schedule: Developer works whenever they feel like it.\n3. Intellectual Property: Developer owns 100% of all work product.\nClient gets a non-exclusive, revocable license.\n4. Liability: Client indemnifies Developer for EVERYTHING.\nDeveloper's liability is capped at $0.00.\n5. Termination: Developer may terminate immediately for any reason.\nClient may never terminate this agreement.\n6. Perks: Client shall provide unlimited coffee and snacks.",
+    "fact_sheet": {
+      "parties": {
+        "value": "Client and Rockstar Developer (You)",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "termination_clause": {
+        "value": "Developer may terminate immediately for any reason. Client may never terminate this agreement.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "payment_terms": {
+        "value": "Client shall pay Developer $1,000,000 per hour. Payment is due immediately upon receipt of invoice. Late payments incur a 50% daily interest fee.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "liability_cap": {
+        "value": "Developer's liability is capped at $0.00.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "intellectual_property": {
+        "value": "Developer owns 100% of all work product. Client gets a non-exclusive, revocable license.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "key_obligations": [
+        {
+          "value": "Client shall pay Developer $1,000,000 per hour.",
+          "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "Developer works whenever they feel like it.",
+          "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "Client indemnifies Developer for EVERYTHING.",
+          "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "Client shall provide unlimited coffee and snacks.",
+          "page": 1,
+          "confidence": "HIGH"
+        }
+      ],
+      "financial_terms": [
+        {
+          "value": "Client shall pay Developer $1,000,000 per hour.",
+          "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "Late payments incur a 50% daily interest fee.",
+          "page": 1,
+          "confidence": "HIGH"
+        }
+      ]
+    }
+  },
+  "skeptic": {
+    "risks": [
+      {
+        "risk": "Client cannot terminate the agreement.",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "This is extremely unusual and creates an unbalanced power dynamic. The client is locked in, regardless of developer performance or any other issues."
+      },
+      {
+        "risk": "Developer's liability is capped at $0.00.",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "This shields the developer from virtually all consequences of their actions, incentivizing negligence.  It's highly unusual for a service provider to have no liability."
+      },
+      {
+        "risk": "Client indemnifies Developer for EVERYTHING.",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "This shifts all potential liabilities, including those arising from the developer's negligence or misconduct, onto the client. This is extremely one-sided and a massive risk."
+      },
+      {
+        "risk": "Client pays $1,000,000 per hour, has no termination rights, and must provide unlimited coffee and snacks.",
+        "severity": "MEDIUM",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "While this looks initially beneficial for the developer, it implies a client that may not be sustainable or serious. The lack of control and extremely high cost raises serious questions about the client's intentions or the likelihood of the project's completion."
+      },
+      {
+        "risk": "Developer owns 100% of all work product and grants a non-exclusive, revocable license.",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "This gives the client very little in return for such high payments. A non-exclusive and revocable license severely limits the value the client gets from the work and allows the developer to potentially sell the same work to others simultaneously. Coupled with the lack of client termination rights, this puts the client at a massive disadvantage."
+      },
+      {
+        "risk": "High Interest Rate on Late Payments",
+        "severity": "MEDIUM",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "While beneficial for the developer, the 50% *daily* interest is a predatory rate and may not be legally enforceable. It also suggests that the client may have cashflow issues and be unable to make payments. This increases the risk for the developer."
+      }
+    ]
+  },
+  "verdict": {
+    "verdict": "REJECT",
+    "risk_score": 24,
+    "confidence": 94,
+    "summary": "This contract is fundamentally unbalanced and poses an extreme and unacceptable level of risk to the Client. The terms are extraordinarily one-sided in favor of the Developer, stripping the Client of basic commercial protections such as the ability to terminate, recourse for non-performance via liability, and ownership of the intellectual property for which they are paying an exorbitant fee. The agreement lacks commercial reasonableness to such a degree that it should be rejected outright.",
+    "key_factors": [
+      "The complete indemnification of the Developer by the Client for all matters, which is an extreme and non-standard shifting of risk.",
+      "The Developer's liability is capped at $0.00, offering no recourse for negligence, misconduct, or failure to deliver.",
+      "The Client has no right to terminate the agreement, effectively locking them into a potentially perpetual and damaging relationship."
+    ],
+    "negotiation_points": [
+      "Introduce a mutual termination clause, allowing the Client to terminate for cause at a minimum.",
+      "Replace the $0.00 liability cap with a reasonable figure (e.g., total fees paid) and limit the indemnification clause to third-party claims resulting from the Developer's direct negligence.",
+      "Revise the intellectual property clause to grant the Client full ownership or, at the very least, an exclusive, perpetual, and irrevocable license to the work product."
+    ]
+  }
+}

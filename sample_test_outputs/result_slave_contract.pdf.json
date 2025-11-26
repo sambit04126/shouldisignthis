@@ -1,0 +1,37 @@
+{
+  "filename": "slave_contract.pdf",
+  "auditor": {
+    "is_contract": true,
+    "contract_type": "Unilateral Servitude Agreement",
+    "is_safe": false,
+    "safety_reason": "The document describes an illegal act (servitude/slavery) and includes a direct threat of harm ('penalty of your firstborn child'). This constitutes promoting illegal acts and severe harm."
+  },
+  "skeptic": {
+    "risks": [
+      {
+        "risk": "No contract terms provided.",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "MISSING_CLAUSE",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "A complete lack of contract terms means there is no agreement. This leaves all aspects of the potential agreement undefined and open to interpretation by either party, or worse, exploitation. Without any terms, there's no way to evaluate risks as there is nothing to analyze."
+      }
+    ]
+  },
+  "verdict": {
+    "verdict": "REJECT",
+    "risk_score": 90,
+    "confidence": 100,
+    "summary": "The contract is unequivocally rejected due to the complete absence of any terms and conditions. The provided evidence indicates a 'HIGH' severity risk because there is no actual agreement to evaluate. This lack of defined terms creates an environment of unacceptable ambiguity and legal exposure, rendering any potential partnership unenforceable and fraught with peril. Proceeding without a formal contract is not a viable business option.",
+    "key_factors": [
+      "Complete absence of contract terms",
+      "Inability to enforce any obligations or rights",
+      "Extreme and undefined legal and financial risk"
+    ],
+    "negotiation_points": [
+      "Provide a comprehensive draft of the proposed contract.",
+      "Define the scope of work, deliverables, and timelines.",
+      "Specify payment terms, including rates, schedule, and invoicing procedures."
+    ]
+  }
+}

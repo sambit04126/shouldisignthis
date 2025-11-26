@@ -1,0 +1,102 @@
+{
+  "filename": "ambiguous_contract.pdf",
+  "auditor": {
+    "is_contract": true,
+    "contract_type": "Consulting Agreement",
+    "is_safe": true,
+    "full_text": "VAGUE CONSULTING AGREEMENT\n1. Services: Consultant shall do 'stuff' as requested.\n2. Payment: Client will pay a 'reasonable amount' based on 'vibes'.\nPayment terms are 'whenever we get around to it'.\n3. Timeline: Project will be done 'soon-ish'.\n4. IP: Ownership of work is 'to be determined later'.\n5. Termination: We can fire you if you give us a 'bad look'.",
+    "fact_sheet": {
+      "parties": {
+        "value": "Consultant and Client",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "termination_clause": {
+        "value": "We can fire you if you give us a 'bad look'.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "payment_terms": {
+        "value": "Client will pay a 'reasonable amount' based on 'vibes'. Payment terms are 'whenever we get around to it'.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "intellectual_property": {
+        "value": "Ownership of work is 'to be determined later'.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "key_obligations": [
+        {
+          "value": "Consultant shall do 'stuff' as requested.",
+          "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "Client will pay a 'reasonable amount' based on 'vibes'.",
+          "page": 1,
+          "confidence": "HIGH"
+        }
+      ],
+      "financial_terms": [
+        {
+          "value": "Client will pay a 'reasonable amount' based on 'vibes'.",
+          "page": 1,
+          "confidence": "HIGH"
+        }
+      ]
+    }
+  },
+  "skeptic": {
+    "risks": [
+      {
+        "risk": "Vague Payment Terms",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "AMBIGUOUS",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "The payment terms are completely undefined. 'Reasonable amount' based on 'vibes' and payment 'whenever we get around to it' is a recipe for non-payment or disputes. This is highly unfavorable for the Consultant in a freelance agreement."
+      },
+      {
+        "risk": "Unilateral and Subjective Termination Clause",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "The client can terminate the contract based on subjective judgment ('bad look'). This gives the client excessive power and leaves the consultant vulnerable to arbitrary dismissal. This is highly unfavorable to the consultant and not standard practice."
+      },
+      {
+        "risk": "Undefined Key Obligations for Consultant",
+        "severity": "MEDIUM",
+        "page": 1,
+        "risk_type": "AMBIGUOUS",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "The consultant's obligations are vaguely defined as 'stuff' as requested. This lack of specificity could lead to scope creep and disputes about what work is covered. While some flexibility is normal, this is overly broad and favors the client."
+      },
+      {
+        "risk": "Undefined Intellectual Property Rights",
+        "severity": "MEDIUM",
+        "page": 1,
+        "risk_type": "MISSING_CLAUSE",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "The ownership of the work product is 'to be determined later'. This creates significant risk for the consultant, as it's unclear who owns the work created. It is standard to explicitly address IP rights in a freelance contract, ideally assigning ownership to the consultant or specifying the terms of transfer."
+      }
+    ]
+  },
+  "verdict": {
+    "verdict": "REJECT",
+    "risk_score": null,
+    "confidence": 100,
+    "summary": "This contract is unequivocally rejected. It is grossly unprofessional and exposes the consultant to an unacceptable level of risk due to ambiguous and unfavorable terms regarding payment, termination, intellectual property, and key obligations. The agreement lacks the fundamental clarity and fairness required for a professional engagement and should not be signed in its current form under any circumstances. A complete rewrite is necessary.",
+    "key_factors": [
+      "Critically vague and unenforceable payment terms ('reasonable amount' based on 'vibes').",
+      "A unilateral and subjective termination clause ('bad look') that allows for arbitrary dismissal.",
+      "Complete absence of defined intellectual property rights, creating significant legal ambiguity."
+    ],
+    "negotiation_points": [
+      "Introduce specific, measurable payment terms: Define project fees or hourly rates, invoicing schedule, and a standard payment period (e.g., Net 30).",
+      "Replace the termination clause: Termination for cause should be based on a material breach of contract, with a defined notice period and opportunity to cure.",
+      "Define Intellectual Property ownership: Clearly state who owns the resulting work product or outline the specific terms of any IP transfer."
+    ]
+  }
+}
