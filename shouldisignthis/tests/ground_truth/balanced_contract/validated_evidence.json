@@ -1,0 +1,77 @@
+{
+  "risks": [
+    {
+      "risk": "Uncompensated Defect Remediation (Warranty)",
+      "severity": "HIGH",
+      "page": 2,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The contract includes a 90-day warranty against material defects. In a Time & Materials (hourly) engagement, the Consultant is paid for effort. This clause shifts the engagement toward a Fixed-Price model where the Consultant must fix bugs for free (uncompensated time) up to 3 months after delivery. Hourly consultants should generally bill for all time spent, including bug fixes, unless the error was due to gross negligence."
+    },
+    {
+      "risk": "Binding Arbitration & Specific Venue",
+      "severity": "MEDIUM",
+      "page": 2,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "Disputes are forced into binding arbitration in San Francisco. If the Consultant is not based in SF, travel costs to defend a claim may be prohibitive. Furthermore, binding arbitration often precludes Small Claims Court, which is the most cost-effective way for a freelancer to collect unpaid invoices under $10k."
+    },
+    {
+      "risk": "Payment Latency (Net 30)",
+      "severity": "LOW",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "With monthly invoicing and Net 30 terms, the Consultant faces a ~60-day delay between the start of work and the first payment. For independent contractors, Net 15 or 'Due on Receipt' is preferred to minimize cash flow strain."
+    },
+    {
+      "risk": "Rigid Technical Metric (>80% Coverage)",
+      "severity": "LOW",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "Contractually mandating strict technical metrics ('>80% code coverage') creates a breach of contract risk if the specific architecture or project constraints make this unfeasible. It is safer to rephrase this as a goal or 'best efforts' obligation rather than a hard requirement."
+    }
+  ],
+  "counters": [
+    {
+      "topic": "Liability Cap",
+      "counter": "Limiting liability to 'total fees paid' (12 months) is the standard market position for independent software consultants, as unlimited liability is generally uninsurable for freelancers.",
+      "confidence": "HIGH",
+      "industry_context": "Standard freelance contracts (Twine, Arc.dev) universally recommend capping liability at 100% of fees paid to prevent 'betting the farm' on a single project.",
+      "references": [
+        "https://www.twine.net/blog/freelance-contract-essentials/",
+        "https://arc.dev/blog/freelance-developer-contract"
+      ]
+    },
+    {
+      "topic": "Payment Terms",
+      "counter": "While Net 30 is often contested by freelancers preferring Net 15, it remains the ubiquitous standard for B2B service agreements and corporate clients.",
+      "confidence": "HIGH",
+      "industry_context": "Industry surveys indicate Net 30 is the default for established companies, though freelancers often negotiate for Net 15 or 50% upfront.",
+      "references": [
+        "https://mattolpinski.com/articles/net-payment-terms/",
+        "https://solowise.com/blog/net-30-payment-terms"
+      ]
+    },
+    {
+      "topic": "Hourly Rate",
+      "counter": "The $150/hr rate is justified for a 'Senior' role; 2025 market data places Senior Python/AI engineers between $100-$160/hr in Western markets.",
+      "confidence": "HIGH",
+      "industry_context": "Data from Index.dev and Ruul shows Senior Python developers command $100-$150+, with specialized stacks (FastAPI/AI) pushing rates higher.",
+      "references": [
+        "https://index.dev/blog/freelance-developer-rates",
+        "https://ruul.io/blog/freelance-developer-rates"
+      ]
+    },
+    {
+      "topic": "Warranty Period",
+      "counter": "A 90-day warranty is significantly more generous than the industry standard, which is typically 30 days for freelance software deliverables.",
+      "confidence": "HIGH",
+      "industry_context": "Most freelance software agreements limit warranty to 30 days due to rapid changes in dependency environments (e.g., browser/OS updates).",
+      "references": [
+        "https://paper-leaf.com/insights/why-software-warranty-30-days/"
+      ]
+    }
+  ]
+}

@@ -46,7 +46,7 @@ async def test_debate():
     # Create Session
     session_id = str(uuid.uuid4())
     user_id = "test_user"
-    await session_service.create_session(app_name="Debate_Test", user_id=user_id, session_id=session_id, state={})
+    await session_service.create_session(app_name="Debate_Test", user_id=user_id, session_id=session_id, state={'auditor_output': fact_sheet})
     
     # Input Message
     prompt = f"""

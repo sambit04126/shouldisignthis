@@ -20,8 +20,9 @@ def assess_contract_risk(risks_json: str, counters_json: str):
     
     base_score = 100
     risk_weights = {
-        'HIGH': {'uncountered': -15, 'weak_counter': -10, 'strong_counter': -5},
-        'MEDIUM': {'uncountered': -8, 'weak_counter': -4, 'strong_counter': -2},
+        'CRITICAL': {'uncountered': -30, 'weak_counter': -20, 'strong_counter': -10},
+        'HIGH': {'uncountered': -20, 'weak_counter': -10, 'strong_counter': -5},
+        'MEDIUM': {'uncountered': -10, 'weak_counter': -5, 'strong_counter': -2},
         'LOW': {'uncountered': -3, 'weak_counter': -1, 'strong_counter': 0}
     }
     
@@ -37,14 +38,20 @@ def assess_contract_risk(risks_json: str, counters_json: str):
         return 'uncountered'
 
     for risk in risks:
-        # Check for Missing Clause Penalty (-10 flat)
+        severity = risk.get('severity', 'MEDIUM').upper()
+        
+        # Check for Missing Clause Penalty
         if risk.get('risk_type') == 'MISSING_CLAUSE':
-            penalty = -10
-            reason = "Missing Clause"
+            # Dynamic penalty based on severity of the missing clause
+            if severity == 'HIGH': penalty = -20
+            elif severity == 'CRITICAL': penalty = -30
+            else: penalty = -10
+            reason = f"Missing Clause ({severity})"
         else:
-            severity = risk.get('severity', 'MEDIUM')
             strength = get_strength(risk.get('risk', ''))
-            penalty = risk_weights.get(severity, risk_weights['MEDIUM']).get(strength, -5)
+            # Default to MEDIUM if severity unknown
+            weight_map = risk_weights.get(severity, risk_weights['MEDIUM'])
+            penalty = weight_map.get(strength, -5)
             reason = f"{severity} ({strength})"
             
         base_score += penalty

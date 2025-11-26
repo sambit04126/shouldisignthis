@@ -1,0 +1,36 @@
+{
+  "risks": [
+    {
+      "risk": "Strict Metric-Based Acceptance Criteria",
+      "severity": "MEDIUM",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The requirement for '>80% code coverage' creates a rigid acceptance barrier. In software development, high coverage does not always equal quality, and achieving this specific metric may require excessive, unpaid hours refactoring code or writing trivial tests merely to satisfy the contract term before payment is released."
+    },
+    {
+      "risk": "Extended Warranty Period (90 Days)",
+      "severity": "MEDIUM",
+      "page": 2,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "A 90-day warranty for software is longer than the standard 30-60 days. This exposes the Consultant to 'bug fix' requests for a full quarter after delivery, potentially interfering with future paid work. It creates a risk of unpaid maintenance disguised as warranty work."
+    },
+    {
+      "risk": "Missing Late Payment Penalties",
+      "severity": "LOW",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "While Net 30 terms are standard, there is no mention of interest charges or penalties for late payments. Without a defined penalty (e.g., 1.5% per month), the Client has no financial incentive to pay on time, increasing the risk of cash flow delays."
+    },
+    {
+      "risk": "Fixed Arbitration Venue (San Francisco)",
+      "severity": "LOW",
+      "page": 2,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "Mandating arbitration in San Francisco creates a potential financial barrier if the Consultant is not local to that area. In the event of a dispute (e.g., non-payment), the cost of travel to SF might exceed the value of the claim, effectively preventing the Consultant from pursuing their rights."
+    }
+  ]
+}

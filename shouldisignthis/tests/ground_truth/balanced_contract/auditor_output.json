@@ -1,0 +1,112 @@
+{
+  "is_contract": true,
+  "contract_type": "Professional Services Agreement",
+  "is_safe": true,
+  "full_text": "PROFESSIONAL SERVICES AGREEMENT\nThis Agreement is entered into by and between Client Co. ('Client') and\nJane Doe ('Consultant'), effective as of November 26, 2025 ('Effective Date').\n1. SCOPE OF SERVICES: Consultant agrees to provide the following specific services:\n a) Develop Python backend using FastAPI for 'Project X'\n b) Implement RESTful API endpoints as defined in the Architecture Doc\n c) Write unit tests with >80% code coverage\n d) Provide weekly status reports via email every Friday\n2. COMPENSATION: Client shall pay Consultant at a rate of $150 per hour.\n Invoices shall be submitted monthly and are payable Net 30 days.\n3. INTELLECTUAL PROPERTY: Upon full payment, Consultant assigns to Client\n all right, title, and interest in the Work Product.\n Consultant retains ownership of pre-existing IP and background technology.\n4. CONFIDENTIALITY: Both parties agree to keep confidential all non-public\n information disclosed during the term of this Agreement for a period of 5 years.\n5. TERMINATION: Either party may terminate this Agreement with 30 days'\n written notice. Client shall pay for all services performed up to\n the termination date.\n6. LIMITATION OF LIABILITY: Consultant's liability shall be limited to the total fees\n paid by Client in the 12 months preceding the claim, except in cases\n of gross negligence or willful misconduct.\n7. CHANGE MANAGEMENT: Any changes to the scope of services must be agreed upon\n in writing by both parties via a formal Change Order, including adjustments\n to fees and timeline.\n8. DELIVERABLE ACCEPTANCE: Client shall have 5 business days to review deliverables.\n Deliverables are deemed accepted if no written objection is received within this period.\n9. WARRANTY: Consultant warrants that the Services will be performed in a\n professional manner and the Work Product will be free from material\n defects for a period of 90 days after delivery.\n10. DISPUTE RESOLUTION: Any disputes arising from this Agreement shall be\n resolved through binding arbitration in San Francisco, CA.\n11. INDEPENDENT CONTRACTOR: Consultant is an independent contractor, not an employee.",
+  "fact_sheet": {
+    "parties": {
+      "value": "Client Co. ('Client') and Jane Doe ('Consultant')",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "effective_date": {
+      "value": "November 26, 2025",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "termination_clause": {
+      "value": "Either party may terminate this Agreement with 30 days' written notice.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "payment_terms": {
+      "value": "Invoices shall be submitted monthly and are payable Net 30 days.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "liability_cap": {
+      "value": "Consultant's liability shall be limited to the total fees paid by Client in the 12 months preceding the claim",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "intellectual_property": {
+      "value": "Upon full payment, Consultant assigns to Client all right, title, and interest in the Work Product. Consultant retains ownership of pre-existing IP and background technology.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "non_compete_clause": {
+      "value": "NOT FOUND",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "dispute_resolution": {
+      "value": "Any disputes arising from this Agreement shall be resolved through binding arbitration in San Francisco, CA.",
+      "page": 2,
+      "confidence": "HIGH"
+    },
+    "key_obligations": [
+      {
+        "value": "Develop Python backend using FastAPI for 'Project X'",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Implement RESTful API endpoints as defined in the Architecture Doc",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Write unit tests with >80% code coverage",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Provide weekly status reports via email every Friday",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Keep confidential all non-public information disclosed during the term of this Agreement for a period of 5 years",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Any changes to the scope of services must be agreed upon in writing by both parties via a formal Change Order",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Client shall have 5 business days to review deliverables",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Consultant warrants that the Services will be performed in a professional manner and the Work Product will be free from material defects for a period of 90 days after delivery",
+        "page": 2,
+        "confidence": "HIGH"
+      }
+    ],
+    "financial_terms": [
+      {
+        "value": "Rate of $150 per hour",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Invoices shall be submitted monthly",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Payable Net 30 days",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Client shall pay for all services performed up to the termination date",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    ]
+  }
+}

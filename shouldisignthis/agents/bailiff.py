@@ -35,9 +35,10 @@ def get_citation_loop(api_key=None):
         1. For each claim, check 'risk_type' (if applicable) and search the Evidence text.
         
         2. IF RISK_TYPE is "MISSING_CLAUSE":
-           - VERIFY that the clause is indeed missing from the text.
-           - If the text DOES contain this clause -> MARK CONTRADICTED.
-           - If the text is indeed missing it -> STATUS: VALID.
+           - **CRITICAL STEP**: Search the text for KEYWORDS related to the clause (e.g., for "Missing Confidentiality", search "Confidential", "Non-Disclosure", "Proprietary").
+           - If keywords are found, READ the surrounding text.
+           - If the text covers the topic (even if poorly), the clause is NOT missing. -> MARK CONTRADICTED.
+           - Only if the topic is completely absent -> STATUS: VALID.
            
         3. IF RISK_TYPE is "UNFAVORABLE_TERM" (or Counter):
            - SEARCH for the specific numbers/terms quoted (e.g. "$5,000", "Net 90").
@@ -56,8 +57,13 @@ def get_citation_loop(api_key=None):
           "corrections_needed": [
              {"id": "R1", "issue": "Claims liability is unlimited, but text says capped at $5000."}
           ],
-          "verified_arguments": { ...INCLUDE FULL ARGUMENT LIST IF CLEAN... }
+          "verified_arguments": {
+            "risks": [...COPY ALL RISKS FROM current_arguments IF STATUS IS CLEAN...],
+            "counters": [...COPY ALL COUNTERS FROM current_arguments IF STATUS IS CLEAN...]
+          }
         }
+        
+        **CRITICAL**: When status is "CLEAN", you MUST copy the ENTIRE risks and counters arrays from {{current_arguments}} into verified_arguments. Do NOT return empty arrays.
         """,
         output_key="bailiff_verdict"
     )

@@ -1,0 +1,30 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.pytest_cache/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Project Specific
+test_output/
+sample_test_outputs/
+logs/
+*.log
+*.pdf
+contract_auditor.db
+reference/
+shouldisignthis/tests/
+test_edge_cases.py
+generate_balanced_contract.py
+generate_edge_cases.py
+
+# IDE
+.vscode/
+.idea/

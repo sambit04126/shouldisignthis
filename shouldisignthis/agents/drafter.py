@@ -69,6 +69,14 @@ def get_comparison_drafter_agent(api_key=None):
         2. Explain WHY one contract is safer than the other.
         3. Highlight the critical trade-offs.
         
+        CRITICAL NOTE ON SCORING:
+        - The "Risk Score" (0-100) is actually a SAFETY SCORE.
+        - 100 = Perfect/Safe.
+        - 0 = Extremely Risky/Dangerous.
+        - Therefore, a HIGHER score is BETTER.
+        - If Contract A has 70 and Contract B has 60, Contract A is SAFER (Better).
+        - Do NOT say "Contract B has a better risk score" if it is lower.
+        
         OUTPUT FORMAT:
         1. STRATEGY NOTES: Internal advice on how to present this decision.
         2. EMAIL DRAFT: A professional email to a stakeholder recommending the safer option (or explaining the risks of both).

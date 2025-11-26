@@ -20,7 +20,7 @@ with st.sidebar:
     
     mode = st.radio(
         "Select Mode",
-        ["Single Contract Analysis", "Contract Face-Off"],
+        ["Should I Sign This?", "Which One Should I Sign?"],
         index=0
     )
     
@@ -30,7 +30,7 @@ with st.sidebar:
     api_key = st.text_input("Google API Key", type="password", value=os.environ.get("GOOGLE_API_KEY", ""))
     
     st.divider()
-    if mode == "Single Contract Analysis":
+    if mode == "Should I Sign This?":
         st.info("Architecture: Parallel-Sequential-Loop")
         st.markdown("""
         - **Stage 1**: Auditor (Ingestion)
@@ -48,7 +48,7 @@ with st.sidebar:
         """)
 
 # --- MAIN RENDER ---
-if mode == "Single Contract Analysis":
+if mode == "Should I Sign This?":
     render_single_mode(api_key)
 else:
     render_compare_mode(api_key)

@@ -15,16 +15,16 @@ from shouldisignthis.agents.auditor import get_auditor_agent
 from shouldisignthis.agents.debate_team import get_debate_team
 from shouldisignthis.agents.bailiff import get_citation_loop
 from shouldisignthis.agents.judge import get_judge_agent
-from shouldisignthis.agents.comparator import get_comparator_agent
+from shouldisignthis.agents.arbiter import get_arbiter_agent
 
 # ... (existing imports)
 
 # --- STAGE 5: COMPARATOR (Face-Off) ---
-async def run_stage_5_comparator(user_id: str, session_id: str, verdict_a: dict, verdict_b: dict, api_key: str = None):
+async def run_stage_5_arbiter(user_id: str, session_id: str, verdict_a: dict, verdict_b: dict, api_key: str = None):
     """
-    Runs the Comparator agent to judge two contracts.
+    Runs the Comparator agent (now Arbiter) to judge two contracts.
     """
-    app_name = "Comparator_App"
+    app_name = "Arbiter_App"
     
     # Construct the input context
     comparison_input = {
@@ -35,7 +35,7 @@ async def run_stage_5_comparator(user_id: str, session_id: str, verdict_a: dict,
     message = types.Content(parts=[types.Part(text=f"COMPARE CONTRACTS:\n{json.dumps(comparison_input, indent=2)}")])
     
     session = await _run_agent(
-        agent_factory=get_comparator_agent,
+        agent_factory=get_arbiter_agent,
         app_name=app_name,
         user_id=user_id,
         session_id=session_id,
@@ -201,15 +201,24 @@ async def run_stage_2_5(user_id: str, session_id: str, risks: list, counters: li
     
     # Logic to pick best evidence
     bailiff_verdict = parse_json(session.state.get('bailiff_verdict'))
-    clerk_output = parse_json(session.state.get('current_arguments'))
+    
+    # Only parse clerk output if Bailiff wasn't clean (otherwise Clerk exits with non-JSON)
+    clerk_output = {}
+    if bailiff_verdict.get("status") != "CLEAN":
+        clerk_output = parse_json(session.state.get('current_arguments'))
     
     final_args = None
     if bailiff_verdict and bailiff_verdict.get("status") == "CLEAN":
-        final_args = bailiff_verdict.get("verified_arguments")
+        verified = bailiff_verdict.get("verified_arguments", {})
+        # Check if verified_arguments actually has content (not empty arrays)
+        if verified and (verified.get("risks") or verified.get("counters")):
+            final_args = verified
     elif isinstance(clerk_output, dict) and "risks" in clerk_output:
         final_args = clerk_output
     
-    if not final_args:
+    # Fallback if no valid output or if verified_arguments was empty
+    if not final_args or (isinstance(final_args, dict) and 
+                          (not final_args.get("risks") and not final_args.get("counters"))):
         final_args = {"risks": risks, "counters": counters} # Fallback
         
     return final_args

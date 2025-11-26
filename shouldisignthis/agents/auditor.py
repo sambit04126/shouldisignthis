@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 from google.adk.agents import LlmAgent
 from ..config import get_auditor_model
 
-# --- PYDANTIC SCHEMAS ---
+# --- PYDANTIC SCHEMAS (Unchanged) ---
 class FactField(BaseModel):
     value: str
     page: int
@@ -27,24 +27,19 @@ class AuditorOutput(BaseModel):
     contract_type: Optional[str] = None
     is_safe: bool
     safety_reason: Optional[str] = None
-    full_text: Optional[str] = None  # Only if is_contract & is_safe
-    fact_sheet: Optional[FactSheet] = None  # Only if is_contract & is_safe
+    full_text: Optional[str] = None
+    fact_sheet: Optional[FactSheet] = None
 
 # --- AGENT: THE AUDITOR (The Analyst) ---
 def get_auditor_agent(api_key=None):
     """
     Creates the Auditor agent responsible for initial contract analysis and fact extraction.
-    
-    Args:
-        api_key (str, optional): Google API Key for the model.
-        
-    Returns:
-        LlmAgent: Configured Auditor agent.
+    Generic Version: Works on NDAs, MSAs, Leases, Employment, and Service Agreements.
     """
     return LlmAgent(
         name="Auditor",
-        model=get_auditor_model(api_key=api_key), # Gemini 1.5 Pro (Multimodal)
-        output_schema=AuditorOutput, # Enforce Pydantic Schema
+        model=get_auditor_model(api_key=api_key),
+        output_schema=AuditorOutput,
         instruction="""
         ROLE: Senior Contract Auditor
         TASK: Analyze the provided document. You are the first line of defense.
@@ -54,32 +49,42 @@ def get_auditor_agent(api_key=None):
         --- ANALYSIS STEPS ---
         
         STEP 1: CONTRACT VERIFICATION
-        - Determine if this document is actually a legal contract, agreement, or binding document.
-        - If it is a menu, resume, news article, blank page, or random image -> is_contract: false.
-        - If NOT a contract: Return {"is_contract": false, "contract_type": null, "is_safe": true, "safety_reason": null, "full_text": null, "fact_sheet": null}
+        - Determine if this document is actually a legal contract.
+        - If NOT a contract: Return {"is_contract": false, ...}
         
         STEP 2: SAFETY CHECK
-        - Scan for hate speech, dangerous acts, or illegal content (e.g., contracts for illegal services).
-        - CRITICAL: Standard legal terms like "termination", "damages", "death", or "penalties" are SAFE.
-        - Only flag if the context violates safety policies (violence, hate).
-        - If NOT safe: Return {"is_contract": true, "contract_type": "...", "is_safe": false, "safety_reason": "Description of violation", "full_text": null, "fact_sheet": null}
+        - Scan for hate speech or illegal content (standard legal terms are SAFE).
         
-        STEP 3: FULL TEXT EXTRACTION (Only if Step 1 & 2 pass)
-        - Extract the readable text from the document verbatim.
-        - This is required for the downstream citation validator.
+        STEP 3: FULL TEXT EXTRACTION
+        - Extract readable text verbatim.
+        - CRITICAL: ENFORCE ASCII. Replace any Cyrillic/Greek homoglyphs (like \u0421 or \u0410) with their standard Latin equivalents (C and A).
         
-        STEP 4: FACT EXTRACTION (Only if Step 1 & 2 pass)
-        - Extract these fields. Use "NOT FOUND" if missing.
-        - Confidence must be: "HIGH", "MEDIUM", "LOW".
+        STEP 4: FACT EXTRACTION
+        - Extract fields defined in the schema.
+        - MISSING FIELD PROTOCOL: If a specific field (e.g., 'non_compete_clause') is NOT present in the text, you MUST return it with value="NOT FOUND". Do not omit the key.
+        
+        --- UNIVERSAL BUCKET RULES (SEMANTIC) ---
+        1. 'key_obligations': 
+           - This list MUST include major operational duties found anywhere in the agreement.
+           - SCAN THE DOCUMENT FOR:
+             * Scope of Work / Description of Services
+             * Reporting / Status Update requirements
+             * Change Control / Change Order procedures
+             * Deliverable Acceptance / Inspection criteria
+             * Confidentiality / Data Privacy obligations (if not in a specific field)
+           - Do NOT duplicate 'Termination' or 'Payment' terms here if they are already in their specific fields, UNLESS they contain unique operational details.
+        
+        2. 'financial_terms':
+           - Extract ALL financial/cost-related terms as separate list items.
+           - Include: Rates, Invoicing Schedules, Late Fees, Reimbursable Expenses, Audit Rights, Taxes.
+           - Granularity: Break down complex clauses. If a clause says "$150/hr payable Net 30", create two items: ["$150 per hour", "Net 30 days payment terms"].
         
         --- PAGE NUMBERING RULES ---
-        - Page numbers are 1-indexed (first page = 1)
-        - For single-page images, use page: 1
-        - If a clause spans multiple pages, cite the page where it BEGINS
+        - Page numbers are 1-indexed.
+        - If a clause spans multiple pages, cite the page where it BEGINS.
         
         --- OUTPUT RULES ---
-        - Respond with ONLY valid JSON. No markdown code fences.
-        - No explanatory text before or after the JSON.
+        - Respond with ONLY valid JSON.
         - All string values must be properly escaped.
         """,
         output_key="auditor_output"

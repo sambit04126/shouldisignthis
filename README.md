@@ -34,7 +34,7 @@
 
 The system utilizes a **Parallel-Sequential-Loop** architecture powered by Google Gemini models and the Google Agent Development Kit (ADK).
 
-### Mode 1: Single Contract Analysis
+### Mode 1: Should I Sign This? (Single Contract Analysis)
 
 ```mermaid
 graph TD
@@ -59,7 +59,7 @@ graph TD
     Drafter -->|Negotiation Toolkit| Output([Final Output])
 ```
 
-### Mode 2: Contract Face-Off (Compare Two Contracts)
+### Mode 2: Which One Should I Sign? (Contract Face-Off)
 
 ```mermaid
 graph TD
@@ -68,8 +68,8 @@ graph TD
     DualFlow --> Parallel{⚡ Parallel Execution}
     Parallel -->|Contract A| PipelineA[Pipeline A]
     Parallel -->|Contract B| PipelineB[Pipeline B]
-    PipelineA & PipelineB --> Comparator[⚖️ Comparator]
-    Comparator --> CompDrafter[📧 Decision Brief]
+    PipelineA & PipelineB --> Arbiter[⚖️ Arbiter]
+    Arbiter --> CompDrafter[📧 Decision Brief]
 ```
 
 ---
@@ -84,7 +84,7 @@ graph TD
 | **🕵️ Bailiff** | Verification | `gemini-2.0-flash-lite` | **Self-Correction Loop**. Verifies that the Skeptic's claims are actually supported by the contract text (Anti-Hallucination). |
 | **👨‍⚖️ Judge** | Verdict | `gemini-2.5-pro` | Weighs the arguments, calculates a Risk Score (0-100), and issues a final verdict (Accept/Caution/Reject). |
 | **✍️ Drafter** | Action | `gemini-2.0-flash-lite` | Generates a "Negotiation Toolkit" containing strategy notes and a ready-to-send email script. |
-| **⚖️ Comparator** | Comparison | `gemini-2.5-pro` | Analyzes two contracts side-by-side to identify the safer option. |
+| **⚖️ Arbiter** | Comparison | `gemini-2.5-pro` | Analyzes two contracts side-by-side to identify the safer option. |
 | **📧 CompDrafter** | Strategy | `gemini-2.0-flash-lite` | Generates a "Decision Brief" email for stakeholders explaining the comparison results. |
 
 ---
@@ -111,7 +111,7 @@ This project showcases **7 advanced ADK concepts**:
 7. ✅ **Observability**: LoggingPlugin + structured logging to `logs/`
 
 ### Key Features
-*   **Unified UI**: Seamlessly switch between Single Analysis and Comparison modes
+*   **Unified UI**: Seamlessly switch between "Should I Sign This?" and "Which One Should I Sign?" modes
 *   **Nested Parallelism**: In "Face-Off" mode, two full analysis pipelines run concurrently
 *   **Self-Correction**: The Bailiff/Clerk loop actively detects and fixes hallucinations before they reach the Judge
 *   **Tool Integration**: Agents have access to `RiskCalculator` and `GoogleSearch`
@@ -165,7 +165,43 @@ This project showcases **7 advanced ADK concepts**:
 *   Python 3.10+
 *   Google Cloud API Key (with Gemini API access)
 
-### Installation
+### ☁️ Deployment (Google Cloud Run)
+To deploy the application to the cloud:
+
+1.  **Login to Google Cloud**:
+    ```bash
+    gcloud auth login
+    gcloud config set project YOUR_PROJECT_ID
+    ```
+
+2.  **Run the Deployment Script**:
+    ```bash
+    # Make sure your GOOGLE_API_KEY is set in your terminal
+    export GOOGLE_API_KEY="your_api_key_here"
+    
+    ./deploy_to_cloud_run.sh YOUR_PROJECT_ID
+    ```
+
+3.  **Access the App**:
+    The script will output a URL (e.g., `https://shouldisignthis-xyz.a.run.app`).
+
+### 🐳 Quick Start (Docker)
+For a no-hassle, single-container deployment:
+
+1.  **Set your API Key**:
+    ```bash
+    export GOOGLE_API_KEY="your_api_key_here"
+    ```
+
+2.  **Run with Docker Compose**:
+    ```bash
+    docker-compose up --build
+    ```
+
+3.  **Access the App**:
+    Open [http://localhost:8080](http://localhost:8080) in your browser.
+
+### 📦 Manual Installation
 
 1.  **Clone the repository**
     ```bash
@@ -195,13 +231,29 @@ Navigate to `http://localhost:8501` in your browser.
 
 ### Running Tests
 The project includes a comprehensive test suite.
-```bash
-# Run all tests (requires pytest and pytest-asyncio)
-.venv/bin/python3 -m pytest -v --ignore=reference
 
-# Run individual agent tests
-python3 -m shouldisignthis.tests.test_auditor
-python3 -m shouldisignthis.tests.test_integration
+> [!NOTE]
+> **Model Performance**: More intelligent and latest models produce better results. The ground truth tests were verified using the state-of-the-art `gemini-3-pro-preview` model to ensure the highest quality baseline.
+
+#### 1. Ground Truth Tests (Regression Testing)
+Verify that the agents' logic hasn't regressed by comparing outputs against a "gold standard" baseline.
+```bash
+# Run the ground truth test for the balanced contract
+pytest shouldisignthis/tests/test_ground_truth.py::test_ground_truth[balanced_contract] -v -s
+```
+
+#### 2. Integration Tests (End-to-End)
+Run the full pipeline to ensure all components work together.
+```bash
+# Run integration tests
+pytest shouldisignthis/tests/test_integration.py -v
+```
+
+#### 3. Unit Tests
+Test individual agents and tools.
+```bash
+# Run all tests
+pytest -v --ignore=reference
 ```
 
 ---
@@ -216,8 +268,6 @@ shouldisignthis/
 ├── config.yaml             # App Configuration (Models, Logging)
 ├── database.py             # SQLite Session Service
 ├── ui/                     # UI Modules
-│   ├── single_mode.py      # Single Contract Analysis UI
-│   └── compare_mode.py     # Contract Face-Off UI
 ├── agents/                 # Agent Definitions
 │   ├── auditor.py          # Stage 1: Fact Extraction
 │   ├── debate_team.py      # Stage 2: Parallel Debate (Skeptic + Advocate)
@@ -278,10 +328,10 @@ See the `sample_outputs/` directory for example analyses:
 ## 🚧 Roadmap
 
 - [ ] Multi-document comparison (3+ contracts)
-- [ ] Export reports as PDF
+- [x] Export reports as PDF
 - [ ] Integration with DocuSign API
 - [ ] Support for non-English contracts
-- [ ] Agent deployment to Cloud Run
+- [x] Agent deployment to Cloud Run
 
 ---
 

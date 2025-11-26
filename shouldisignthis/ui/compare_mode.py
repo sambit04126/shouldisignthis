@@ -7,10 +7,11 @@ from shouldisignthis.orchestrator import (
     run_stage_2,
     run_stage_2_5,
     run_stage_3,
-    run_stage_5_comparator,
+    run_stage_5_arbiter,
     run_stage_6_comparison_drafter,
     parse_json
 )
+from shouldisignthis.tools.pdf_generator import create_comparison_report
 
 def render_compare_mode(api_key):
     st.header("🥊 Contract Face-Off")
@@ -27,6 +28,8 @@ def render_compare_mode(api_key):
         st.session_state.pipeline_data_b = {}
     if "comparison_result" not in st.session_state:
         st.session_state.comparison_result = None
+    if "analyzing" not in st.session_state:
+        st.session_state.analyzing = False
 
     # --- HELPER: Run Single Pipeline ---
     async def run_pipeline(file_bytes, mime_type, user_id, session_id, pipeline_key, status_container):
@@ -40,6 +43,22 @@ def render_compare_mode(api_key):
                 st.error("Invalid Contract")
                 return None
             st.session_state[pipeline_key]['auditor'] = auditor_out
+            
+            # SAFETY CHECK
+            if auditor_out.get("is_safe") is False:
+                st.error(f"⚠️ Flagged as UNSAFE: {auditor_out.get('safety_reason')}")
+                # Return Synthetic Verdict
+                synthetic_verdict = {
+                    "verdict": "REJECT",
+                    "risk_score": 0,
+                    "confidence": 100,
+                    "summary": f"The document was flagged as unsafe or illegal by the Auditor. Reason: {auditor_out.get('safety_reason', 'Unknown')}",
+                    "key_factors": ["Illegal/Unsafe Content"],
+                    "negotiation_points": ["Do not sign."]
+                }
+                st.session_state[pipeline_key]['verdict'] = synthetic_verdict
+                return synthetic_verdict
+
             st.write("✅ Stage 1 Complete")
 
             # STAGE 2: Debate
@@ -71,20 +90,33 @@ def render_compare_mode(api_key):
 
     with col1:
         st.header("Contract A")
-        file_a = st.file_uploader("Upload Contract A", type=["pdf", "png", "jpg"], key="file_a")
+        file_a = st.file_uploader("Upload Contract A", type=["pdf", "png", "jpg"], key="file_a", disabled=st.session_state.analyzing)
 
     with col2:
         st.header("Contract B")
-        file_b = st.file_uploader("Upload Contract B", type=["pdf", "png", "jpg"], key="file_b")
+        file_b = st.file_uploader("Upload Contract B", type=["pdf", "png", "jpg"], key="file_b", disabled=st.session_state.analyzing)
 
     # START BUTTON
     if file_a and file_b:
-        if st.button("🚀 Start Face-Off", type="primary"):
-            # Reset
+        if st.button("🚀 Start Face-Off", type="primary", disabled=st.session_state.analyzing):
+            st.session_state.analyzing = True
             st.session_state.pipeline_data_a = {}
             st.session_state.pipeline_data_b = {}
             st.session_state.comparison_result = None
-            
+            # Clear cached artifacts from previous runs
+            if 'comparison_email' in st.session_state:
+                del st.session_state.comparison_email
+            if 'comparison_pdf' in st.session_state:
+                del st.session_state.comparison_pdf
+            if 'comp_subject' in st.session_state:
+                del st.session_state.comp_subject
+            if 'comp_body' in st.session_state:
+                del st.session_state.comp_body
+            st.rerun()
+
+    # RUN LOGIC
+    if st.session_state.analyzing:
+        try:
             # Run Parallel Pipelines
             async def run_parallel():
                 task_a = run_pipeline(file_a.getvalue(), file_a.type, "user_a", st.session_state.session_id_a, "pipeline_data_a", col1)
@@ -95,9 +127,16 @@ def render_compare_mode(api_key):
                 verdict_a, verdict_b = asyncio.run(run_parallel())
             
             if verdict_a and verdict_b:
-                with st.spinner("🤔 The Comparator is deciding the winner..."):
-                    comparison = asyncio.run(run_stage_5_comparator("comparator_user", str(uuid.uuid4()), verdict_a, verdict_b, api_key=api_key))
+                with st.spinner("🤔 The Arbiter is deciding the winner..."):
+                    comparison = asyncio.run(run_stage_5_arbiter("comparator_user", str(uuid.uuid4()), verdict_a, verdict_b, api_key=api_key))
                     st.session_state.comparison_result = comparison
+            
+            st.session_state.analyzing = False
+            st.rerun()
+            
+        except Exception as e:
+            st.error(f"An error occurred: {e}")
+            st.session_state.analyzing = False
 
     # --- RESULTS ---
     if st.session_state.comparison_result:
@@ -170,4 +209,32 @@ def render_compare_mode(api_key):
             body_enc = urllib.parse.quote(final_body)
             mailto_link = f"mailto:?subject={subject_enc}&body={body_enc}"
             
-            st.link_button("🚀 Open in Email Client", mailto_link, type="primary")
+            # --- PDF PREPARATION ---
+            if 'comparison_pdf' not in st.session_state:
+                with st.spinner("Preparing Comparison PDF..."):
+                    v_a = st.session_state.pipeline_data_a.get('verdict', {})
+                    v_b = st.session_state.pipeline_data_b.get('verdict', {})
+                    
+                    pdf_buffer = create_comparison_report(
+                        filename_a=file_a.name if file_a else "Contract A",
+                        filename_b=file_b.name if file_b else "Contract B",
+                        comparison_result=res,
+                        verdict_a=v_a,
+                        verdict_b=v_b
+                    )
+                    st.session_state.comparison_pdf = pdf_buffer
+
+            # --- ACTION BUTTONS ---
+            col_btn1, col_btn2 = st.columns([1, 1])
+            
+            with col_btn1:
+                st.link_button("🚀 Open in Email Client", mailto_link, type="primary", use_container_width=True)
+                
+            with col_btn2:
+                st.download_button(
+                    label="⬇️ Download Comparison PDF",
+                    data=st.session_state.comparison_pdf,
+                    file_name="ShouldISignThis_Comparison_Report.pdf",
+                    mime="application/pdf",
+                    use_container_width=True
+                )

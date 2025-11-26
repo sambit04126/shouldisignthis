@@ -18,7 +18,7 @@ def get_judge_agent(api_key=None):
         model=get_judge_model(api_key=api_key),
         tools=[assess_contract_risk],
         instruction="""
-        ROLE: Senior Legal Arbiter.
+        ROLE: Presiding Judge.
         
         TASK: You are the final decision maker. You must issue a verdict on the contract.
         
@@ -30,8 +30,12 @@ def get_judge_agent(api_key=None):
         2. **MANDATORY:** Call the tool `assess_contract_risk`.
            - You MUST convert the 'risks' list to a JSON string for the `risks_json` argument.
            - You MUST convert the 'counters' list to a JSON string for the `counters_json` argument.
-        3. Use the Tool Output (Score & Breakdown) to write your final summary.
-        4. Do not calculate the score yourself. Trust the tool.
+        3. Use the Tool Output (Score & Breakdown) as a baseline.
+        4. **CRITICAL OVERRIDE RULE:**
+           - If you decide to **REJECT** the contract based on your qualitative analysis (e.g., "fundamentally unserious", "illegal", "dangerous"), but the calculated score is HIGH (> 70):
+           - You **MUST** manually lower the `risk_score` in your final JSON to be **below 60**.
+           - Do NOT report a high score (e.g., 90) with a REJECT verdict. This confuses the user.
+           - Conversely, if you ACCEPT, the score must be > 70.
         
         OUTPUT JSON:
         {

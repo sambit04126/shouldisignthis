@@ -1,0 +1,16 @@
+{
+  "verdict": "ACCEPT",
+  "risk_score": 77,
+  "confidence": 98,
+  "summary": "This is a generally favorable agreement for the Consultant, driven by strong economic terms ($150/hr) and critical legal protections (Liability Cap limited to fees paid; IP transfer conditioned on payment). While the 90-day warranty on hourly work creates a risk of unpaid maintenance, and the fixed venue in San Francisco adds logistical friction, these are outweighed by the high rate and favorable liability limitation. The contract is safe to sign after minor adjustments.",
+  "key_factors": [
+    "Liability Cap is limited to 'fees paid' (highly protective)",
+    "IP Transfer is contingent on full payment (ensures leverage)",
+    "Hourly Rate ($150/hr) is at the top of the market"
+  ],
+  "negotiation_points": [
+    "Reduce the 90-day warranty to 30 days (standard for hourly/T&M work)",
+    "Request a 'Virtual/Remote' option for arbitration to mitigate the San Francisco venue risk",
+    "Soften the '>80% test coverage' requirement to 'commercially reasonable efforts' to prevent binary payment disputes"
+  ]
+}
