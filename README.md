@@ -95,7 +95,7 @@ graph TD
 *   **Orchestration**: Custom `orchestrator.py` handling async agent execution
 *   **Framework**: Google ADK (Agent Development Kit)
 *   **Models**: Gemini 2.5 Pro (Reasoning) & Gemini 2.0 Flash Lite (Speed)
-*   **State Management**: SQLite database for session persistence
+*   **State Management**: In-Memory Session Service (for stateless cloud deployment)
 *   **UI**: Streamlit with Sidebar Navigation
 
 ### ADK Concepts Demonstrated
@@ -107,7 +107,7 @@ This project showcases **7 advanced ADK concepts**:
 3. ✅ **Sequential Agents**: 6-stage pipeline for structured analysis
 4. ✅ **Loop Agents**: Bailiff/Clerk self-correction loop (anti-hallucination)
 5. ✅ **Tools**: Google Search (built-in) + RiskCalculator (custom)
-6. ✅ **Sessions & State**: DatabaseSessionService with SQLite persistence
+6. ✅ **Sessions & State**: InMemorySessionService for fast, ephemeral state management
 7. ✅ **Observability**: LoggingPlugin + structured logging to `logs/`
 
 ### Key Features
@@ -266,7 +266,7 @@ shouldisignthis/
 ├── orchestrator.py         # Agent Orchestration Logic
 ├── config.py               # Configuration Loader
 ├── config.yaml             # App Configuration (Models, Logging)
-├── database.py             # SQLite Session Service
+├── database.py             # In-Memory Session Service
 ├── ui/                     # UI Modules
 ├── agents/                 # Agent Definitions
 │   ├── auditor.py          # Stage 1: Fact Extraction

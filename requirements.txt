@@ -6,6 +6,5 @@ pyyaml
 sqlalchemy
 pytest
 pytest-asyncio
-aiosqlite
-greenlet
+
 
