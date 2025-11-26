@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e # Exit immediately if a command exits with a non-zero status
 
 # Check if Google Cloud SDK is installed
 if ! command -v gcloud &> /dev/null; then
