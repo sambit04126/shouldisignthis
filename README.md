@@ -169,6 +169,33 @@ gcloud run deploy shouldisignthis \
 | **Docker permission denied** | Run with `sudo docker compose up` or check your Docker user group settings. |
 -----
 
+### Course & Instructors
+
+A heartfelt thank you to the incredible team behind the **[5-Day AI Agents Intensive Course with Google](https://www.kaggle.com/learn-guide/5-day-genai-intensive-course)** hosted on Kaggle. This project wouldn't exist without your guidance:
+
+
+### Built With
+
+- [Google ADK](https://github.com/google/genai-agent-development-kit) - Agent Development Kit
+- [Google Gemini](https://deepmind.google/technologies/gemini/) - LLM Models (2.5 Pro & 2.0 Flash)
+- [Streamlit](https://streamlit.io/) - Web UI Framework
+
+### AI-Assisted Development
+
+This project was built with the help of AI tools, embracing the future of human-AI collaboration:
+
+| Tool | How It Helped |
+|------|---------------|
+| **[Google Gemini](https://gemini.google.com/)** | Brainstorming architecture patterns, debugging prompts, code generation |
+| **[Claude](https://claude.ai/)** | Code review, documentation writing, architectural discussions |
+| **[NotebookLM](https://notebooklm.google.com/)** | Research synthesis, understanding complex ADK documentation |
+| **[Antigravity](https://antigravity.google/)** | Google's new agentic IDE - The primary development environment |
+
+### Creative Tools
+
+- **[Canva](https://www.canva.com/)** - Demo video creation and editing
+- **[Mermaid](https://mermaid.js.org/)** - Architecture and sequence diagrams
+
 ## 📄 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
