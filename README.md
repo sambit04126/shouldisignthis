@@ -1,361 +1,180 @@
-# ⚖️ ShouldISignThis? - The AI Consensus Engine for Contract Review
+# ⚖️ ShouldISignThis?
+### The AI Consensus Engine for Contract Review
 
-> **"Don't just sign it. Debate it."**
+<div align="center">
 
-**ShouldISignThis?** is an advanced multi-agent system that simulates a legal team to review contracts. Instead of a single LLM providing a generic summary, it orchestrates a team of specialized AI agents to argue, verify, and judge the document, ensuring you get a balanced and fact-checked analysis.
+> **"Don't trust one AI with your contract—make eight of them argue about it first."**
+
+<br>
+
+[![Hero Banner](assets/images/hero-banner.png)](https://github.com/sambit04126/shouldisignthis)
+
+<br>
+
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
+[![Google ADK](https://img.shields.io/badge/Google-ADK-4285F4.svg)](https://github.com/google/genai-agent-development-kit)
+[![Gemini](https://img.shields.io/badge/Gemini-2.5_Pro-8E44AD.svg)](https://deepmind.google/technologies/gemini/)
+[![Deployment](https://img.shields.io/badge/Google_Cloud_Run-Deploy_Ready-4285F4?logo=googlecloud&logoColor=white)](https://cloud.google.com/run)
+[![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
+
+<br>
+
+**ShouldISignThis?** simulates a specialized legal team to review contracts. Instead of relying on a single LLM's opinion, it orchestrates a team of **8 specialized AI agents** that debate risks, search for industry context, and—crucially—**verify their own claims against the source text** to prevent hallucinations.
+
+Get a fact-checked, balanced, and actionable analysis in under 60 seconds.
+
+[View Demo](#-demo-gallery) • [Read the Architecture](#-architecture-deep-dive) • [Getting Started](#-getting-started)
+
+</div>
+
+---
+
+## 🧠 The Logic Core
+
+Before seeing the UI, it is important to understand **how the agents think**. Unlike standard chatbots, we use a **Parallel-Sequential-Loop** architecture to ensure accuracy.
+
+### The Verification Pipeline
+![Logic Flowchart](assets/images/flowchart-full.png)
+*Figure 1: The "Trust but Verify" Pipeline. Note the crucial **Verification Loop (Stage 2.5)** where the Bailiff and Clerk agents intercept potential risks and cross-reference them against the raw contract text. If a risk is not supported by evidence, it is filtered out before reaching the Judge.*
 
 ---
 
 ## 🎯 The Problem
 
-**Manual contract review is slow, expensive, and error-prone:**
-- Reading a 10-page contract takes **1-2 hours** for a careful reviewer
-- Single-LLM analysis often **hallucinates** terms that don't exist
-- Lacks context on whether terms are industry-standard or unfair
-- No structured decision framework or actionable next steps
+Contracts govern every professional relationship, yet most people sign them blind. The traditional options are broken: hiring a lawyer is too expensive ($500+/hr) for everyday agreements, and standard LLMs are prone to **hallucinations**.
 
-**🚀 Our Solution**: A multi-agent system that reduces analysis time to **~45 seconds** while providing balanced, verified, and actionable insights.
-
----
-
-## 📈 Performance Metrics
-
-| Metric | Result |
-|--------|--------|
-| **Analysis Time** | ~45 seconds (end-to-end) |
-| **Parallel Speedup** | 40% faster than sequential execution |
-| **Hallucination Reduction** | Bailiff loop corrects 85% of false claims |
-| **Test Coverage** | 8 comprehensive tests across all agents |
-| **Contract Types Supported** | NDAs, Employment, Freelance, Leases, Service Agreements |
+| The Reality | The Risk |
+| :--- | :--- |
+| **63%** of professionals sign contracts without understanding them. [(Source: Adobe)](https://blog.adobe.com/en/publish/2024/02/27/future-of-contracts-generative-ai) | We tested leading LLMs. They frequently invented clauses that didn't exist (e.g., *"The contract includes a 24-month non-compete"* when none was present). |
+| **71%** of freelancers struggle to collect payment due to vague terms. [(Source: Freelancers Union)](https://freelancersunion.org/blog/freelancers-union-releases-2023-freelance-economic-impact-report/) | A single-perspective AI won't catch subtle omissions that a human lawyer would flag immediately. |
 
 ---
 
-## 🏗️ Architecture
+## 🖼️ Demo Gallery
 
-The system utilizes a **Parallel-Sequential-Loop** architecture powered by Google Gemini models and the Google Agent Development Kit (ADK).
+### 1. Single Contract Analysis
+![Single Mode UI](assets/images/demo-single.png)
+*Real-time view of the agent orchestration pipeline analyzing a single document. The sidebar shows exactly which agent is "thinking."*
 
-### Mode 1: Should I Sign This? (Single Contract Analysis)
+### 2. Real-Time Parallel Execution ("Face-Off")
+![Parallel Mode UI](assets/images/demo-parallel.png)
+*Nested parallelism in action. Two full agent pipelines run simultaneously to compare competing offers, visualized by independent progress trackers.*
 
-```mermaid
-graph TD
-    User([User Uploads Contract]) --> Auditor[Stage 1: The Auditor]
-    Auditor -->|Fact Sheet| Debate{Stage 2: Debate Team}
-    
-    subgraph "Stage 2: Parallel Debate"
-        Debate -->|Analyze Risks| Skeptic[😠 The Skeptic]
-        Debate -->|Find Precedents| Advocate[🛡️ The Advocate]
-    end
-    
-    Skeptic -->|Risks| Bailiff[Stage 2.5: The Bailiff]
-    Advocate -->|Defense| Bailiff
-    
-    subgraph "Stage 2.5: Verification Loop"
-        Bailiff -->|Verify Claims| Clerk[The Clerk]
-        Clerk -->|Correction Needed?| Bailiff
-    end
-    
-    Bailiff -->|Verified Evidence| Judge[Stage 3: The Judge]
-    Judge -->|Verdict & Score| Drafter[Stage 4: The Drafter]
-    Drafter -->|Negotiation Toolkit| Output([Final Output])
-```
-
-### Mode 2: Which One Should I Sign? (Contract Face-Off)
-
-```mermaid
-graph TD
-    User([User]) --> App{Unified UI}
-    App -->|Selects| DualFlow
-    DualFlow --> Parallel{⚡ Parallel Execution}
-    Parallel -->|Contract A| PipelineA[Pipeline A]
-    Parallel -->|Contract B| PipelineB[Pipeline B]
-    PipelineA & PipelineB --> Arbiter[⚖️ Arbiter]
-    Arbiter --> CompDrafter[📧 Decision Brief]
-```
+### 3. The Comparative Decision Brief
+![Results UI](assets/images/demo-results.png)
+*The final output: side-by-side risk scores, key differences, and actionable advice.*
 
 ---
 
-## 🤖 The Agents
+## 🏗️ Architecture Deep Dive
 
-| Agent | Role | Model | Description |
+This project is built using **Google's Agent Development Kit (ADK)** and deployed as a serverless application containerized with Docker on **Google Cloud Run**.
+
+### 1. High-Level System Architecture
+![System Architecture](assets/images/architecture-diagram.png)
+*Figure 2: Cloud Infrastructure. The application runs on Google Cloud Run, utilizing a "Speed Team" of agents (powered by **Gemini 2.0 Flash**) for debate and verification, and a "Reasoning Team" (powered by **Gemini 2.5 Pro**) for final judgment.*
+
+### 2. Sequence Diagram: The Verification Protocol
+![Single Pipeline Sequence](assets/images/sequence-diagram1.png)
+*Figure 3: Detailed Message Flow. This diagram illustrates the **Bailiff/Clerk Loop**. Notice how the Clerk searches the `Full_Text` for evidence and returns `SUPPORTED` or `CONTRADICTED` statuses.*
+
+### 3. Sequence Diagram: Parallel Orchestration
+![Multi Pipeline Sequence](assets/images/sequence-diagram2.png)
+*Figure 4: Nested Parallelism. In "Face-Off Mode," an outer Orchestrator wraps two complete instances of the pipeline. They execute concurrently, reducing total wait time by ~40%.*
+
+---
+
+## 🤖 The Agent Roster
+
+| Agent | Role | Model | Persona/Function |
 | :--- | :--- | :--- | :--- |
-| **🔍 Auditor** | Ingestion | `gemini-2.5-pro` | Extracts key facts (Dates, Parties, Terms) and validates the document is a contract. |
-| **😠 Skeptic** | Risk Analysis | `gemini-2.0-flash-lite` | A paranoid lawyer who finds every potential trap, ambiguity, and risk. |
-| **🛡️ Advocate** | Defense | `gemini-2.0-flash-lite` | A pragmatic deal-maker who uses **Google Search** to find industry standards to defend the terms. |
-| **🕵️ Bailiff** | Verification | `gemini-2.0-flash-lite` | **Self-Correction Loop**. Verifies that the Skeptic's claims are actually supported by the contract text (Anti-Hallucination). |
-| **👨‍⚖️ Judge** | Verdict | `gemini-2.5-pro` | Weighs the arguments, calculates a Risk Score (0-100), and issues a final verdict (Accept/Caution/Reject). |
-| **✍️ Drafter** | Action | `gemini-2.0-flash-lite` | Generates a "Negotiation Toolkit" containing strategy notes and a ready-to-send email script. |
-| **⚖️ Arbiter** | Comparison | `gemini-2.5-pro` | Analyzes two contracts side-by-side to identify the safer option. |
-| **📧 CompDrafter** | Strategy | `gemini-2.0-flash-lite` | Generates a "Decision Brief" email for stakeholders explaining the comparison results. |
+| 🔍 **Auditor** | Ingestion | `Gemini 2.5 Pro` | Precise fact extraction; validating document type. |
+| 😠 **Skeptic** | Debate | `Gemini 2.0 Flash` | Paranoid lawyer; finds every potential trap or ambiguity. |
+| 🛡️ **Advocate** | Debate | `Gemini 2.0 Flash` | Pragmatic deal-maker; uses **Google Search** tool to find industry standards for context. |
+| 🕵️ **Bailiff** | Verify | `Gemini 2.0 Flash` | Loop manager; coordinates the verification process. |
+| 📋 **Clerk** | Verify | `Gemini 2.0 Flash` | The fact-checker; validates claims against source text. |
+| ⚖️ **Judge** | Verdict | `Gemini 2.5 Pro` | Reasoning engine; weighs verified arguments to issue a final score. |
+| ✍️ **Drafter** | Action | `Gemini 2.0 Flash` | Generates negotiation emails and strategy notes. |
+| 🏛️ **Arbiter** | Face-Off | `Gemini 2.5 Pro` | Synthesizes two separate Judge verdicts into a comparison brief. |
 
 ---
 
-## 🛠️ Technical Implementation
+## 🧪 Technical Highlights & Testing
 
-### Core Technologies
-*   **Orchestration**: Custom `orchestrator.py` handling async agent execution
-*   **Framework**: Google ADK (Agent Development Kit)
-*   **Models**: Gemini 2.5 Pro (Reasoning) & Gemini 2.0 Flash Lite (Speed)
-*   **State Management**: In-Memory Session Service (for stateless cloud deployment)
-*   **UI**: Streamlit with Sidebar Navigation
+### Key Concepts Applied
+This project demonstrates advanced patterns from the Google AI Agents Intensive course:
+* **Multi-Agent Orchestration:** A heterogeneous team with distinct roles.
+* **Parallel Execution:** Using ADK's `ParallelAgent` to run the Debate team concurrently.
+* **Looping Patterns:** Implementing a custom `LoopAgent` to iteratively check facts.
+* **Tool Use:** Integrating Google Search for external grounding and custom Python calculators.
+* **Observability:** Integrated `LoggingPlugin` for real-time thought tracing.
 
-### ADK Concepts Demonstrated
-
-This project showcases **7 advanced ADK concepts**:
-
-1. ✅ **Multi-agent System**: 8 specialized agents with distinct roles
-2. ✅ **Parallel Agents**: Skeptic + Advocate run concurrently (debate pattern)
-3. ✅ **Sequential Agents**: 6-stage pipeline for structured analysis
-4. ✅ **Loop Agents**: Bailiff/Clerk self-correction loop (anti-hallucination)
-5. ✅ **Tools**: Google Search (built-in) + RiskCalculator (custom)
-6. ✅ **Sessions & State**: InMemorySessionService for fast, ephemeral state management
-7. ✅ **Observability**: LoggingPlugin + structured logging to `logs/`
-
-### Key Features
-*   **Unified UI**: Seamlessly switch between "Should I Sign This?" and "Which One Should I Sign?" modes
-*   **Nested Parallelism**: In "Face-Off" mode, two full analysis pipelines run concurrently
-*   **Self-Correction**: The Bailiff/Clerk loop actively detects and fixes hallucinations before they reach the Judge
-*   **Tool Integration**: Agents have access to `RiskCalculator` and `GoogleSearch`
-*   **Security**:
-    *   Secure API Key propagation (no global env vars)
-    *   5MB File Upload Limit
-    *   Input sanitization
+### Ground Truth Regression Testing ⭐
+How do you ensure a prompt change doesn't break the legal analysis? We implemented an automated **LLM-as-a-Judge** evaluation pipeline.
+1.  We captured "Golden" baseline outputs for standard contracts.
+2.  Our test suite runs new code against these inputs.
+3.  A supervisor LLM semantically compares the new output against the golden baseline to detect drift in logic or accuracy.
 
 ---
 
-## 💡 The Journey: Challenges & Solutions
-
-### Challenge 1: LLM Hallucinations
-**Problem**: Initial testing showed the Skeptic agent invented contract terms that didn't exist, leading to false alarms.
-
-**Solution**: We implemented the **Bailiff/Clerk Loop Agent** (Stage 2.5):
-- The Bailiff verifies every claim against the contract's full text
-- The Clerk rewrites arguments to remove hallucinations
-- Loop runs up to 2 iterations until claims are verified
-- **Result**: 85% reduction in false claims
-
-### Challenge 2: Sequential Latency
-**Problem**: Running 6 agents sequentially resulted in ~75-second analysis time.
-
-**Solution**: We introduced **parallel execution** in Stage 2:
-- Skeptic and Advocate run concurrently
-- Face-Off mode parallelizes two full pipelines
-- **Result**: 40% speedup (now ~45 seconds)
-
-### Challenge 3: Context-Aware Risk Assessment
-**Problem**: Users couldn't tell if a term was "bad" or just "industry standard."
-
-**Solution**: We gave the **Advocate agent access to Google Search**:
-- Searches for industry norms (e.g., "standard NDA liability cap 2024")
-- Provides citations and context in defense arguments
-- **Result**: Balanced risk analysis with external validation
-
-### Challenge 4: Unstructured Outputs
-**Problem**: Users didn't know what to do with the analysis.
-
-**Solution**: We added the **Drafter agent** to generate actionable outputs:
-- Pre-written email templates for negotiation
-- Strategy notes for specific talking points
-- **Result**: Users can immediately act on insights
-
----
-
-## 🚀 Setup & Usage
+## 🚀 Getting Started
 
 ### Prerequisites
-*   Python 3.10+
-*   Google Cloud API Key (with Gemini API access)
+* Python 3.10+
+* Docker (recommended)
+* A Google Cloud Project with the Gemini API enabled.
 
-### ☁️ Deployment (Google Cloud Run)
-To deploy the application to the cloud:
+### Option 1: Run with Docker (Recommended)
 
-1.  **Login to Google Cloud**:
-    ```bash
-    gcloud auth login
-    gcloud config set project YOUR_PROJECT_ID
-    ```
-
-2.  **Run the Deployment Script**:
-    ```bash
-    # Make sure your GOOGLE_API_KEY is set in your terminal
-    export GOOGLE_API_KEY="your_api_key_here"
-    
-    ./deploy_to_cloud_run.sh YOUR_PROJECT_ID
-    ```
-
-3.  **Access the App**:
-    The script will output a URL (e.g., `https://shouldisignthis-xyz.a.run.app`).
-
-### 🐳 Quick Start (Docker)
-For a no-hassle, single-container deployment:
-
-1.  **Set your API Key**:
-    ```bash
-    export GOOGLE_API_KEY="your_api_key_here"
-    ```
-
-2.  **Run with Docker Compose**:
-    ```bash
-    docker-compose up --build
-    ```
-
-3.  **Access the App**:
-    Open [http://localhost:8080](http://localhost:8080) in your browser.
-
-### 📦 Manual Installation
-
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/yourusername/shouldisignthis.git
-    cd shouldisignthis
-    ```
-
-2.  **Install dependencies**
-    ```bash
-    python3 -m venv .venv
-    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-    pip install -r requirements.txt
-    ```
-
-3.  **Configuration**
-    *   **API Key**: You can enter it in the UI or set it in `shouldisignthis/config.yaml`
-    *   **Logging**: Logs are saved to `logs/contract_audit.log` (Configurable in `config.yaml`)
-
-### Running the App
 ```bash
-./run_demo.sh
-# OR
-streamlit run shouldisignthis/app.py
-```
+# 1. Clone repo
+git clone https://github.com/sambit04126/shouldisignthis.git
+cd shouldisignthis
 
-Navigate to `http://localhost:8501` in your browser.
+# 2. Set API Key
+export GOOGLE_API_KEY="your_gemini_api_key"
 
-### Running Tests
-The project includes a comprehensive test suite.
+# 3. Build and run
+docker compose up --build
 
-> [!NOTE]
-> **Model Performance**: More intelligent and latest models produce better results. The ground truth tests were verified using the state-of-the-art `gemini-3-pro-preview` model to ensure the highest quality baseline.
+# 4. Access UI
+open http://localhost:8080
+````
 
-#### 1. Ground Truth Tests (Regression Testing)
-Verify that the agents' logic hasn't regressed by comparing outputs against a "gold standard" baseline.
+### Option 2: Deploy to Google Cloud Run
+
+This application is built to be serverless-ready.
+
 ```bash
-# Run the ground truth test for the balanced contract
-pytest shouldisignthis/tests/test_ground_truth.py::test_ground_truth[balanced_contract] -v -s
+# 1. Authenticate
+gcloud auth login
+gcloud config set project YOUR_PROJECT_ID
+
+# 2. Deploy from source
+gcloud run deploy shouldisignthis \
+  --source . \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated \
+  --set-env-vars GOOGLE_API_KEY=your_api_key
 ```
-
-#### 2. Integration Tests (End-to-End)
-Run the full pipeline to ensure all components work together.
-```bash
-# Run integration tests
-pytest shouldisignthis/tests/test_integration.py -v
-```
-
-#### 3. Unit Tests
-Test individual agents and tools.
-```bash
-# Run all tests
-pytest -v --ignore=reference
-```
-
 ---
+### 🔧 Troubleshooting
 
-## 📂 Project Structure
-
-```text
-shouldisignthis/
-├── app.py                  # Main Streamlit Application (Unified UI)
-├── orchestrator.py         # Agent Orchestration Logic
-├── config.py               # Configuration Loader
-├── config.yaml             # App Configuration (Models, Logging)
-├── database.py             # In-Memory Session Service
-├── ui/                     # UI Modules
-├── agents/                 # Agent Definitions
-│   ├── auditor.py          # Stage 1: Fact Extraction
-│   ├── debate_team.py      # Stage 2: Parallel Debate (Skeptic + Advocate)
-│   ├── bailiff.py          # Stage 2.5: Verification Loop (Bailiff + Clerk)
-│   ├── judge.py            # Stage 3: Verdict
-│   ├── drafter.py          # Stage 4 & 6: Action Toolkit
-│   └── comparator.py       # Stage 5: Comparison Logic
-├── tools/                  # Custom Tools
-│   ├── risk_calculator.py  # Risk Score Calculator
-│   └── search_tools.py     # Google Search Integration
-├── tests/                  # Unit & Integration Tests
-│   ├── test_auditor.py
-│   ├── test_debate.py
-│   ├── test_bailiff.py
-│   ├── test_judge.py
-│   ├── test_drafter.py
-│   ├── test_integration.py
-│   └── test_comparator_integration.py
-└── sample_outputs/         # Example Analysis Results
-    ├── integration_output.json
-    └── comparator_integration_output.json
-```
-
----
-
-## 📊 Sample Outputs
-
-See the `sample_outputs/` directory for example analyses:
-- [`integration_output.json`](sample_outputs/integration_output.json) - Full single-contract analysis
-- [`comparator_integration_output.json`](sample_outputs/comparator_integration_output.json) - Side-by-side comparison
-
----
-
-## 🎯 Use Cases
-
-### For Freelancers
-- Analyze client contracts before signing
-- Identify unfair payment terms or IP clauses
-- Get pre-written negotiation emails
-
-### For Small Businesses
-- Compare multiple vendor contracts to choose the best option
-- Ensure compliance with industry standards
-- Reduce legal review costs
-
-### For Students/Researchers
-- Understand contract structures and risk patterns
-- Learn about legal clause variations across industries
-
----
-
-## ⚠️ Disclaimer
-
-**This tool is for educational and informational purposes only.** It does not constitute legal advice. Always consult with a qualified attorney before signing any legal document.
-
----
-
-## 🚧 Roadmap
-
-- [ ] Multi-document comparison (3+ contracts)
-- [x] Export reports as PDF
-- [ ] Integration with DocuSign API
-- [ ] Support for non-English contracts
-- [x] Agent deployment to Cloud Run
-
----
+| Issue | Solution |
+| :--- | :--- |
+| **`GOOGLE_API_KEY` not found** | Ensure you set `export GOOGLE_API_KEY="AIza..."` in your terminal before running docker compose. |
+| **Port 8080 busy** | Change the port in `docker-compose.yml` to `8081:8080` and access at `http://localhost:8081`. |
+| **Docker permission denied** | Run with `sudo docker compose up` or check your Docker user group settings. |
+-----
 
 ## 📄 License
 
-MIT License - See [LICENSE](LICENSE) for details.
+Distributed under the MIT License. See `LICENSE` for more information.
 
----
+-----
 
-## 🙏 Acknowledgments
-
-Built with:
-- [Google ADK](https://github.com/google/genai-agent-development-kit) - Agent Development Kit
-- [Google Gemini](https://deepmind.google/technologies/gemini/) - LLM Models
-- [Streamlit](https://streamlit.io/) - Web UI Framework
-
-Developed for the **Kaggle Agents Intensive Capstone Project** (Nov 2025).
-
----
-
-## 📬 Contact
-
-For questions or feedback, please open an issue on GitHub or contact [your-email@example.com].
-
----
-
-**🎯 Status**: Ready for Kaggle Agents Intensive Capstone Submission (Enterprise Agents Track)
+<div align="center">
+<b>Developed for the Kaggle AI Agents Intensive Capstone Project (2025)</b>
+</div>
