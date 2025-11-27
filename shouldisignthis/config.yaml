@@ -2,9 +2,9 @@ api:
   google_api_key: "YOUR_API_KEY_HERE" # Replace with your key or set GOOGLE_API_KEY env var
 
 models:
-  auditor: "gemini-3-pro-preview"
+  auditor: "gemini-2.5-pro"
   worker: "gemini-2.0-flash"
-  judge: "gemini-3-pro-preview" 
+  judge: "gemini-2.5-pro" 
 
 
 retry_policy:
