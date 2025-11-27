@@ -24,7 +24,7 @@
 
 Get a fact-checked, balanced, and actionable analysis in under 60 seconds.
 
-[View Demo](#-demo-gallery) • [Read the Architecture](#-architecture-deep-dive) • [Getting Started](#-getting-started)
+[View Demo](#demo-gallery) • [Read the Architecture](#architecture-deep-dive) • [Getting Started](#getting-started)
 
 </div>
 
@@ -51,7 +51,9 @@ Contracts govern every professional relationship, yet most people sign them blin
 
 ---
 
-## 🖼️ Demo Gallery
+## <a name="demo-gallery"></a>🖼️ Demo Gallery
+
+[![Watch the Demo Video](https://img.shields.io/badge/Watch_Demo-YouTube-red.svg)](https://www.youtube.com/watch?v=zrZQ2NvluhY)
 
 ### 1. Single Contract Analysis
 ![Single Mode UI](assets/images/demo-single.png)
@@ -67,7 +69,7 @@ Contracts govern every professional relationship, yet most people sign them blin
 
 ---
 
-## 🏗️ Architecture Deep Dive
+## <a name="architecture-deep-dive"></a>🏗️ Architecture Deep Dive
 
 This project is built using **Google's Agent Development Kit (ADK)** and deployed as a serverless application containerized with Docker on **Google Cloud Run**.
 
@@ -118,7 +120,7 @@ How do you ensure a prompt change doesn't break the legal analysis? We implement
 
 ---
 
-## 🚀 Getting Started
+## <a name="getting-started"></a>🚀 Getting Started
 
 ### Prerequisites
 * Python 3.10+
