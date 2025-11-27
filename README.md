@@ -171,7 +171,7 @@ gcloud run deploy shouldisignthis \
 
 ### Course & Instructors
 
-A heartfelt thank you to the incredible team behind the **[5-Day AI Agents Intensive Course with Google](https://www.kaggle.com/learn-guide/5-day-genai-intensive-course)** hosted on Kaggle. This project wouldn't exist without your guidance:
+A heartfelt thank you to the incredible team behind the **[5-Day AI Agents Intensive Course with Google](https://www.kaggle.com/learn-guide/5-day-agents)** hosted on Kaggle. This project wouldn't exist without your guidance:
 
 
 ### Built With
