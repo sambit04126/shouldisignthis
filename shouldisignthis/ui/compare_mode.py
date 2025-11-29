@@ -105,6 +105,8 @@ def render_compare_mode(api_key):
         st.header("Contract B")
         file_b = st.file_uploader("Upload Contract B", type=["pdf", "png", "jpg"], key="file_b", disabled=st.session_state.analyzing)
 
+    st.info("🔒 **Privacy Note:** This application is **stateless**. Your document is processed in-memory and deleted immediately after analysis. No data is stored on our servers.")
+
     # START BUTTON
     if file_a and file_b:
         if st.button("🚀 Start Face-Off", type="primary", disabled=st.session_state.analyzing):

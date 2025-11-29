@@ -47,6 +47,8 @@ def render_single_mode(api_key):
         disabled=st.session_state.analyzing
     )
 
+    st.info("🔒 **Privacy Note:** This application is **stateless**. Your document is processed in-memory and deleted immediately after analysis. No data is stored on our servers.")
+
     if uploaded_file:
         # Security: File Size Limit (5MB)
         if uploaded_file.size > 5 * 1024 * 1024:
