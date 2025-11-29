@@ -102,6 +102,15 @@ This project is built using **Google's Agent Development Kit (ADK)** and deploye
 
 ---
 
+## 🔒 Privacy & Security
+
+**Your data is ephemeral.**
+*   **No Storage:** Uploaded contracts are processed entirely in-memory and are **never saved to disk**.
+*   **Stateless:** The application runs in a stateless container (Cloud Run). Once the analysis is complete or the session ends, all data is instantly wiped.
+*   **Secure:** API keys are managed via environment variables and are never exposed in the client.
+
+---
+
 ## 🧪 Technical Highlights & Testing
 
 ### Key Concepts Applied
