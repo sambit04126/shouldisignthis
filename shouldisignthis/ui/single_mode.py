@@ -13,6 +13,15 @@ from shouldisignthis.orchestrator import (
 from shouldisignthis.tools.pdf_generator import create_contract_report
 
 def render_single_mode(api_key):
+    """
+    Renders the Single Contract Analysis UI mode.
+    
+    Handles file upload, stage execution (Auditor -> Debate -> Bailiff -> Judge -> Drafter),
+    and result display.
+
+    Args:
+        api_key (str): The Google API Key to use for the agents.
+    """
     st.header("📄 Single Contract Analysis")
     st.markdown("Upload a contract to analyze its risks and generate a negotiation strategy.")
 
@@ -138,7 +147,7 @@ def render_single_mode(api_key):
 
         if 'verdict' in st.session_state.pipeline_data:
             verdict = st.session_state.pipeline_data['verdict']
-            score = verdict.get('risk_score')
+            score = verdict.get('risk_score', 0)
             v_str = verdict.get('verdict', 'UNKNOWN').upper()
             
             st.divider()
@@ -164,15 +173,20 @@ def render_single_mode(api_key):
             
             tone = st.selectbox("Select Tone", ["Professional", "Firm & Direct", "Collaborative"], index=0)
             
-            if 'toolkit' not in st.session_state.pipeline_data:
-                 with st.spinner("The Drafter is writing your email..."):
-                    toolkit = asyncio.run(run_stage_4("streamlit_user", st.session_state.session_id, verdict, tone, api_key=api_key))
-                    st.session_state.pipeline_data['toolkit'] = toolkit
-            
-            if st.button("🔄 Regenerate Email"):
-                 with st.spinner("The Drafter is rewriting..."):
-                    toolkit = asyncio.run(run_stage_4("streamlit_user", st.session_state.session_id, verdict, tone, api_key=api_key))
-                    st.session_state.pipeline_data['toolkit'] = toolkit
+            try:
+                if 'toolkit' not in st.session_state.pipeline_data:
+                     with st.spinner("The Drafter is writing your email..."):
+                        toolkit = asyncio.run(run_stage_4("streamlit_user", st.session_state.session_id, verdict, tone, api_key=api_key))
+                        st.session_state.pipeline_data['toolkit'] = toolkit
+                
+                if st.button("🔄 Regenerate Email"):
+                     with st.spinner("The Drafter is rewriting..."):
+                        toolkit = asyncio.run(run_stage_4("streamlit_user", st.session_state.session_id, verdict, tone, api_key=api_key))
+                        st.session_state.pipeline_data['toolkit'] = toolkit
+            except Exception as e:
+                import logging
+                logging.exception("Error in Stage 4 (Drafter)")
+                st.error("An error occurred while generating the email. Please check the logs.")
             
             if 'toolkit' in st.session_state.pipeline_data:
                 toolkit = st.session_state.pipeline_data['toolkit']

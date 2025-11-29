@@ -6,8 +6,11 @@ def assess_contract_risk(risks_json: str, counters_json: str):
     Calculates the quantitative risk score based on risks and counters.
     
     Args:
-        risks_json: A JSON string representing the list of Risk objects.
-        counters_json: A JSON string representing the list of Counter objects.
+        risks_json (str): A JSON string representing the list of Risk objects.
+        counters_json (str): A JSON string representing the list of Counter objects.
+
+    Returns:
+        dict: A dictionary containing the calculated score, confidence, verdict, and breakdown.
     """
     # Parse the JSON strings back into lists
     try:

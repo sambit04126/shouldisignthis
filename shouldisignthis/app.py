@@ -59,7 +59,18 @@ with st.sidebar:
         """)
 
 # --- MAIN RENDER ---
-if st.session_state.nav_mode == "Should I Sign This?":
-    render_single_mode(api_key)
-else:
-    render_compare_mode(api_key)
+try:
+    if st.session_state.nav_mode == "Should I Sign This?":
+        """
+        Renders the Single Contract Analysis mode.
+        """
+        render_single_mode(api_key)
+    else:
+        """
+        Renders the Contract Comparison mode.
+        """
+        render_compare_mode(api_key)
+except Exception as e:
+    import logging
+    logging.exception("Critical Application Error")
+    st.error("An unexpected error occurred. Please check the logs for details.")

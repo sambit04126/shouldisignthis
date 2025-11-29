@@ -7,7 +7,16 @@ from io import BytesIO
 def create_contract_report(filename, verdict, risk_score, summary, risks):
     """
     Generates a PDF report for the contract analysis.
-    Returns a BytesIO object containing the PDF data.
+
+    Args:
+        filename (str): The name of the file being analyzed.
+        verdict (str): The final verdict (ACCEPT, REJECT, CAUTION).
+        risk_score (int): The calculated risk score (0-100).
+        summary (str): The executive summary of the analysis.
+        risks (list): A list of risk dictionaries or objects.
+
+    Returns:
+        BytesIO: A BytesIO object containing the generated PDF data.
     """
     buffer = BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=letter)
@@ -94,6 +103,16 @@ def create_contract_report(filename, verdict, risk_score, summary, risks):
 def create_comparison_report(filename_a, filename_b, comparison_result, verdict_a, verdict_b):
     """
     Generates a PDF report for the contract comparison.
+
+    Args:
+        filename_a (str): Name of Contract A.
+        filename_b (str): Name of Contract B.
+        comparison_result (dict): The output from the Arbiter agent.
+        verdict_a (dict): The verdict for Contract A.
+        verdict_b (dict): The verdict for Contract B.
+
+    Returns:
+        BytesIO: A BytesIO object containing the generated PDF data.
     """
     buffer = BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=letter)

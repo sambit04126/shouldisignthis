@@ -6,7 +6,7 @@ from google.genai import types
 from google.adk.models.google_llm import Gemini
 
 # 0. LOAD CONFIG
-CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config.yaml")
+CONFIG_PATH = os.environ.get("SHOULDISIGNTHIS_CONFIG_PATH") or os.path.join(os.path.dirname(__file__), "config.yaml")
 try:
     with open(CONFIG_PATH, "r") as f:
         APP_CONFIG = yaml.safe_load(f)
@@ -26,10 +26,22 @@ if "GOOGLE_API_KEY" not in os.environ:
 
 # 2. LOGGING SETUP
 # 2. LOGGING SETUP
-def configure_logging():
+def configure_logging(log_file_override=None, log_level_override=None):
+    """
+    Configures the application-wide logging settings.
+
+    Sets up logging to both stdout and a file as specified in the configuration.
+    Creates the log directory if it doesn't exist.
+    """
     log_cfg = APP_CONFIG.get("logging", {})
     log_dir = log_cfg.get("log_dir", "logs")
-    log_file = log_cfg.get("log_file", "contract_audit.log")
+    log_file = log_file_override or log_cfg.get("log_file", "contract_audit.log")
+    
+    if log_level_override:
+        log_level = log_level_override
+    else:
+        log_level_str = log_cfg.get("log_level", "INFO").upper()
+        log_level = getattr(logging, log_level_str, logging.INFO)
     
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)
@@ -37,7 +49,7 @@ def configure_logging():
     log_path = os.path.join(log_dir, log_file)
     
     logging.basicConfig(
-        level=logging.INFO,
+        level=log_level,
         format='%(asctime)s - [ShouldISignThis_Trace] - %(levelname)s - %(message)s',
         handlers=[
             logging.StreamHandler(sys.stdout),
@@ -68,18 +80,20 @@ RETRY_POLICY = types.HttpRetryOptions(
 app_cfg = APP_CONFIG.get("app_config", {})
 DEMO_MODE = app_cfg.get("demo_mode", False)
 
-CONFIG = {
-    "max_qa_iterations": 1 if DEMO_MODE else app_cfg.get("max_qa_iterations", 2),
-    "confidence_threshold": app_cfg.get("confidence_threshold", 80),
-    "extraction_min_rate": app_cfg.get("extraction_min_rate", 0.5),
-    "extraction_min_confidence": app_cfg.get("extraction_min_confidence", 0.4),
-    "timeout_seconds": app_cfg.get("timeout_seconds", 30)
-}
 
 # 6. MODEL DEFINITIONS
 models_cfg = APP_CONFIG.get("models", {})
 
 def get_auditor_model(api_key=None):
+    """
+    Retrieves the configured Gemini model for the Auditor agent.
+
+    Args:
+        api_key (str, optional): The Google API key to use. Defaults to None.
+
+    Returns:
+        Gemini: An instance of the Gemini model configured for the Auditor.
+    """
     return Gemini(
         model=models_cfg["auditor"],
         api_key=api_key,
@@ -88,6 +102,15 @@ def get_auditor_model(api_key=None):
     )
 
 def get_worker_model(api_key=None):
+    """
+    Retrieves the configured Gemini model for Worker agents (Skeptic, Advocate, Drafter, etc.).
+
+    Args:
+        api_key (str, optional): The Google API key to use. Defaults to None.
+
+    Returns:
+        Gemini: An instance of the Gemini model configured for workers.
+    """
     return Gemini(
         model=models_cfg["worker"],
         api_key=api_key,
@@ -96,6 +119,16 @@ def get_worker_model(api_key=None):
     )
 
 def get_judge_model(api_key=None):
+    """
+    Retrieves the configured Gemini model for the Judge and Arbiter agents.
+    Typically uses a more capable model (e.g., Pro version).
+
+    Args:
+        api_key (str, optional): The Google API key to use. Defaults to None.
+
+    Returns:
+        Gemini: An instance of the Gemini model configured for the Judge.
+    """
     return Gemini(
         model=models_cfg["judge"],
         api_key=api_key,
@@ -103,19 +136,3 @@ def get_judge_model(api_key=None):
         safety_settings=SAFE_CONTRACT_SETTINGS
     )
 
-# 7. VERDICT CONSTANTS
-class Verdict:
-    ACCEPT = "ACCEPT"
-    CAUTION = "ACCEPT WITH CAUTION"
-    REJECT = "REJECT"
-
-class Severity:
-    HIGH = "HIGH"
-    MEDIUM = "MEDIUM"
-    LOW = "LOW"
-
-class ValidationStatus:
-    SUPPORTED = "SUPPORTED"
-    WEAK_SUPPORT = "WEAK_SUPPORT"
-    NOT_SUPPORTED = "NOT_SUPPORTED"
-    CONTRADICTED = "CONTRADICTED"

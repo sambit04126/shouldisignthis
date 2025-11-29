@@ -35,6 +35,12 @@ def get_auditor_agent(api_key=None):
     """
     Creates the Auditor agent responsible for initial contract analysis and fact extraction.
     Generic Version: Works on NDAs, MSAs, Leases, Employment, and Service Agreements.
+
+    Args:
+        api_key (str, optional): Google API Key for the model.
+
+    Returns:
+        LlmAgent: Configured Auditor agent.
     """
     return LlmAgent(
         name="Auditor",

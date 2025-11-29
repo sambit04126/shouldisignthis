@@ -47,15 +47,29 @@ python shouldisignthis/tests/capture_ground_truth.py --contract perfect_contract
 
 ### Running Validation Tests
 ```bash
-# Test all contracts
+# Test all configured contracts (see ground_truth_config.yaml)
 pytest shouldisignthis/tests/test_ground_truth.py -v
 
-# Test specific contract
+# Test specific contract (overrides config)
 pytest shouldisignthis/tests/test_ground_truth.py::test_ground_truth[perfect_contract] -v
 
 # Show detailed LLM reasoning
 pytest shouldisignthis/tests/test_ground_truth.py -v -s
 ```
+
+### Filtering Tests
+You can configure which contracts to run in `shouldisignthis/ground_truth_config.yaml`:
+```yaml
+ground_truth:
+  contracts: ["balanced_contract", "ambiguous_contract"]
+```
+
+### Generating Reports
+After running tests, generate a detailed markdown report:
+```bash
+python shouldisignthis/tests/generate_report.py
+```
+The report will be saved to `test_output/ground_truth/ground_truth_report.md`.
 
 ## When to Recapture
 

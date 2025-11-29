@@ -118,16 +118,40 @@ How do you ensure a prompt change doesn't break the legal analysis? We implement
 2.  Our test suite runs new code against these inputs.
 3.  A supervisor LLM semantically compares the new output against the golden baseline to detect drift in logic or accuracy.
 
+**Run the tests:**
+```bash
+# Run all tests (Unit + Integration + Ground Truth)
+pytest
+
+# Run only Ground Truth tests
+pytest shouldisignthis/tests/test_ground_truth.py
+
+# Generate Report
+python shouldisignthis/tests/generate_report.py
+```
+
+### ⚙️ Configuration
+The system is highly configurable via YAML files:
+*   `shouldisignthis/config.yaml`: Main application config (models, logging, safety settings).
+*   `shouldisignthis/ground_truth_config.yaml`: Specialized config for regression testing (uses `gemini-3-pro-preview`).
+*   `shouldisignthis/test_config.yaml`: Config for unit/integration tests.
+
+**Logging:**
+*   Application logs: `logs/contract_audit.log`
+*   Test logs: `logs/tests.log`
+
 ---
 
 ## <a name="getting-started"></a>🚀 Getting Started
 
 ### Prerequisites
-* Python 3.10+
-* Docker (recommended)
+* Python 3.11+ (Required for SSL/importlib features)
+* Docker (Optional, for containerized deployment)
 * A Google Cloud Project with the Gemini API enabled.
 
-### Option 1: Run with Docker (Recommended)
+### Option 1: Run Locally (Recommended for Dev)
+
+We provide a helper script to set up the environment and run the app:
 
 ```bash
 # 1. Clone repo
@@ -137,12 +161,18 @@ cd shouldisignthis
 # 2. Set API Key
 export GOOGLE_API_KEY="your_gemini_api_key"
 
-# 3. Build and run
+# 3. Run the demo script (handles venv setup)
+./run_demo.sh
+```
+
+### Option 2: Run with Docker
+```bash
+# 1. Build and run
 docker compose up --build
 
-# 4. Access UI
+# 2. Access UI
 open http://localhost:8080
-````
+```
 
 ### Option 2: Deploy to Google Cloud Run
 

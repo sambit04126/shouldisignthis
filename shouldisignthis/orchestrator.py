@@ -22,7 +22,17 @@ from shouldisignthis.agents.arbiter import get_arbiter_agent
 # --- STAGE 5: COMPARATOR (Face-Off) ---
 async def run_stage_5_arbiter(user_id: str, session_id: str, verdict_a: dict, verdict_b: dict, api_key: str = None):
     """
-    Runs the Comparator agent (now Arbiter) to judge two contracts.
+    Runs the Arbiter agent to compare two contracts and decide which is safer.
+
+    Args:
+        user_id (str): The ID of the user.
+        session_id (str): The unique session ID.
+        verdict_a (dict): The verdict dictionary for Contract A.
+        verdict_b (dict): The verdict dictionary for Contract B.
+        api_key (str, optional): Google API Key. Defaults to None.
+
+    Returns:
+        dict: The comparison result containing the winner and key differences.
     """
     app_name = "Arbiter_App"
     
@@ -50,7 +60,16 @@ async def run_stage_5_arbiter(user_id: str, session_id: str, verdict_a: dict, ve
 # --- STAGE 6: COMPARISON DRAFTER (Action) ---
 async def run_stage_6_comparison_drafter(user_id: str, session_id: str, comparison_result: dict, api_key: str = None):
     """
-    Runs the Drafter agent to generate a decision email based on the comparison.
+    Runs the Drafter agent to generate a decision email based on the comparison result.
+
+    Args:
+        user_id (str): The ID of the user.
+        session_id (str): The unique session ID.
+        comparison_result (dict): The output from the Arbiter agent.
+        api_key (str, optional): Google API Key. Defaults to None.
+
+    Returns:
+        dict: The drafted email and strategy notes.
     """
     app_name = "ComparisonDrafter_App"
     
@@ -74,7 +93,12 @@ async def run_stage_6_comparison_drafter(user_id: str, session_id: str, comparis
 def parse_json(raw: Union[str, Any]) -> Union[Dict, list, Any]:
     """
     Robustly parses JSON from a string, handling markdown code fences and conversational text.
-    Returns an empty dict on failure to prevent crashes.
+
+    Args:
+        raw (Union[str, Any]): The raw input, potentially a JSON string or already a dict/list.
+
+    Returns:
+        Union[Dict, list, Any]: The parsed JSON object, or an empty dict if parsing fails.
     """
     if isinstance(raw, str):
         try:
@@ -91,7 +115,7 @@ def parse_json(raw: Union[str, Any]) -> Union[Dict, list, Any]:
             except Exception:
                 pass
             
-            logging.error(f"❌ JSON Parse Error: Could not parse JSON from string.")
+            logging.error(f"❌ JSON Parse Error: Could not parse JSON from string. Raw (truncated): {raw[:500]!r}")
             return {} # Return empty dict to prevent AttributeError
     return raw if raw is not None else {}
 
@@ -106,7 +130,20 @@ async def _run_agent(
     api_key: Optional[str] = None
 ) -> Any:
     """
-    Generic helper to run an ADK agent.
+    Generic helper function to initialize and run an ADK agent.
+
+    Args:
+        agent_factory (callable): Function that returns an Agent instance.
+        app_name (str): Name of the application.
+        user_id (str): The ID of the user.
+        session_id (str): The unique session ID.
+        message (types.Content): The input message for the agent.
+        initial_state (Optional[Dict], optional): Initial state for the session. Defaults to None.
+        delete_existing_session (bool, optional): Whether to clear previous session data. Defaults to False.
+        api_key (Optional[str], optional): Google API Key. Defaults to None.
+
+    Returns:
+        Any: The final session object after execution.
     """
     if delete_existing_session:
         await get_session_service().delete_session(app_name=app_name, user_id=user_id, session_id=session_id)
@@ -132,7 +169,19 @@ async def _run_agent(
 # --- STAGE RUNNERS ---
 
 async def run_stage_1(file_bytes: bytes, mime_type: str, user_id: str, session_id: str, api_key: Optional[str] = None) -> Dict:
-    """Auditor Stage: Ingests contract."""
+    """
+    Runs Stage 1: Auditor. Ingests the contract, extracts text, and performs safety checks.
+
+    Args:
+        file_bytes (bytes): The raw file content.
+        mime_type (str): The MIME type of the file (e.g., 'application/pdf').
+        user_id (str): The ID of the user.
+        session_id (str): The unique session ID.
+        api_key (Optional[str], optional): Google API Key. Defaults to None.
+
+    Returns:
+        Dict: The Auditor's output, including fact sheet and safety status.
+    """
     audit_msg = types.Content(
         role="user", 
         parts=[
@@ -155,7 +204,18 @@ async def run_stage_1(file_bytes: bytes, mime_type: str, user_id: str, session_i
     return parse_json(session.state.get('auditor_output'))
 
 async def run_stage_2(user_id: str, session_id: str, fact_sheet: Dict, api_key: Optional[str] = None) -> tuple[Dict, float]:
-    """Debate Team Stage: Skeptic vs Advocate."""
+    """
+    Runs Stage 2: Debate Team. The Skeptic and Advocate analyze the fact sheet in parallel.
+
+    Args:
+        user_id (str): The ID of the user.
+        session_id (str): The unique session ID.
+        fact_sheet (Dict): The extracted facts from Stage 1.
+        api_key (Optional[str], optional): Google API Key. Defaults to None.
+
+    Returns:
+        tuple[Dict, float]: A tuple containing the session state (with arguments) and execution duration.
+    """
     prompt = f"""
     FACT SHEET:
     {json.dumps(fact_sheet, indent=2)}
@@ -180,7 +240,20 @@ async def run_stage_2(user_id: str, session_id: str, fact_sheet: Dict, api_key: 
     return session.state, duration
 
 async def run_stage_2_5(user_id: str, session_id: str, risks: list, counters: list, full_text: str, api_key: Optional[str] = None) -> Dict:
-    """Bailiff Loop Stage: Verify arguments."""
+    """
+    Runs Stage 2.5: Bailiff Loop. Verifies the arguments against the full contract text.
+
+    Args:
+        user_id (str): The ID of the user.
+        session_id (str): The unique session ID.
+        risks (list): List of risks identified by the Skeptic.
+        counters (list): List of counters identified by the Advocate.
+        full_text (str): The full text of the contract.
+        api_key (Optional[str], optional): Google API Key. Defaults to None.
+
+    Returns:
+        Dict: The verified arguments (risks and counters).
+    """
     new_state = {
         'current_arguments': {"risks": risks, "counters": counters},
         'full_text': full_text
@@ -224,7 +297,19 @@ async def run_stage_2_5(user_id: str, session_id: str, risks: list, counters: li
     return final_args
 
 async def run_stage_3(user_id: str, session_id: str, fact_sheet: Dict, evidence: Dict, api_key: Optional[str] = None) -> Dict:
-    """Judge Stage: Verdict."""
+    """
+    Runs Stage 3: Judge. Reviews the evidence and issues a final verdict and risk score.
+
+    Args:
+        user_id (str): The ID of the user.
+        session_id (str): The unique session ID.
+        fact_sheet (Dict): The extracted facts.
+        evidence (Dict): The verified risks and counters.
+        api_key (Optional[str], optional): Google API Key. Defaults to None.
+
+    Returns:
+        Dict: The final verdict, including risk score and summary.
+    """
     context_msg = f"""
     CASE FILE: {session_id}
     
@@ -252,7 +337,19 @@ async def run_stage_3(user_id: str, session_id: str, fact_sheet: Dict, evidence:
     return parse_json(session.state.get('final_verdict'))
 
 async def run_stage_4(user_id: str, session_id: str, verdict_data: Dict, tone: str, api_key: Optional[str] = None) -> Dict:
-    """Drafter Stage: Negotiation Toolkit."""
+    """
+    Runs Stage 4: Drafter. Generates a negotiation toolkit based on the verdict.
+
+    Args:
+        user_id (str): The ID of the user.
+        session_id (str): The unique session ID.
+        verdict_data (Dict): The verdict output from Stage 3.
+        tone (str): The desired tone for the negotiation email.
+        api_key (Optional[str], optional): Google API Key. Defaults to None.
+
+    Returns:
+        Dict: The drafted email and strategy notes.
+    """
     prompt_context = f"""
     GENERATE NEGOTIATION TOOLKIT
     

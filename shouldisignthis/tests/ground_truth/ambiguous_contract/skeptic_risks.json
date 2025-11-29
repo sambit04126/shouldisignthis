@@ -1,0 +1,44 @@
+{
+  "risks": [
+    {
+      "risk": "Subjective and Indefinite Payment Terms",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The clause 'We will pay you what we think is fair, eventually' removes your right to a fixed, agreed-upon rate and allows the Client to withhold payment indefinitely. You have no guarantee of getting paid a specific amount or within a specific timeframe."
+    },
+    {
+      "risk": "Unlimited Liability Exposure",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The text 'You are responsible for everything' implies unlimited liability. This exposes you to potentially bankrupting damages (e.g., lost profits, data breach costs) far exceeding the value of the contract. A liability cap (e.g., capped at 12 months' fees) is essential."
+    },
+    {
+      "risk": "Lack of Termination Rights (Indentured Servitude)",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The phrase 'You can't quit' prevents you from terminating the agreement, even if the Client stops paying you or becomes difficult to work with. You require a right to terminate for convenience (with notice) or at minimum for 'Cause' (material breach by Client)."
+    },
+    {
+      "risk": "Broad Intellectual Property Assignment",
+      "severity": "MEDIUM",
+      "page": 1,
+      "risk_type": "AMBIGUOUS",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "While it is standard for Clients to own the 'Work Product', the phrase 'We own it' is overly broad. Without a specific carve-out for 'Background IP' or 'Pre-existing Materials', you risk accidentally assigning ownership of your own tools, code libraries, or methodologies to the Client."
+    },
+    {
+      "risk": "Missing Effective Date",
+      "severity": "LOW",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract lacks a defined start date. This creates ambiguity regarding when performance obligations begin and hampers your ability to enforce payment schedules that rely on the project start date."
+    }
+  ]
+}

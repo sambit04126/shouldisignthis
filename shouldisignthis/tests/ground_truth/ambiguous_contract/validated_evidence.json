@@ -1,0 +1,76 @@
+{
+  "risks": [
+    {
+      "risk": "Subjective and Indefinite Payment Terms",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The clause 'We will pay you what we think is fair, eventually' removes your right to a fixed, agreed-upon rate and allows the Client to withhold payment indefinitely. You have no guarantee of getting paid a specific amount or within a specific timeframe."
+    },
+    {
+      "risk": "Unlimited Liability Exposure",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The text 'You are responsible for everything' implies unlimited liability. This exposes you to potentially bankrupting damages (e.g., lost profits, data breach costs) far exceeding the value of the contract. A liability cap (e.g., capped at 12 months' fees) is essential."
+    },
+    {
+      "risk": "Lack of Termination Rights (Indentured Servitude)",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The phrase 'You can't quit' prevents you from terminating the agreement, even if the Client stops paying you or becomes difficult to work with. You require a right to terminate for convenience (with notice) or at minimum for 'Cause' (material breach by Client)."
+    },
+    {
+      "risk": "Broad Intellectual Property Assignment",
+      "severity": "MEDIUM",
+      "page": 1,
+      "risk_type": "AMBIGUOUS",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "While it is standard for Clients to own the 'Work Product', the phrase 'We own it' is overly broad. Without a specific carve-out for 'Background IP' or 'Pre-existing Materials', you risk accidentally assigning ownership of your own tools, code libraries, or methodologies to the Client."
+    },
+    {
+      "risk": "Missing Effective Date",
+      "severity": "LOW",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract lacks a defined start date. This creates ambiguity regarding when performance obligations begin and hampers your ability to enforce payment schedules that rely on the project start date."
+    }
+  ],
+  "counters": [
+    {
+      "topic": "Termination Clause",
+      "counter": "The 'Client can fire, Consultant cannot quit' term is highly irregular. Standard consulting agreements include a mutual termination clause, typically allowing either party to terminate with 30 days' written notice.",
+      "confidence": "HIGH",
+      "industry_context": "Search results confirm that mutual termination for convenience (e.g., 30 days) is the standard to ensure balanced risk and prevent 'forced labor' or employee misclassification scenarios.",
+      "references": [
+        "https://www.lawinsider.com/clause/termination-of-consulting-period",
+        "https://fastercapital.com/content/The-Role-Of-Termination-Provisions-In-Consulting-Agreements.html"
+      ]
+    },
+    {
+      "topic": "Payment Terms",
+      "counter": "The term 'pay what we think is fair' is likely unenforceable as an 'illusory promise' due to lack of certainty. Standard terms require specific rates (hourly/fixed) and payment timelines (e.g., Net 30).",
+      "confidence": "HIGH",
+      "industry_context": "Contracts require definite terms to be legally binding. Discretionary payment clauses ('pay what we think is fair') act as unfair contract terms and are often voided by courts for vagueness.",
+      "references": [
+        "https://www.legalvision.com.au/5-key-examples-of-unfair-contract-terms/",
+        "https://www.accc.gov.au/business/selling-products-and-services/unfair-business-practices"
+      ]
+    },
+    {
+      "topic": "Liability Cap",
+      "counter": "Unlimited liability ('responsible for everything') is a critical risk. Industry standard caps liability to the total 'Fees Paid' over a 12-month period or a fixed insurance limit.",
+      "confidence": "HIGH",
+      "industry_context": "Search results indicate that professional service agreements typically cap liability at 1x-3x the contract value to prevent disproportionate financial exposure.",
+      "references": [
+        "https://www.hyperstart.com/blog/limitation-of-liability-clauses-guide/",
+        "https://www.sirion.ai/blog/limitation-liability-clauses-guide/"
+      ]
+    }
+  ]
+}

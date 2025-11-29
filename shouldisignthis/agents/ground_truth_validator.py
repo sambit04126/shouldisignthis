@@ -18,7 +18,7 @@ def get_ground_truth_validator_agent(api_key=None):
     """
     return LlmAgent(
         name="GroundTruthValidator",
-        model=get_judge_model(api_key=api_key),  # Use 2.5 Pro like Judge
+        model=get_judge_model(api_key=api_key),  
         instruction="""
 ROLE: Regression Test Validator
 

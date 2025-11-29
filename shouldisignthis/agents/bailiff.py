@@ -4,6 +4,12 @@ from ..config import get_worker_model
 
 # --- A. THE EXIT TOOL ---
 def approve_evidence():
+    """
+    Tool function to signal that evidence has been approved.
+
+    Returns:
+        str: "EVIDENCE_APPROVED" signal.
+    """
     return "EVIDENCE_APPROVED"
 
 exit_tool = FunctionTool(approve_evidence)

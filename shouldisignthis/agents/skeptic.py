@@ -5,6 +5,12 @@ def get_skeptic_agent(api_key=None):
     """
     Creates the Skeptic agent.
     Generic Version: Designed to work across NDA, MSA, Employment, and Freelance contracts.
+
+    Args:
+        api_key (str, optional): Google API Key for the model.
+
+    Returns:
+        LlmAgent: Configured Skeptic agent.
     """
     return LlmAgent(
         name="Skeptic",

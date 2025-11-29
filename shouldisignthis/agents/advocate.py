@@ -5,6 +5,12 @@ from ..tools.search_tools import search_tool
 def get_advocate_agent(api_key=None):
     """
     Creates the Advocate agent responsible for defending the contract with external research.
+
+    Args:
+        api_key (str, optional): Google API Key for the model.
+
+    Returns:
+        LlmAgent: Configured Advocate agent.
     """
     return LlmAgent(
         name="Advocate",

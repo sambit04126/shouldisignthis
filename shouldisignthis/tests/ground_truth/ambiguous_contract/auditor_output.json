@@ -1,0 +1,62 @@
+{
+  "is_contract": true,
+  "contract_type": "Consulting Agreement",
+  "is_safe": true,
+  "full_text": "CONSULTING ARRANGEMENT\n1. Work: Consultant will do stuff.\n2. Pay: We will pay you what we think is fair, eventually.\n3. IP: We own it.\n4. Termination: We can fire you. You can't quit.\n5. Liability: You are responsible for everything.",
+  "fact_sheet": {
+    "parties": {
+      "value": "Consultant and We (Client)",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "effective_date": {
+      "value": "NOT FOUND",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "termination_clause": {
+      "value": "We can fire you. You can't quit.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "payment_terms": {
+      "value": "We will pay you what we think is fair, eventually.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "liability_cap": {
+      "value": "You are responsible for everything.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "intellectual_property": {
+      "value": "We own it.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "non_compete_clause": {
+      "value": "NOT FOUND",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "dispute_resolution": {
+      "value": "NOT FOUND",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "key_obligations": [
+      {
+        "value": "Consultant will do stuff.",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    ],
+    "financial_terms": [
+      {
+        "value": "We will pay you what we think is fair, eventually.",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    ]
+  }
+}

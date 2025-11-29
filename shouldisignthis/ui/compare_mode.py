@@ -14,6 +14,15 @@ from shouldisignthis.orchestrator import (
 from shouldisignthis.tools.pdf_generator import create_comparison_report
 
 def render_compare_mode(api_key):
+    """
+    Renders the Contract Comparison UI mode.
+    
+    Handles uploading two contracts, running parallel analysis pipelines,
+    executing the Arbiter agent for comparison, and generating a decision brief.
+
+    Args:
+        api_key (str): The Google API Key to use for the agents.
+    """
     st.header("🥊 Contract Face-Off")
     st.markdown("**Compare two contracts and let the AI decide the winner.**")
 

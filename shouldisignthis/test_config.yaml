@@ -6,7 +6,6 @@ models:
   worker: "gemini-2.0-flash"
   judge: "gemini-2.5-pro" 
 
-
 retry_policy:
   attempts: 5
   exp_base: 2
@@ -20,7 +19,7 @@ safety_settings:
   HARM_CATEGORY_SEXUALLY_EXPLICIT: "BLOCK_ONLY_HIGH"
 
 app_config:
-  demo_mode: false
+  demo_mode: true # Enable demo mode for tests
   max_qa_iterations: 2
   confidence_threshold: 80
   extraction_min_rate: 0.5
@@ -29,5 +28,5 @@ app_config:
 
 logging:
   log_dir: "logs"
-  log_file: "contract_audit.log"
-  log_level: "INFO"
+  log_file: "tests.log"
+  log_level: "DEBUG" # TRACE level for tests

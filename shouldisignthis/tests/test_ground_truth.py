@@ -41,7 +41,51 @@ from shouldisignthis.tests.utils.llm_comparator import (
 
 from datetime import datetime
 
+import yaml
+import shouldisignthis.config as app_config
+from google.genai import types
+
 configure_logging()
+
+@pytest.fixture(scope="module", autouse=True)
+def setup_ground_truth_config():
+    """
+    Patches the app configuration to use ground_truth_config.yaml for these tests.
+    """
+    # 1. Load GT Config
+    gt_config_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../ground_truth_config.yaml"))
+    with open(gt_config_path, "r") as f:
+        gt_config = yaml.safe_load(f)
+        
+    # 2. Backup original
+    original_config = app_config.APP_CONFIG.copy()
+    
+    # 3. Patch
+    app_config.APP_CONFIG.clear()
+    app_config.APP_CONFIG.update(gt_config)
+    
+    # 4. Update dependents
+    app_config.models_cfg = app_config.APP_CONFIG.get("models", {})
+    app_config.SAFE_CONTRACT_SETTINGS = app_config.APP_CONFIG.get("safety_settings", {})
+    app_config.RETRY_POLICY = types.HttpRetryOptions(
+        attempts=app_config.APP_CONFIG.get("retry_policy", {}).get("attempts", 5),
+        exp_base=app_config.APP_CONFIG.get("retry_policy", {}).get("exp_base", 2),
+        initial_delay=app_config.APP_CONFIG.get("retry_policy", {}).get("initial_delay", 1),
+        http_status_codes=app_config.APP_CONFIG.get("retry_policy", {}).get("http_status_codes", [429, 500, 503])
+    )
+    
+    # 5. Re-configure logging
+    app_config.configure_logging(log_file_override="ground_truth.log")
+    
+    yield
+    
+    # 6. Restore
+    app_config.APP_CONFIG.clear()
+    app_config.APP_CONFIG.update(original_config)
+    app_config.models_cfg = app_config.APP_CONFIG.get("models", {})
+    app_config.SAFE_CONTRACT_SETTINGS = app_config.APP_CONFIG.get("safety_settings", {})
+    # Note: We don't strictly need to restore logging as the process will exit, 
+    # but good practice if we were running more tests in the same session.
 
 SAMPLE_CONTRACTS_DIR = Path(__file__).parent / "sample_contracts"
 GROUND_TRUTH_DIR = Path(__file__).parent / "ground_truth"
@@ -115,11 +159,30 @@ def get_ground_truth_contracts():
         return []
     
     contracts = []
+    
+    contracts = []
+    
+    # Check for config filter directly from file since fixture hasn't run yet
+    gt_config_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../ground_truth_config.yaml"))
+    config_contracts = []
+    try:
+        with open(gt_config_path, "r") as f:
+            gt_cfg = yaml.safe_load(f)
+            config_contracts = gt_cfg.get("ground_truth", {}).get("contracts", [])
+    except Exception:
+        pass
+    
     for contract_dir in GROUND_TRUTH_DIR.iterdir():
         if contract_dir.is_dir():
             # Check if it has metadata.json
             if (contract_dir / "metadata.json").exists():
-                contracts.append(contract_dir.name)
+                contract_name = contract_dir.name
+                
+                # Apply filter if configured
+                if config_contracts and contract_name not in config_contracts:
+                    continue
+                    
+                contracts.append(contract_name)
     
     return contracts
 
@@ -157,6 +220,13 @@ async def test_ground_truth(contract_name):
     # Track outputs for saving
     current_outputs = {}
     
+    # Track validation results
+    validation_summary = {
+        "contract": contract_name,
+        "status": "PASSED",
+        "stages": {}
+    }
+
     async def validate_stage(stage_name: str, output_data: dict, filename: str):
         """Validate a stage's output against ground truth."""
         print(f"\n🔍 Comparing stage '{stage_name}' with ground truth...")
@@ -180,10 +250,27 @@ async def test_ground_truth(contract_name):
         print(f"  🤖 Agent validating: {stage_name}...")
         result = await comparator.compare_outputs(stage_name, ground_truth, output_data)
         
+        # Record result
+        validation_summary["stages"][stage_name] = {
+            "approved": result.approved,
+            "reason": result.reason,
+            "deviation": result.deviation_details
+        }
+        
+        # Save summary incrementally
+        summary_path = TEST_OUTPUT_DIR / contract_name / "validation_summary.json"
+        with open(summary_path, "w") as f:
+            json.dump(validation_summary, f, indent=2)
+        
         # Show result
         print(f"\n{result.get_report()}")
         
         if not result.approved:
+            validation_summary["status"] = "FAILED"
+            validation_summary["failed_stage"] = stage_name
+            with open(summary_path, "w") as f:
+                json.dump(validation_summary, f, indent=2)
+
             new_output_path = TEST_OUTPUT_DIR / contract_name / filename
             gt_output_path = ground_truth_path / filename
             

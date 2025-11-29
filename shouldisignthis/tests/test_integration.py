@@ -21,7 +21,8 @@ from shouldisignthis.orchestrator import (
 )
 
 # Setup
-configure_logging()
+# Setup
+# configure_logging() # Moved to conftest.py or main block
 OUTPUT_DIR = "test_output"
 SAMPLE_CONTRACT_PATH = os.path.join(os.path.dirname(__file__), "sample_contracts", "sample_contract.pdf")
 
@@ -110,4 +111,5 @@ async def test_integration():
     print(f"\n💾 Full Integration Output saved to: {output_path}")
 
 if __name__ == "__main__":
+    configure_logging(log_file_override="test_integration.log")
     asyncio.run(test_integration())
