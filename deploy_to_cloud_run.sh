@@ -3,6 +3,13 @@ set -e # Exit immediately if a command exits with a non-zero status
 
 # Check if Google Cloud SDK is installed
 if ! command -v gcloud &> /dev/null; then
+    # Try adding common Homebrew path if not found
+    if [ -d "/usr/local/share/google-cloud-sdk/bin" ]; then
+        export PATH="/usr/local/share/google-cloud-sdk/bin:$PATH"
+    fi
+fi
+
+if ! command -v gcloud &> /dev/null; then
     echo "❌ Error: Google Cloud SDK (gcloud) is not installed."
     echo "Please install it from: https://cloud.google.com/sdk/docs/install"
     exit 1
