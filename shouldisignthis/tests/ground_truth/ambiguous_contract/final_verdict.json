@@ -1,16 +1,16 @@
 {
   "verdict": "REJECT",
-  "risk_score": 10,
-  "confidence": 100,
-  "summary": "This contract is fundamentally unconscionable and legally hazardous. It attempts to establish a relationship of involuntary servitude by expressly forbidding you from quitting, while simultaneously offering an illusory promise of payment ('what we think is fair') that likely renders the agreement unenforceable. Combined with unlimited liability exposure ('responsible for everything'), this document provides no protection, no guaranteed income, and infinite risk.",
+  "risk_score": 20,
+  "confidence": 98,
+  "summary": "This contract is fundamentally unserious and dangerously one-sided. It exposes the consultant to unlimited liability, contains unenforceable payment terms, and imposes a unilateral termination clause that traps the consultant. Key standard clauses are missing, and the obligations are not defined. The document as written is unprofessional and presents an unacceptable level of risk. It should be rejected outright and replaced with a standard, professionally drafted agreement.",
   "key_factors": [
-    "Illusory Payment Terms: 'Pay what we think is fair' provides no legal guarantee of compensation.",
-    "Forced Labor Clause: The prohibition on resignation ('You can't quit') is unethical and likely illegal.",
-    "Unlimited Liability: Absolute responsibility for all damages is a bankruptcy-level risk."
+    "Three 'CRITICAL' risks: Unlimited Liability, Vague Payment Terms, and Unilateral Termination.",
+    "The complete lack of specificity, fairness, and mutual obligation.",
+    "The absence of essential clauses such as Dispute Resolution and an Effective Date."
   ],
   "negotiation_points": [
-    "Demand specific, enforceable payment terms (e.g., $X/hour, Net 30).",
-    "Require a mutual termination clause allowing you to exit with notice (e.g., 30 days).",
-    "Implement a market-standard liability cap (e.g., limited to Fees Paid)."
+    "This document is not a basis for negotiation; request a complete redraft using a standard consulting agreement.",
+    "Introduce a standard Limitation of Liability clause, capped at the fees paid under the agreement.",
+    "Define specific payment rates, invoicing procedures, and net payment days (e.g., Net-30)."
   ]
 }

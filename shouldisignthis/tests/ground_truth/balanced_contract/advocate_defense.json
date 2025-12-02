@@ -1,33 +1,16 @@
 {
   "counters": [
     {
-      "topic": "Warranty Period",
-      "counter": "A 90-day warranty is common for enterprise contracts but aggressive for freelance work; freelancers often negotiate this to 30 days to limit unpaid bug-fixing liability.",
-      "confidence": "HIGH",
-      "industry_context": "Industry legal analysis suggests 30 days is the typical 'floor' for software warranties, while 90 days is often the ceiling for service agreements.",
-      "references": [
-        "https://techcontracts.com/2022/08/17/how-long-should-a-warranty-last/",
-        "https://www.quora.com/What-type-of-warranty-do-freelance-mobile-software-developers-typically-include-in-a-contract-with-a-client"
-      ]
-    },
-    {
-      "topic": "Payment Terms",
-      "counter": "While Net 30 is the standard for corporate accounts payable, freelancers frequently request Net 15 or 'Due on Receipt' to mitigate cash flow gaps.",
-      "confidence": "HIGH",
-      "industry_context": "Search results confirm Net 30 is the B2B norm, but Net 15 is a widely accepted negotiated term for independent contractors.",
-      "references": [
-        "https://mattolpinski.com/articles/net-payment-terms/",
-        "https://www.justpaid.ai/blog/payment-terms-net-30-vs-net-15-vs-due-on-receipt"
-      ]
-    },
-    {
       "topic": "Liability Cap",
-      "counter": "The liability cap set to 'fees paid in the preceding 12 months' is a strong, standard protection for consultants, aligning with best market practices.",
+      "counter": "The Consultant's liability being limited to the total fees paid in the 12 months preceding a claim is a common practice in contracts. This approach directly links the liability to the economic value of the relationship. It's a risk management tool that provides clarity on potential compensation.",
       "confidence": "HIGH",
-      "industry_context": "Legal guides for SaaS and consulting agreements consistently cite '12 months of fees' as the standard liability cap to ensure risk is proportionate to deal size.",
+      "industry_context": "Caps based on fees paid are frequently used in SaaS and service agreements. While specific figures vary, capping liability at 1x or 2x the annual fees is standard.",
       "references": [
-        "https://www.koleyjessen.com/insights-software-license-agreement-limitation-of-liability",
-        "https://www.hyperstart.com/blog/limitation-of-liability-clauses"
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHdNKahm2UFPa9CTlUlrlBhGithV7RrT0wPjpFThrauo5nzvhJP3A1zDzquWLCdbgC42vX-SehQN7AYwe9RKvDzY2r6W6x0H4Qnz8Gt9gdRLzmzF39x7vv3x3eAbJyGv-NA2CQpjVrEmfPKObCdTyVUv83u2Qb0g_zUouQ-NYOeT63-C5XLCqI=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFoz1dGPnvo6GMa1RjSITsI4rNYFXKkiBd2fPlImBQ2qRLl0McqqFgZTnLdHBEviFZnvIkgSTkC8eNqMs1TRGcoypNAI3lJbaqEpB0qWk3NcXlqFbyMj4Z_E01Cd20o19bYNGUqKTD3scZ5u1A_8zFee1Q=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFXoNblp-kW49CrTT-U7EfSsIOON4ct2KkPtAiGZ4WwjPfYaskDaUGR6Dm_Wt4B3BBD9pGq6qN4s7kz-v_SyxqqleS6EalldMtra02RYuGkmRmcMkX8YSdiDhSLqQ6lr0s7ZtzOmbGbib_Tu3yUAkdLqQdfDFCSxuZ7QDNXs1ZxVhlzfny2fTq5BKcgNZykARRAwneoK9y6pS6B65AfqUw=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHpWrisb8n2oqQEn0kr0SZDGAxv7MQfZypgH9S-LcZVmhWYuls8sCkKeX6BUSILcABllmLMzDFuodpe3hw3c-AUCL-_qWZcsfCRjgRYnJWyYpqq_QjFWTOHJNchmeXoC1T7e8cHy7thp8iGhln9vsDLTxWldLR0ur1W-Ev7-XsV5hWYBFwysLyw",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHff4Eb16Kq0A0C6dVuMmRrtuSEjhJbUZwlHtLNQpeGC4yJmr9L5ZCDBDeblIqGYautjc-jxuy6ujg6YfE4OGAmEpP6BsjfZG-3gh3FShZvF1ueZNcFEhn1cHFynRWC1h4Ut_uj_8TndUle_0G7QqnHjwYTZFcWuxpGsrNGMJJ83xG3eryCTG5iHS4j42h7UVwgFQznYXpHk6Y="
       ]
     }
   ]

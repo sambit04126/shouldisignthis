@@ -1,19 +1,19 @@
 {
   "final_verdict": {
-    "verdict": "CAUTION",
-    "risk_score": 82,
-    "confidence": 86,
-    "summary": "The verdict is to proceed with caution. The primary risk is the complete absence of a clause specifying the transfer of intellectual property ownership, which is a high-severity issue that leaves the client without ownership of the final work product. A secondary, medium-severity risk is the liability cap of $5,000, which may be insufficient to cover potential damages. While the cap is noted as standard for small projects, the IP ownership issue must be rectified before acceptance.",
+    "verdict": "REJECT",
+    "risk_score": 45,
+    "confidence": 95,
+    "summary": "This contract is rejected due to a critical, unaddressed flaw. The complete absence of a clause transferring intellectual property (IP) ownership to the client is a fundamental deficiency. While the liability cap is explained, it does not mitigate the fact that the client would be paying for a work product they do not legally own. This single issue presents an unacceptable business risk, rendering the contract unfit for execution in its current state.",
     "key_factors": [
-      "No IP ownership transfer specified (HIGH severity)",
-      "Liability limited to $5,000 (MEDIUM severity)",
-      "Lack of key clauses poses significant future risk"
+      "Critical failure to transfer intellectual property (IP) ownership to the client.",
+      "The highest severity risk is entirely unaddressed by any counter-arguments.",
+      "Risk of paying for work product without legal ownership or rights to use it."
     ],
     "negotiation_points": [
-      "Add a clause that explicitly transfers all intellectual property rights to the client upon final payment.",
-      "Negotiate a higher liability cap that is commensurate with the potential damages.",
-      "Request a clear 'Work for Hire' clause to solidify IP ownership status."
+      "MUST ADD: An 'Assignment of Intellectual Property' or 'Work for Hire' clause that unequivocally transfers all rights for the completed work to the client upon final payment.",
+      "The $5,000 liability cap should be re-evaluated to ensure it is commensurate with the total project value and potential damages.",
+      "Request a mutual indemnification clause to protect against third-party claims arising from the work."
     ]
   },
-  "duration": 20.13226008415222
+  "duration": 19.984049081802368
 }

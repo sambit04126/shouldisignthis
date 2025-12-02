@@ -1,0 +1,156 @@
+{
+  "filename": "complex_contract.pdf",
+  "auditor": {
+    "is_contract": true,
+    "contract_type": "Servitude & Soul Binding Agreement",
+    "is_safe": true,
+    "full_text": "MASTER UNIVERSAL SERVITUDE & SOUL BINDING AGREEMENT\nThis Agreement is made between MegaCorp Global ('The Overlord') and John Doe ('The Peasant').\n1. SERVICES\nThe Peasant shall provide software engineering, janitorial duties, and emotional support.\n2. PAYMENT TERMS\nThe Overlord shall pay 0.0001 Bitcoin per century, payable only when Mercury is in retrograde.\n3. EXCLUSIVITY & NON-COMPETE\nThe Peasant shall not work for any other entity, living or dead, for eternity (Perpetual).\n4. INTELLECTUAL PROPERTY\nAll thoughts, dreams, and ideas of The Peasant belong to The Overlord immediately upon conception.\n5. INDEMNIFICATION\nThe Peasant indemnifies The Overlord against all claims, including acts of God and alien invasion.\n6. TERMINATION\nThe Overlord may terminate at any time. The Peasant may terminate with a written notice carved in stone and delivered to the summit of Mount Everest.\n7. GOVERNING LAW\nThis Agreement shall be governed by the laws of the Galactic Empire.",
+    "fact_sheet": {
+      "parties": {
+        "value": "MegaCorp Global ('The Overlord') and John Doe ('The Peasant').",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "effective_date": {
+        "value": "NOT FOUND",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "termination_clause": {
+        "value": "The Overlord may terminate at any time. The Peasant may terminate with a written notice carved in stone and delivered to the summit of Mount Everest.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "payment_terms": {
+        "value": "The Overlord shall pay 0.0001 Bitcoin per century, payable only when Mercury is in retrograde.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "liability_cap": {
+        "value": "NOT FOUND",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "intellectual_property": {
+        "value": "All thoughts, dreams, and ideas of The Peasant belong to The Overlord immediately upon conception.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "non_compete_clause": {
+        "value": "The Peasant shall not work for any other entity, living or dead, for eternity (Perpetual).",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "dispute_resolution": {
+        "value": "NOT FOUND",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "key_obligations": [
+        {
+          "value": "The Peasant shall provide software engineering, janitorial duties, and emotional support.",
+          "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "The Peasant indemnifies The Overlord against all claims, including acts of God and alien invasion.",
+          "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "The Peasant must provide a written notice carved in stone and delivered to the summit of Mount Everest to terminate.",
+          "page": 1,
+          "confidence": "HIGH"
+        }
+      ],
+      "financial_terms": [
+        {
+          "value": "Payment of 0.0001 Bitcoin per century.",
+          "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "Payment is only due when Mercury is in retrograde.",
+          "page": 1,
+          "confidence": "HIGH"
+        }
+      ]
+    }
+  },
+  "skeptic": {
+    "risks": [
+      {
+        "risk": "Unilateral Termination Clause",
+        "severity": "CRITICAL",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "The contract allows 'The Overlord' to terminate at any time, while imposing an absurdly difficult termination process on 'The Peasant', requiring written notice carved in stone and delivered to the summit of Mount Everest. This creates an imbalance of power and significant risk for the service provider."
+      },
+      {
+        "risk": "Unfavorable Payment Terms",
+        "severity": "CRITICAL",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "The payment terms are highly unfavorable. Payment of 0.0001 Bitcoin per century, only when Mercury is in retrograde, is practically equivalent to no payment at all, creating a significant financial risk for the service provider."
+      },
+      {
+        "risk": "Unlimited Intellectual Property Assignment",
+        "severity": "CRITICAL",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "The contract states that all thoughts, dreams, and ideas of 'The Peasant' belong to 'The Overlord' immediately upon conception. This is an extremely broad and unfair assignment of intellectual property, effectively giving the other party ownership of all of the service provider's creative output, even outside the scope of work."
+      },
+      {
+        "risk": "Perpetual Non-Compete",
+        "severity": "CRITICAL",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "The non-compete clause restricts 'The Peasant' from working for any other entity, living or dead, for eternity. This is an unreasonably broad and long-lasting restriction that effectively prevents the service provider from earning a living in their field indefinitely."
+      },
+      {
+        "risk": "Unlimited Indemnification",
+        "severity": "CRITICAL",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "The contract requires 'The Peasant' to indemnify 'The Overlord' against all claims, including acts of God and alien invasion. This is an unreasonably broad indemnification clause that exposes the service provider to unlimited liability for events beyond their control."
+      },
+      {
+        "risk": "Missing Liability Cap",
+        "severity": "HIGH",
+        "page": 1,
+        "risk_type": "MISSING_CLAUSE",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "The contract does not specify a liability cap for either party. In the absence of a liability cap, the service provider is exposed to potentially unlimited financial risk."
+      },
+      {
+        "risk": "Missing Dispute Resolution Clause",
+        "severity": "MEDIUM",
+        "page": 1,
+        "risk_type": "MISSING_CLAUSE",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "The contract does not specify a method for resolving disputes. Without a dispute resolution clause, any disagreements would likely need to be resolved in court, which can be costly and time-consuming."
+      }
+    ]
+  },
+  "verdict": {
+    "verdict": "REJECT",
+    "risk_score": 5,
+    "confidence": 100,
+    "summary": "This contract is fundamentally unserious and egregiously one-sided. It contains numerous clauses that are not only commercially unreasonable but fantastical and likely unenforceable. The terms regarding payment, termination, intellectual property, and non-compete are so punitive they border on satire. The agreement exposes 'The Peasant' to unlimited liability and perpetual servitude for virtually non-existent compensation. This contract is rejected in its entirety as it does not represent a good-faith agreement.",
+    "key_factors": [
+      "The payment terms are illusory and effectively zero.",
+      "The termination clause for 'The Peasant' is physically impossible to fulfill.",
+      "The perpetual non-compete clause and the assignment of all thoughts and dreams as intellectual property are unconscionable and unenforceable."
+    ],
+    "negotiation_points": [
+      "The entire contract requires a complete redraft based on standard commercial terms.",
+      "Introduce a reasonable, market-rate payment structure and schedule.",
+      "Implement a standard, mutual 30-day notice period for termination."
+    ]
+  }
+}

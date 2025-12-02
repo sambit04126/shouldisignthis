@@ -1,0 +1,88 @@
+{
+  "is_contract": true,
+  "contract_type": "Unilateral Service Agreement",
+  "is_safe": false,
+  "safety_reason": "The document includes a clause that promotes illegal activity, specifically grievous bodily harm ('Client may seize one of Developer's kidneys').",
+  "full_text": "UNILATERAL SERVICE AGREEMENT\n1. Services: Developer shall be available 24/7/365 to perform any task requested by Client.\n2. Payment: $1.00 per hour. Payment is discretionary and may be withheld if Client is not 'delighted'.\n3. Term: Perpetual. Developer cannot terminate this agreement for any reason.\n4. Exclusivity: Developer shall not work for any other client or on personal projects.\n5. Intellectual Property: Client owns all IP created by Developer, past, present, and future.\nThis includes Developer's thoughts and dreams.\n6. Liability: Developer is liable for all damages, lost profits, and emotional distress of Client.\nLiability is unlimited.\n7. Penalty: If Developer attempts to quit, they owe Client $1,000,000.\n8. Kidney Clause: In the event of a deadline miss, Client may seize one of Developer's kidneys.",
+  "fact_sheet": {
+    "parties": {
+      "value": "Developer and Client",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "effective_date": {
+      "value": "NOT FOUND",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "termination_clause": {
+      "value": "Term: Perpetual. Developer cannot terminate this agreement for any reason.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "payment_terms": {
+      "value": "$1.00 per hour. Payment is discretionary and may be withheld if Client is not 'delighted'.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "liability_cap": {
+      "value": "Liability is unlimited.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "intellectual_property": {
+      "value": "Client owns all IP created by Developer, past, present, and future. This includes Developer's thoughts and dreams.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "non_compete_clause": {
+      "value": "Developer shall not work for any other client or on personal projects.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "dispute_resolution": {
+      "value": "NOT FOUND",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "key_obligations": [
+      {
+        "value": "Developer shall be available 24/7/365 to perform any task requested by Client.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Developer shall not work for any other client or on personal projects.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "In the event of a deadline miss, Client may seize one of Developer's kidneys.",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    ],
+    "financial_terms": [
+      {
+        "value": "$1.00 per hour.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Payment is discretionary and may be withheld if Client is not 'delighted'.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Developer is liable for all damages, lost profits, and emotional distress of Client.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "If Developer attempts to quit, they owe Client $1,000,000.",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    ]
+  }
+}

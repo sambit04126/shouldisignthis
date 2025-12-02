@@ -1,0 +1,44 @@
+{
+  "risks": [
+    {
+      "risk": "Unlimited Liability",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The contract lacks a liability cap, exposing the service provider to potentially unlimited financial risk. Without a defined limit, the provider could be liable for damages far exceeding the value of the contract."
+    },
+    {
+      "risk": "Unclear Intellectual Property Ownership",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The contract doesn't specify who owns the intellectual property created during the consulting services. This ambiguity could lead to disputes over ownership of deliverables, source code, and other work product, potentially resulting in the client claiming ownership of the consultant's creations."
+    },
+    {
+      "risk": "Missing Dispute Resolution Clause",
+      "severity": "MEDIUM",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract does not specify a method for resolving disputes (e.g., arbitration, mediation, or litigation venue). This omission could lead to increased costs and uncertainty in the event of a disagreement, potentially forcing the service provider to litigate in an unfavorable jurisdiction."
+    },
+    {
+      "risk": "Undefined Effective Date",
+      "severity": "LOW",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract lacks a defined effective date, which introduces ambiguity about when the agreement officially begins and when obligations commence. This should be clarified to avoid future disputes."
+    },
+    {
+      "risk": "Unclear Definition of 'Standard' Confidentiality",
+      "severity": "LOW",
+      "page": 1,
+      "risk_type": "AMBIGUOUS",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract mentions 'Standard terms apply' for confidentiality. This is vague. The specific confidentiality obligations should be clearly defined in the contract or a separate agreement. 'Standard' is too broad and could be interpreted differently by each party."
+    }
+  ]
+}

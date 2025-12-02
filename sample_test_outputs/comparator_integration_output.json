@@ -1,36 +1,24 @@
 {
-  "better_risk_score": "Contract B",
-  "comparison_summary": "Based on the provided analysis, Contract B has a significantly lower numerical risk score. Contract A is characterized by actively predatory and unconscionable terms, including unlimited liability and illusory compensation, posing an extreme and direct financial risk. In contrast, Contract B's risks stem from critical omissions, such as the lack of a Scope of Work and a dispute resolution clause. While these omissions create significant ambiguity and potential for future conflict, the core terms that are present are considered standard and commercially reasonable.",
+  "better_risk_score": "Contract A",
+  "comparison_summary": "Contract A presents a standard business agreement with moderate, negotiable risks typical of commercial contracts. Its issues, such as a broad indemnification clause and short review periods, are addressable. In contrast, Contract B is fundamentally unacceptable, containing an illegal and dangerous clause that renders the entire document void and signals an untrustworthy counterparty. The primary difference is between a contract with manageable business risks (Contract A) and a document that is illegal and should be rejected outright (Contract B).",
   "key_differences": [
     {
-      "category": "Liability",
-      "contract_a_observation": "Imposes unlimited, uncapped liability on one party, extending even to unforeseeable events like acts of God.",
-      "contract_b_observation": "The analysis does not highlight any unusual liability clauses, suggesting they may be standard or unaddressed. The risk stems more from ambiguity in deliverables.",
-      "risk_assessment": "Contract A's liability term presents a catastrophic and unacceptable level of financial risk. Contract B's risk profile is substantially lower in this regard, as the immediate concern is ambiguity rather than a specific, unfair liability clause."
+      "category": "Overall Legality and Enforceability",
+      "contract_a_observation": "A standard, legally enforceable business agreement with several negotiable clauses.",
+      "contract_b_observation": "Contains an illegal clause advocating for physical harm and organ seizure, making the document unsafe and unenforceable.",
+      "risk_assessment": "Contract B carries an extreme, unacceptable level of risk due to its illegal content. Such clauses are void and indicate a counterparty that is either malicious or not operating in good faith. Contract A's risks are within the normal bounds of business and can be managed through legal negotiation."
     },
     {
-      "category": "Payment & Compensation",
-      "contract_a_observation": "Payment terms are described as 'illusory' and represent a 'complete failure of consideration' (0.0001 Bitcoin per century).",
-      "contract_b_observation": "Core financial terms are described as 'standard,' implying a commercially reasonable compensation structure.",
-      "risk_assessment": "Contract A offers no meaningful compensation, making the agreement fundamentally non-viable from a commercial standpoint. Contract B presents a standard, lower-risk approach to compensation, though disputes could arise due to the undefined scope of work."
+      "category": "Liability and Penalties",
+      "contract_a_observation": "Includes a broad indemnification clause covering simple negligence, which is a moderate but common financial risk point for negotiation.",
+      "contract_b_observation": "Proposes an illegal penalty of physical harm as a consequence of breach, which is not a legitimate form of liability.",
+      "risk_assessment": "The liability risk in Contract A is financial and can be quantified and negotiated. The 'penalty' in Contract B is not a financial risk but an illegal threat, placing it in a category of its own. It is not a legitimate contractual term."
     },
     {
-      "category": "Termination Rights",
-      "contract_a_observation": "Grants unilateral, at-will termination rights to one party, creating a severe power imbalance.",
-      "contract_b_observation": "Termination terms are characterized as 'standard,' which typically implies mutual rights for both parties to terminate, often with a notice period.",
-      "risk_assessment": "The one-sided termination clause in Contract A creates instability and high risk for the disadvantaged party. Contract B's standard approach provides a more balanced, predictable, and lower-risk framework for ending the engagement."
-    },
-    {
-      "category": "Scope of Work (SOW)",
-      "contract_a_observation": "The analysis does not mention an SOW, as the contract's primary issues are its fundamentally predatory clauses.",
-      "contract_b_observation": "There is a complete absence of a Scope of Work (SOW), which is identified as a critical flaw creating ambiguity in deliverables.",
-      "risk_assessment": "The absence of an SOW in Contract B is a major source of risk, potentially leading to scope creep and payment disputes. While a significant issue, it is a risk of ambiguity, whereas Contract A's risks are explicitly defined and hostile."
-    },
-    {
-      "category": "Dispute Resolution",
-      "contract_a_observation": "The analysis does not specify a dispute resolution clause, but the overall one-sided nature of the contract implies any disputes would be heavily biased.",
-      "contract_b_observation": "Lacks a defined dispute resolution mechanism, which can complicate and increase the cost of resolving disagreements.",
-      "risk_assessment": "The lack of a formal process in Contract B elevates the risk of costly legal conflicts. Contract A is structured so unfairly that a formal dispute resolution process would likely be ineffective for the disadvantaged party anyway."
+      "category": "Actionability and Negotiation",
+      "contract_a_observation": "The 'CAUTION' verdict is paired with specific, actionable negotiation points to improve the contract's fairness and reduce risk.",
+      "contract_b_observation": "The 'REJECT' verdict is absolute, with the only guidance being 'Do not sign.' The core issue is non-negotiable.",
+      "risk_assessment": "Contract A presents a viable path forward for establishing a business relationship, provided the identified risks are addressed. Contract B offers no viable path forward and engagement should cease immediately."
     }
   ]
 }

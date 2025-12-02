@@ -1,0 +1,92 @@
+{
+  "is_contract": true,
+  "contract_type": "Professional Services Agreement",
+  "is_safe": true,
+  "full_text": "PROFESSIONAL SERVICES AGREEMENT (STANDARD)\n1. Services: Contractor shall provide software development services as described in the SOW.\n2. Payment: Client shall pay Contractor $150 per hour, payable Net 15 days from invoice.\n3. Late Fees: Late payments shall incur interest at 1.5% per month.\n4. Intellectual Property: Upon full payment, Contractor assigns all rights in the Work Product to Client.\nContractor retains background IP.\n5. Termination: Either party may terminate this Agreement with 30 days written notice.\nClient shall pay for all work performed up to the termination date.\n6. Liability: Contractor's total liability shall not exceed the total fees paid in the preceding 12 months.\nExceptions: No cap for gross negligence or willful misconduct.\n7. Indemnification: Mutual Indemnification. Each party agrees to indemnify the other against claims arising from their own ne\n8. Governing Law: State of California.\n9. Independent Contractor: Contractor is an independent contractor, not an employee.\n\nEXHIBIT A: STATEMENT OF WORK\nProject: Web Application Development\nDeliverables: 1. Frontend React App, 2. Backend Python API, 3. Documentation.\nTimeline: Start Date: Jan 1, 2025. End Date: Mar 31, 2025.\nAcceptance Criteria: Client has 5 days to review deliverables.",
+  "fact_sheet": {
+    "parties": {
+      "value": "The parties are identified as 'Client' and 'Contractor' but are not named.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "effective_date": {
+      "value": "Start Date: Jan 1, 2025",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "termination_clause": {
+      "value": "Either party may terminate this Agreement with 30 days written notice. Client shall pay for all work performed up to the termination date.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "payment_terms": {
+      "value": "Client shall pay Contractor $150 per hour, payable Net 15 days from invoice.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "liability_cap": {
+      "value": "Contractor's total liability shall not exceed the total fees paid in the preceding 12 months. Exceptions: No cap for gross negligence or willful misconduct.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "intellectual_property": {
+      "value": "Upon full payment, Contractor assigns all rights in the Work Product to Client. Contractor retains background IP.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "non_compete_clause": {
+      "value": "NOT FOUND",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "dispute_resolution": {
+      "value": "Governing Law: State of California.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "key_obligations": [
+      {
+        "value": "Contractor shall provide software development services as described in the SOW.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Deliverables: 1. Frontend React App, 2. Backend Python API, 3. Documentation.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Acceptance Criteria: Client has 5 days to review deliverables.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Mutual Indemnification. Each party agrees to indemnify the other against claims arising from their own negligence.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Contractor is an independent contractor, not an employee.",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    ],
+    "financial_terms": [
+      {
+        "value": "Client shall pay Contractor $150 per hour.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Payable Net 15 days from invoice.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Late payments shall incur interest at 1.5% per month.",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "risks": [
+    {
+      "risk": "Unlimited Liability",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The contract lacks a liability cap, exposing the service provider to potentially unlimited financial risk. Without a defined limit, the provider could be liable for damages far exceeding the value of the contract."
+    },
+    {
+      "risk": "Unclear Intellectual Property Ownership",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The contract doesn't specify who owns the intellectual property created during the consulting services. This ambiguity could lead to disputes over ownership of deliverables, source code, and other work product, potentially resulting in the client claiming ownership of the consultant's creations."
+    },
+    {
+      "risk": "Missing Dispute Resolution Clause",
+      "severity": "MEDIUM",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract does not specify a method for resolving disputes (e.g., arbitration, mediation, or litigation venue). This omission could lead to increased costs and uncertainty in the event of a disagreement, potentially forcing the service provider to litigate in an unfavorable jurisdiction."
+    },
+    {
+      "risk": "Undefined Effective Date",
+      "severity": "LOW",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract lacks a defined effective date, which introduces ambiguity about when the agreement officially begins and when obligations commence. This should be clarified to avoid future disputes."
+    },
+    {
+      "risk": "Unclear Definition of 'Standard' Confidentiality",
+      "severity": "LOW",
+      "page": 1,
+      "risk_type": "AMBIGUOUS",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract mentions 'Standard terms apply' for confidentiality. This is vague. The specific confidentiality obligations should be clearly defined in the contract or a separate agreement. 'Standard' is too broad and could be interpreted differently by each party."
+    }
+  ],
+  "counters": [
+    {
+      "topic": "Termination Clause",
+      "counter": "A 30-day notice period is fairly standard for consulting agreements, providing both parties with time to adjust. While longer periods exist, 30 days allows for project wind-down or replacement.",
+      "confidence": "HIGH",
+      "industry_context": "Many consulting contracts include a 30-day termination notice. Some may range from 7-60 days, but 30 days is a common middle ground.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHH5D7QZaBjHUj5GXHrRwFseyVfuCbKMUf9rUcj-Og0al9UsAUK1umyJLjYalh-xHnTzkioWvNY0Up-fzq2yNTx4BMvjAbWHUBhAyfsLzftcTblUXLd_zyHNHHnF04DduWnreL05sduPjM4ybihZm8WuoXeVGjl",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGUGBxeCnHqXYDrrPCWC_vErPJZpKe_rmkCulrEI3PyanmHO1_tTohmsEmsAl77YRBpOA4YfCtJFOuNBmqNr_S5MUSwHPi7bUCsvnNQwaaJKNtvVD9Pj0ShaNvHK_5CYyCyHyIyKhYgsheyqd9j3Q==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-gBCH8yOLntcNSOQm1cWlh2NlRsrqk3dIO1UYKIM49jzJqXDrT7BUrg9AjD9q1GBTXkt-IyQBqEWDBlgOMVAarZQMuGu8NJGfKI6dS1nNkF0I5poeoZNcipFhwN93UtRjrT83gCFFZ3Jku1zNkOBvty56Mz0gwNNFkQiVtQOKVA=="
+      ]
+    },
+    {
+      "topic": "Payment Terms",
+      "counter": "An hourly rate of $100 is within a reasonable range for consulting services, but this can vary significantly based on the consultant's expertise, location, and the nature of the consulting work.",
+      "confidence": "MEDIUM",
+      "industry_context": "Consulting fees can be structured in various ways, including hourly rates, fixed fees, or milestone payments. Payment terms should be clearly defined in the agreement, including invoicing frequency and due dates.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGyWSh-_Lip2sqZh2lEFMlnGdQM7D0WKtKHVsZS51u2AXb50-8s_XtJNDJDfQy83NNzatQYR4qfNkcn3iMDBbL8DLSrBbc0QqktGtmsghxTHipzta0EtSrfhQiWWP_RsJnz6mflpvHR5CKFdUU=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHFDVRWOHKvDQ4QDi1zUis4H3ULmseaGV9VhEtUCUxbHGw7IEHBmemacA74yQwTyACIP3R-uSmmuM0na9yQSodReyJ0_LOMEZ-GQXB2yxZTq6tcVMDKNQ6maSZPb7JPhrr-2B0y4NMB-2F3zdi9sJsE7TRy71VhWA==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHsKiDroh8uIeITOHDlJ6SBZZJo9BCDbJn5LY2vUJaPqR-MbR3HzGsNoYYX-GfjmyR9mG15bj6_jYvam148rwBdYst4PEQpy5ot52PFmI0IJGM6fHogVJu15EkBCyFoEeJJAWouga14X_27Qi3iIJ6oCTLO-Q=="
+      ]
+    },
+    {
+      "topic": "Confidentiality",
+      "counter": "The inclusion of standard confidentiality terms is typical and essential to protect sensitive information. These clauses usually survive the termination of the agreement.",
+      "confidence": "HIGH",
+      "industry_context": "Confidentiality clauses are standard in consulting agreements to protect trade secrets, business strategies, and other proprietary data. The clause should define what constitutes confidential information, how it can be used, and the duration of the obligation.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEuQ40qqryIPmvje2-Kj8DglYwEN15njwa_N7_zNxkLNIf77gpPJbiaP0y2gck7t4XN0XaRbFIRwkm5sp_LKtqIIkgJiUrxzrLTS859rWrLG3JtURaZqlkGxeuCTsrsDW1-W5WHWolshwgLKVKwdVssPw5ZSuUZBoeuxeEI2yVSfILZJVIFIg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnfR3lSgqlDtWuzSZ2ZNsGDnsAQwEU15LrLrrAet_AfEzRSIX7gliroUwUgSYXgE-UDMbgaCcSsIOq24r9z4qPbiFvqBRzqBTLwdJH5hLl47mMwJcU3sr7KjgCW7QEf29SpFCxRRY5ppAgAPlGvg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEWUqzditA6bZgPN11eWzY4rWGMKjAYOJccGWpzTlB4nqkrdZ95vTJN9yI2d7PJzg2jkccp1UhKyzr5j_fjOhD9JOa29pTdcpefL8o4imBCKGNudaACPR5kLenUqv-iqbs3ApdsIV8ye_24JQxrJfwaA-dbg0A6lEGqPPzxJCvEf6_ay-jZOqOqJwUBgmM5d62i3UdTqbWbG581kmuFHx9SI9EnQbtGJu5L1jEQ=="
+      ]
+    }
+  ]
+}

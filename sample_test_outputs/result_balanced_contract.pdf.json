@@ -2,9 +2,9 @@
   "filename": "balanced_contract.pdf",
   "auditor": {
     "is_contract": true,
-    "contract_type": "Professional Services Agreement",
+    "contract_type": "PROFESSIONAL SERVICES AGREEMENT",
     "is_safe": true,
-    "full_text": "PROFESSIONAL SERVICES AGREEMENT\nThis Agreement is entered into by and between Client Co. ('Client') and\nJane Doe ('Consultant'), effective as of November 26, 2025 ('Effective Date').\n1. SCOPE OF SERVICES: Consultant agrees to provide the following specific services:\na) Develop Python backend using FastAPI for 'Project X'\nb) Implement RESTful API endpoints as defined in the Architecture Doc\nc) Write unit tests with >80% code coverage\nd) Provide weekly status reports via email every Friday\n2. COMPENSATION: Client shall pay Consultant at a rate of $150 per hour.\nInvoices shall be submitted monthly and are payable Net 30 days.\n3. INTELLECTUAL PROPERTY: Upon full payment, Consultant assigns to Client\nall right, title, and interest in the Work Product.\nConsultant retains ownership of pre-existing IP and background technology.\n4. CONFIDENTIALITY: Both parties agree to keep confidential all non-public\ninformation disclosed during the term of this Agreement for a period of 5 years.\n5. TERMINATION: Either party may terminate this Agreement with 30 days'\nwritten notice. Client shall pay for all services performed up to\nthe termination date.\n6. LIMITATION OF LIABILITY: Consultant's liability shall be limited to the total fees\npaid by Client in the 12 months preceding the claim, except in cases\nof gross negligence or willful misconduct.\n7. CHANGE MANAGEMENT: Any changes to the scope of services must be agreed upon\nin writing by both parties via a formal Change Order, including adjustments\nto fees and timeline.\n8. DELIVERABLE ACCEPTANCE: Client shall have 5 business days to review deliverables.\nDeliverables are deemed accepted if no written objection is received within this period.\n9. WARRANTY: Consultant warrants that the Services will be performed in a\nprofessional manner and the Work Product will be free from material\ndefects for a period of 90 days after delivery.\n10. DISPUTE RESOLUTION: Any disputes arising from this Agreement shall be\nresolved through binding arbitration in San Francisco, \u0421\u0410.\n11. INDEPENDENT CONTRACTOR: Consultant is an independent contractor, not an employee.",
+    "full_text": "PROFESSIONAL SERVICES AGREEMENT\nThis Agreement is entered into by and between Client Co. ('Client') and\nJane Doe ('Consultant'), effective as of November 26, 2025 ('Effective Date').\n1. SCOPE OF SERVICES: Consultant agrees to provide the following specific services:\na) Develop Python backend using FastAPI for 'Project X'\nb) Implement RESTful API endpoints as defined in the Architecture Doc\nc) Write unit tests with >80% code coverage\nd) Provide weekly status reports via email every Friday\n2. COMPENSATION: Client shall pay Consultant at a rate of $150 per hour.\nInvoices shall be submitted monthly and are payable Net 30 days.\n3. INTELLECTUAL PROPERTY: Upon full payment, Consultant assigns to Client\nall right, title, and interest in the Work Product.\nConsultant retains ownership of pre-existing IP and background technology.\n4. CONFIDENTIALITY: Both parties agree to keep confidential all non-public\ninformation disclosed during the term of this Agreement for a period of 5 years.\n5. TERMINATION: Either party may terminate this Agreement with 30 days'\nwritten notice. Client shall pay for all services performed up to\nthe termination date.\n6. LIMITATION OF LIABILITY: Consultant's liability shall be limited to the total fees\npaid by Client in the 12 months preceding the claim, except in cases\nof gross negligence or willful misconduct.\n7. CHANGE MANAGEMENT: Any changes to the scope of services must be agreed upon\nin writing by both parties via a formal Change Order, including adjustments\nto fees and timeline.\n8. DELIVERABLE ACCEPTANCE: Client shall have 5 business days to review deliverables.\nDeliverables are deemed accepted if no written objection is received within this period.\n9. WARRANTY: Consultant warrants that the Services will be performed in a\nprofessional manner and the Work Product will be free from material\ndefects for a period of 90 days after delivery.\n10. DISPUTE RESOLUTION: Any disputes arising from this Agreement shall be\nresolved through binding arbitration in San Francisco, CA.\n11. INDEPENDENT CONTRACTOR: Consultant is an independent contractor, not an employee.",
     "fact_sheet": {
       "parties": {
         "value": "Client Co. ('Client') and Jane Doe ('Consultant')",
@@ -48,18 +48,33 @@
       },
       "key_obligations": [
         {
-          "value": "Consultant agrees to: a) Develop Python backend using FastAPI for 'Project X', b) Implement RESTful API endpoints as defined in the Architecture Doc, c) Write unit tests with >80% code coverage, d) Provide weekly status reports via email every Friday.",
+          "value": "Consultant agrees to provide the following specific services: a) Develop Python backend using FastAPI for 'Project X', b) Implement RESTful API endpoints as defined in the Architecture Doc, c) Write unit tests with >80% code coverage",
           "page": 1,
           "confidence": "HIGH"
         },
         {
-          "value": "Client shall pay Consultant for services.",
+          "value": "Provide weekly status reports via email every Friday",
           "page": 1,
           "confidence": "HIGH"
         },
         {
           "value": "Both parties agree to keep confidential all non-public information disclosed during the term of this Agreement for a period of 5 years.",
           "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "Any changes to the scope of services must be agreed upon in writing by both parties via a formal Change Order, including adjustments to fees and timeline.",
+          "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "Client shall have 5 business days to review deliverables. Deliverables are deemed accepted if no written objection is received within this period.",
+          "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "Consultant warrants that the Services will be performed in a professional manner and the Work Product will be free from material defects for a period of 90 days after delivery.",
+          "page": 2,
           "confidence": "HIGH"
         }
       ],
@@ -70,7 +85,12 @@
           "confidence": "HIGH"
         },
         {
-          "value": "Invoices shall be submitted monthly and are payable Net 30 days.",
+          "value": "Invoices shall be submitted monthly",
+          "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "Payable Net 30 days.",
           "page": 1,
           "confidence": "HIGH"
         }
@@ -80,53 +100,45 @@
   "skeptic": {
     "risks": [
       {
-        "risk": "No Non-Solicitation Clause. The agreement lacks a clause preventing the Consultant from soliciting Client's employees or other contractors after the agreement ends. This leaves the Client vulnerable to talent poaching.",
+        "risk": "Unfavorable Arbitration Location",
         "severity": "MEDIUM",
-        "page": 1,
-        "risk_type": "MISSING_CLAUSE",
-        "deviation_type": "NON_STANDARD",
-        "explanation": "Standard for consultant agreements is to protect Client's workforce."
+        "page": 2,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "The dispute resolution clause mandates binding arbitration in San Francisco, CA. This location may be unfavorable and create a financial burden for the Consultant if they are not located near San Francisco, requiring travel and associated expenses to resolve any disputes."
       },
       {
-        "risk": "No specific language on Deliverables. The agreement mentions 'Work Product' but lacks detailed specifications regarding the format, version control, or delivery mechanism for the final product or ongoing deliverables.  This could lead to disputes about the completeness or quality of the delivered work.",
-        "severity": "MEDIUM",
-        "page": 1,
-        "risk_type": "AMBIGUOUS",
-        "deviation_type": "NON_STANDARD",
-        "explanation": "Clear deliverable specifications are critical for software development contracts to ensure both parties understand what's expected."
-      },
-      {
-        "risk": "5-Year Confidentiality Term. While a confidentiality clause is present, a 5-year term is relatively short. For proprietary information, the Client might prefer a longer term, even perpetual, to protect their sensitive data adequately after the project concludes.",
+        "risk": "Short Review Period for Deliverables",
         "severity": "MEDIUM",
         "page": 1,
         "risk_type": "UNFAVORABLE_TERM",
-        "deviation_type": "NON_STANDARD",
-        "explanation": "Depending on the nature of the project and the sensitivity of the information, a longer confidentiality period is often preferred to protect the client's interests."
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "The Client has only 5 business days to review deliverables. This is a short period, potentially leading to premature acceptance of deliverables with undetected issues. This could create warranty liabilities for the Consultant."
       },
       {
-        "risk": "No specific clause defining 'Work Product'. The term 'Work Product' is used in the IP assignment but is not explicitly defined in the agreement. This lack of definition could lead to disagreements about what constitutes 'Work Product'.",
+        "risk": "Warranty Period for Work Product",
         "severity": "MEDIUM",
-        "page": 1,
-        "risk_type": "AMBIGUOUS",
-        "deviation_type": "NON_STANDARD",
-        "explanation": "Clarity on what constitutes the 'Work Product' is critical for IP ownership.  Lack of definition opens the door for disputes later."
+        "page": 2,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "The Consultant warrants that the Work Product will be free from material defects for 90 days after delivery. This warranty obligates the consultant to fix defects arising during this period, which can be burdensome."
       }
     ]
   },
   "verdict": {
     "verdict": "CAUTION",
-    "risk_score": 66,
-    "confidence": 94,
-    "summary": "This contract establishes a fair baseline for a consulting relationship, with standard terms for payment, termination, and liability. However, it carries a moderate degree of risk due to significant ambiguity and missing clauses that are critical for protecting the client's interests. The lack of definitions for 'Work Product' and 'Deliverables', combined with the absence of a standard Non-Solicitation clause, creates actionable vulnerabilities. Proceeding with caution is advised, and the contract should only be signed after incorporating the recommended amendments.",
+    "risk_score": 70,
+    "confidence": 92,
+    "summary": "This is a well-structured and generally fair consulting agreement. It contains standard protective clauses, such as a reasonable liability cap and clear intellectual property rights. However, a verdict of 'CAUTION' is issued due to three medium-risk items that are unfavorable to the consultant: the mandated arbitration location in San Francisco, a short 5-day client review period for deliverables, and a 90-day warranty period. These items are not deal-breakers but should be addressed through negotiation before signing.",
     "key_factors": [
-      "Ambiguity surrounding the definition of 'Work Product' and specific deliverables, which could lead to disputes over IP ownership and project completion.",
-      "The complete absence of a Non-Solicitation clause, which exposes the client to the risk of talent poaching by the consultant.",
-      "The combination of several medium-severity risks that, while individually manageable, indicate a general lack of detail and protective measures for the client."
+      "The presence of standard, protective clauses for the consultant, including a liability cap and retention of pre-existing IP.",
+      "The risks identified are moderate and represent common points of negotiation rather than fundamental flaws.",
+      "The absence of any high-severity risks, such as unlimited liability or ambiguous payment terms."
     ],
     "negotiation_points": [
-      "Introduce a 'Definitions' section that explicitly defines 'Work Product' to include all code, documentation, and other materials created under the agreement.",
-      "Add a standard Non-Solicitation clause that prohibits the consultant from soliciting company employees and contractors for a reasonable period (e.g., 12-24 months) after termination.",
-      "Attach a Statement of Work (SOW) or appendix that clearly outlines the technical specifications, format, and delivery mechanism for all project deliverables."
+      "Propose a neutral arbitration location or a clause for virtual proceedings to mitigate potential travel costs.",
+      "Request an extension of the deliverable review period to 10 business days to ensure thorough client testing and reduce future warranty claims.",
+      "Clarify the scope of the 90-day warranty, limiting it to critical, functionality-breaking defects to avoid uncompensated work."
     ]
   }
 }

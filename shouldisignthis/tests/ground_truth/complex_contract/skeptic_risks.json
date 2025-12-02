@@ -1,0 +1,68 @@
+{
+  "risks": [
+    {
+      "risk": "Unfair Termination Clause",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The Overlord can terminate at any time, while The Peasant faces an absurd and impossible condition for termination. This creates a situation where The Peasant is effectively locked into the agreement indefinitely at the Overlord's whim."
+    },
+    {
+      "risk": "Absurd Payment Terms",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "Payment of 0.0001 Bitcoin per century, only when Mercury is in retrograde, is effectively non-payment. The Peasant is essentially working for free."
+    },
+    {
+      "risk": "Unlimited Liability",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract lacks a clause limiting The Peasant's liability. This means The Peasant could be held responsible for potentially unlimited damages, which is an unacceptable risk."
+    },
+    {
+      "risk": "IP Assignment Too Broad",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The IP assignment clause is overly broad, assigning all thoughts, dreams, and ideas to The Overlord. This includes anything conceived, not just work product, which is unduly restrictive and unfair to The Peasant."
+    },
+    {
+      "risk": "Perpetual Non-Compete",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "A non-compete lasting for eternity is unreasonably restrictive and unenforceable. It effectively bars The Peasant from ever working in their field again."
+    },
+    {
+      "risk": "Exotic Dispute Resolution",
+      "severity": "HIGH",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "Governing law under the 'Galactic Empire' is nonsensical and unenforceable. The Peasant needs a clearly defined and accessible legal jurisdiction, and should insist on changing this term to a recognizable jurisdiction."
+    },
+    {
+      "risk": "Unreasonable Indemnification",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "Indemnifying The Overlord against all claims, including acts of God and alien invasion, is overly broad and unreasonable. The Peasant should only be responsible for losses arising from their own negligence or willful misconduct."
+    },
+    {
+      "risk": "Missing Effective Date",
+      "severity": "LOW",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract does not specify an effective date, making it ambiguous when the agreement comes into force. This should be clearly defined."
+    }
+  ]
+}

@@ -1,64 +1,87 @@
 {
   "fact_sheet": {
     "parties": {
-      "value": "Client Inc. and Freelancer Joe.",
+      "value": "Alice (Client) and Bob (Contractor)",
       "page": 1,
       "confidence": "HIGH"
     },
+    "effective_date": {
+      "value": "NOT FOUND",
+      "page": -1,
+      "confidence": "LOW"
+    },
     "termination_clause": {
-      "value": "30 days notice.",
+      "value": "Either party may terminate with 14 days notice.",
       "page": 1,
       "confidence": "HIGH"
     },
     "payment_terms": {
-      "value": "$100/hr, Net 60 terms.",
+      "value": "Client shall pay $100 per hour, Net 30.",
       "page": 1,
       "confidence": "HIGH"
     },
     "liability_cap": {
-      "value": "Capped at $1,000.",
+      "value": "Liability is limited to $5,000.",
       "page": 1,
       "confidence": "HIGH"
     },
     "intellectual_property": {
-      "value": "Client owns all work product immediately.",
+      "value": "Client owns all work product.",
       "page": 1,
       "confidence": "HIGH"
     },
+    "non_compete_clause": {
+      "value": "NOT FOUND",
+      "page": -1,
+      "confidence": "LOW"
+    },
+    "dispute_resolution": {
+      "value": "NOT FOUND",
+      "page": -1,
+      "confidence": "LOW"
+    },
     "key_obligations": [
       {
-        "value": "Services: Python Development.",
+        "value": "Contractor shall provide coding services.",
         "page": 1,
         "confidence": "HIGH"
       }
     ],
-    "financial_terms": []
+    "financial_terms": [
+      {
+        "value": "$100 per hour",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Net 30",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Liability is limited to $5,000.",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    ]
   },
   "skeptic": {
     "risks": [
       {
-        "risk": "Liability Cap is very low.",
-        "severity": "HIGH",
-        "page": 1,
-        "risk_type": "UNFAVORABLE_TERM",
-        "deviation_type": "UNFAVORABLE",
-        "explanation": "A $1,000 liability cap is extremely low for software development work. Joe could be liable for significant damages if his code causes an issue, exceeding this cap by a large margin. This strongly favors the Client."
-      },
-      {
-        "risk": "Payment terms are long, favoring the Client's cash flow.",
-        "severity": "MEDIUM",
-        "page": 1,
-        "risk_type": "UNFAVORABLE_TERM",
-        "deviation_type": "UNFAVORABLE",
-        "explanation": "Net 60 terms mean Joe won't be paid for 60 days after invoicing. This is a long payment cycle, especially for a freelancer. This hurts Joe's cash flow and gives Client Inc. a significant financial advantage."
-      },
-      {
-        "risk": "Scope of work is not defined in detail.",
-        "severity": "MEDIUM",
-        "page": 1,
-        "risk_type": "AMBIGUOUS",
+        "risk": "Missing Effective Date",
+        "severity": "LOW",
+        "page": -1,
+        "risk_type": "MISSING_CLAUSE",
         "deviation_type": "NON_STANDARD",
-        "explanation": "The 'Services: Python Development' is vague. What specific tasks or deliverables are included? Without a detailed scope of work, the client could expand the project's scope, potentially leading to 'scope creep' without additional compensation for Joe. This creates risk of underpayment for Joe."
+        "explanation": "The contract does not specify an effective date. This can lead to ambiguity about when the agreement is active and when obligations begin. While not critical, it is best practice to have a defined start date."
+      },
+      {
+        "risk": "No Dispute Resolution Mechanism",
+        "severity": "MEDIUM",
+        "page": -1,
+        "risk_type": "MISSING_CLAUSE",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "The contract lacks a dispute resolution clause. This means that if a dispute arises, the parties will have to resort to litigation without any prior steps like mediation or arbitration. Litigation can be expensive and time-consuming. A clause specifying mediation or arbitration (especially if local to the Contractor) is preferable."
       }
     ]
   },
@@ -66,50 +89,37 @@
     "counters": [
       {
         "topic": "Liability Cap",
-        "counter": "The $1,000 liability cap may be considered low.  However, it's essential to understand that as of January 1, 2025, new legislation increases liability risks for freelancers.",
+        "counter": "A liability cap of $5,000 appears reasonable for freelance coding services. Many contracts include liability limitations to protect the freelancer from unreasonable legal claims and financial responsibilities. Without such limitations, the potential risks could be substantial.",
         "confidence": "HIGH",
-        "industry_context": "The standard legal advice is to consult with an attorney to make sure your contract covers liability risks.",
+        "industry_context": "Clauses that limit liability are common in freelance contracts. They help define the scope of liability and set reasonable financial caps on potential claims.",
         "references": [
-          "https://www.bdo.be/en-gb/insights/articles/2024/book-6-civil-code-increased-liability-risks-from-2025-onwards"
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFGhl2SL_OrI3PUzmenvQnwq7l6Qalp5IoZnZ5vIL2Pwgk0NgEiiGWgNdSNAQR7W-gzypCsXZ1YTtbptDHYjhipWtJbuh0VtK1g9CAkNnXMJ08l0d3T2QNY5SuFWSH6TtiMj-inQfghAWo4S3orN4LtI8i9Tk33b3asf4vtkJuPB2RBF6WFEl2Z",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFelxrsmTg_RaGLuh_vr-6bwsAuIdT_v_v921vAvnrubigANlh3fCrFpGQghmYy93Sm4Cp0oLNqE4ac71K9J16M4JjdFQTkX60EbM2VKSouhMD01_LftuodEZLsTk3OKb6zhG5xls11tVrPCI36PvSk0DthKXX3jmr94wRdX95cB-fFFkW3ML_lY__WTAzDoAtS1kpB4pl7weHW7BeS23Ru3y3LR-dOxCz_2Vv27Hs=",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEYSuhKkvJUjFTG33hXoK_sOcsKZJbiFZs8g2eEeQ2Urmof__fUaIIe3MLtZSFtKv1SsKSnRiL1owiIO7QbUx3UC2bdKDS71Awd3UTwZyyI2T8to1iqn-bufclychRzqrD_BmAsFOGHpG4fAz3FMMHe9jhBzvU=",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFcMX3aggHIFUsKxBzD2jZyve6eL1eWszjOW6V2bezRtjoAG_BVxgxqgNUHwpCWnAzVRcWACAU1dXELI2hDl5l1YuRtBRKzYOTybu8VoMofokQrBeaOPsPlWPgXYxb8fSZnV711XN1F6R9uwerb3bywHec8ENdux_YsWU7FzcVAa9XqTN0_mg02K94XHoUZ3Os8yXLNot5uohdRSVzbG7UoJ4KLiFmnKgALGFhU"
         ]
       },
       {
         "topic": "Payment Terms",
-        "counter": "Net 60 terms are common.  Freelancers can negotiate payment terms, but payment within 60 days is standard.",
+        "counter": "The payment term of Net 30, meaning the client pays within 30 days of the invoice date, is a fairly standard practice in B2B transactions, including freelance work. While Net 30 is common, some freelancers prefer shorter payment windows like Net 7 or Net 14.",
         "confidence": "HIGH",
-        "industry_context": "Payment terms are clearly stated in freelance developer agreements.",
+        "industry_context": "Net 30 is widely used across various industries. However, offering early payment discounts, such as 2/10 Net 30, can incentivize faster payments.",
         "references": [
-          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGMH8TuKGpZAiSAgEXo2DgnhcYCYPPv2QTXS2rweFC9J4HPGms7bvRAzkjuiPAndjCxuijRJp-Xe0kzncZRUmiQVIjRA-u6fIz8HnRjSMGa0FGFTlvmg3ZJpQNkiy4E9zP8G9_n72AQAgK8_NbwxEcW5XdFRvQ-fVlufyxxSg_6JZw7JZNCZ8wrY3Jno3XHaSSc0ROT5KjOp-apAX5s7CXmdmPqQpG9sNVRpPUlZWeYrpAxzx4pgR5T"
-        ]
-      },
-      {
-        "topic": "Intellectual Property",
-        "counter": "The client owning all intellectual property is standard practice.",
-        "confidence": "HIGH",
-        "industry_context": "Freelancers should include clauses that specify ownership of the code and any other work produced.",
-        "references": [
-          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFHyr3XvYp3BNFo13XxfKRfVy0g3ewR5_wKf6HB0Ttpvy_a-1GA5YcGzYCkUWBObsn7nmwY5I66XWjOHZ1XoaQdzwl_i8wEKzMazouASCrN-d7jZFykdVxyu1r27mV1TlTfEDzOzt_1e4plWMX9B31JigrGsQsFbRJ90m9Y8zmdqKqGSmEFmkJWQgghd1LNKTBgBEhARaJrTy3SM5880DO3dZJjNCa-7bqMKTpqiKtYkJe4PC9uaz8ro0y9kT7NBqQiYcyJeDslNNA7dkTY5ZE_"
-        ]
-      },
-      {
-        "topic": "Hourly Rate",
-        "counter": "$100/hr is a reasonable rate for Python development.",
-        "confidence": "HIGH",
-        "industry_context": "Python developer hourly rates can vary, but senior developers can charge $100-$150+.",
-        "references": [
-          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEaE8DZ9K6vTYxi897KrgitL92LhSZUpDrgfB0-nVUfiSvA4U46g4_U9CxZ7xEsbJNUixEHmLJm_eoWREw8qJ8u_V8c_EyRn6BYiWhsmGuhUvipCggv9EAmjEGVNiBHNGVQpBLZ1PQHmju-lhenId_C59aYPzp2_OntcW7g",
-          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHhcCi27g3KX9qoECo9yAZeBom7qYD7VK5uoSK9gd6mDqawKgHvaRFT2D8cKrF-sFEMgEknfRKfv0YHvepkS7wijxlAIi7ateKrMxP5-J-llbZx2VpZGpMOP5EtnnRgtirnjhfq1PvVYf3ZPbGr7kfNXjiYshkZtTEbSPHgKvqLDxKcJZ96g1DLLKMno6vYloR_-IMDLexiHNIrVVjArg==",
-          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEqAExy_JiQvVsIqy06XjI4zTv1WI8Fn9VyVhIK8mUep5Ku1PJFDXwU4uPjaf7SPZlHw-z2Hbrc3arzKJKuc-255tVt_2zrIE3t1s6Lae0KAT5pKmjOE73BWLJn9tQPhGLRSEZszjNCQ6hoM4A5XQx5d4Pm8Wo=",
-          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG_SQmelEoW20iiBCRJaQGR4lv7CpOg_0_IOb4Nnn7w9uG6jHf3XiyySCZUOLxvvwtB1GDsppBe7t6EUO3-hPLNlfoPUFCl2DQ_Ol7qCgHuShwvsEvyG795fOeV1-o7aNsQV8d3B-e3nflwAp4xlm0CnFbix50P7REJ"
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFelxrsmTg_RaGLuh_vr-6bwsAuIdT_v_v921vAvnrubigANlh3fCrFpGQghmYy93Sm4Cp0oLNqE4ac71K9J16M4JjdFQTkX60EbM2VKSouhMD01_LftuodEZLsTk3OKb6zhG5xls11tVrPCI36PvSk0DthKXX3jmr94wRdX95cB-fFFkW3ML_lY__WTAzDoAtS1kpB4pl7weHW7BeS23Ru3y3LR-dOxCz_2Vv27Hs=",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJ8BicPvBe4mYRI9Q1y3u1cVHFHMFZWGVyheH-sKPb-4Ppf_d9OpU8Tv-0ib8KeP7A7BMwauA7Yklbb6X23xaWSHJdL-y-vqR9Z-T4bt_KFQ31erKm4TSw28SICqOHXep1sg==",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHH4_HV6qk8kTxyjOQteyJEspQgro65arQQ7DE34fq45XIGptP_0KHm0_NiS9RV_KIPb2aXg94AZY8IuIIRbNDY03q6NXJ_vPjxbKJHMn-gGJbjPwBNW980nzitALRlgHyrchBFZG7-diMvO8co0WD0WKgIHnffh1Rm",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFcOta4Q5QxIrq3sPvniXr7xC1G3wWsBKNQPi6fwfDoBacOWyTsFn6cL2e3QlcWVstb7wfNZougZ63yWTLc066rJoM5LYa2d7a_6LKkPs4OIvoKF-qg4dX3N6tuRKxl5h0jJsNb4FE63aFXdfAVhq0RB8B4H7PflqM_i9QXw4TQyDICriPnBkShdbA1rxTzQMFCCKEPj3Je"
         ]
       },
       {
         "topic": "Termination Clause",
-        "counter": "30 days' notice is a common and fair termination clause.",
+        "counter": "A 14-day notice for termination is within a reasonable range, as notice periods typically range from 14 to 30 days.",
         "confidence": "HIGH",
-        "industry_context": "The last technicality involves termination of the contract.",
+        "industry_context": "Termination clauses are essential to protect both parties, specifying grounds for termination and the notice period. They also address financial implications and the return of materials upon termination.",
         "references": [
-          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGMH8TuKGpZAiSAgEXo2DgnhcYCYPPv2QTXS2rweFC9J4HPGms7bvRAzkjuiPAndjCxuijRJp-Xe0kzncZRUmiQVIjRA-u6fIz8HnRjSMGa0FGFTlvmg3ZJpQNkiy4E9zP8G9_n72AQAgK8_NbwxEcW5XdFRvQ-fVlufyxxSg_6JZw7JZNCZ8wrY3Jno3XHaSSc0ROT5KjOp-apAX5s7CXmdmPqQpG9sNVRpPUlZWeYrpAxzx4pgR5T"
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFelxrsmTg_RaGLuh_vr-6bwsAuIdT_v_v921vAvnrubigANlh3fCrFpGQghmYy93Sm4Cp0oLNqE4ac71K9J16M4JjdFQTkX60EbM2VKSouhMD01_LftuodEZLsTk3OKb6zhG5xls11tVrPCI36PvSk0DthKXX3jmr94wRdX95cB-fFFkW3ML_lY__WTAzDoAtS1kpB4pl7weHW7BeS23Ru3y3LR-dOxCz_2Vv27Hs=",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHm5sSphbM6SOYKOEpNcff3cImjhaHYJp_E1JP_ID5L47HdmEeBtMrdfzLz1P-WAQbdd3l-_IyZKelOn36_MlhKX_J6F9RiuuNTFGwEU_hYtqKfH9hYK7J2GD6VroAJiSySgPyi1RRfEfjLLLFSh6CBAEMcri2V7sZR1uNAIqR-IlNFB_UIo4Jw1Wm_FbAwd_Bu4iWSKsaVWRF9",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFZPIhYHsyLKGJRDfUk694dyb7ds5q9XN2M9hoVymMkwX94YtJrBM_SBF3dAGfXEQAAnlUZqpjAo2HTX4cvHNBXD8ivhH_LcIVJxIcNtfC8_lBMpIZHeCdD0MMSwCYzgCl9Kk-T18Uv3lhF3qmslwW8oX47_Q15WVsVZch4YNS2nXfyWLLPZozIkwc6RHOep6HxcVMO5g=="
         ]
       }
     ]
@@ -117,100 +127,79 @@
   "evidence": {
     "risks": [
       {
-        "risk": "Liability Cap is very low.",
-        "severity": "HIGH",
-        "page": 1,
-        "risk_type": "UNFAVORABLE_TERM",
-        "deviation_type": "UNFAVORABLE",
-        "explanation": "A $1,000 liability cap is extremely low for software development work. Joe could be liable for significant damages if his code causes an issue, exceeding this cap by a large margin. This strongly favors the Client."
-      },
-      {
-        "risk": "Payment terms are long, favoring the Client's cash flow.",
-        "severity": "MEDIUM",
-        "page": 1,
-        "risk_type": "UNFAVORABLE_TERM",
-        "deviation_type": "UNFAVORABLE",
-        "explanation": "Net 60 terms mean Joe won't be paid for 60 days after invoicing. This is a long payment cycle, especially for a freelancer. This hurts Joe's cash flow and gives Client Inc. a significant financial advantage."
-      },
-      {
-        "risk": "Scope of work is not defined in detail.",
-        "severity": "MEDIUM",
-        "page": 1,
-        "risk_type": "AMBIGUOUS",
+        "risk": "Missing Effective Date",
+        "severity": "LOW",
+        "page": -1,
+        "risk_type": "MISSING_CLAUSE",
         "deviation_type": "NON_STANDARD",
-        "explanation": "The 'Services: Python Development' is vague. What specific tasks or deliverables are included? Without a detailed scope of work, the client could expand the project's scope, potentially leading to 'scope creep' without additional compensation for Joe. This creates risk of underpayment for Joe."
+        "explanation": "The contract does not specify an effective date. This can lead to ambiguity about when the agreement is active and when obligations begin. While not critical, it is best practice to have a defined start date."
+      },
+      {
+        "risk": "No Dispute Resolution Mechanism",
+        "severity": "MEDIUM",
+        "page": -1,
+        "risk_type": "MISSING_CLAUSE",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "The contract lacks a dispute resolution clause. This means that if a dispute arises, the parties will have to resort to litigation without any prior steps like mediation or arbitration. Litigation can be expensive and time-consuming. A clause specifying mediation or arbitration (especially if local to the Contractor) is preferable."
       }
     ],
     "counters": [
       {
         "topic": "Liability Cap",
-        "counter": "The $1,000 liability cap may be considered low.  However, it's essential to understand that as of January 1, 2025, new legislation increases liability risks for freelancers.",
+        "counter": "A liability cap of $5,000 appears reasonable for freelance coding services. Many contracts include liability limitations to protect the freelancer from unreasonable legal claims and financial responsibilities. Without such limitations, the potential risks could be substantial.",
         "confidence": "HIGH",
-        "industry_context": "The standard legal advice is to consult with an attorney to make sure your contract covers liability risks.",
+        "industry_context": "Clauses that limit liability are common in freelance contracts. They help define the scope of liability and set reasonable financial caps on potential claims.",
         "references": [
-          "https://www.bdo.be/en-gb/insights/articles/2024/book-6-civil-code-increased-liability-risks-from-2025-onwards"
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFGhl2SL_OrI3PUzmenvQnwq7l6Qalp5IoZnZ5vIL2Pwgk0NgEiiGWgNdSNAQR7W-gzypCsXZ1YTtbptDHYjhipWtJbuh0VtK1g9CAkNnXMJ08l0d3T2QNY5SuFWSH6TtiMj-inQfghAWo4S3orN4LtI8i9Tk33b3asf4vtkJuPB2RBF6WFEl2Z",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFelxrsmTg_RaGLuh_vr-6bwsAuIdT_v_v921vAvnrubigANlh3fCrFpGQghmYy93Sm4Cp0oLNqE4ac71K9J16M4JjdFQTkX60EbM2VKSouhMD01_LftuodEZLsTk3OKb6zhG5xls11tVrPCI36PvSk0DthKXX3jmr94wRdX95cB-fFFkW3ML_lY__WTAzDoAtS1kpB4pl7weHW7BeS23Ru3y3LR-dOxCz_2Vv27Hs=",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEYSuhKkvJUjFTG33hXoK_sOcsKZJbiFZs8g2eEeQ2Urmof__fUaIIe3MLtZSFtKv1SsKSnRiL1owiIO7QbUx3UC2bdKDS71Awd3UTwZyyI2T8to1iqn-bufclychRzqrD_BmAsFOGHpG4fAz3FMMHe9jhBzvU=",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFcMX3aggHIFUsKxBzD2jZyve6eL1eWszjOW6V2bezRtjoAG_BVxgxqgNUHwpCWnAzVRcWACAU1dXELI2hDl5l1YuRtBRKzYOTybu8VoMofokQrBeaOPsPlWPgXYxb8fSZnV711XN1F6R9uwerb3bywHec8ENdux_YsWU7FzcVAa9XqTN0_mg02K94XHoUZ3Os8yXLNot5uohdRSVzbG7UoJ4KLiFmnKgALGFhU"
         ]
       },
       {
         "topic": "Payment Terms",
-        "counter": "Net 60 terms are common.  Freelancers can negotiate payment terms, but payment within 60 days is standard.",
+        "counter": "The payment term of Net 30, meaning the client pays within 30 days of the invoice date, is a fairly standard practice in B2B transactions, including freelance work. While Net 30 is common, some freelancers prefer shorter payment windows like Net 7 or Net 14.",
         "confidence": "HIGH",
-        "industry_context": "Payment terms are clearly stated in freelance developer agreements.",
+        "industry_context": "Net 30 is widely used across various industries. However, offering early payment discounts, such as 2/10 Net 30, can incentivize faster payments.",
         "references": [
-          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGMH8TuKGpZAiSAgEXo2DgnhcYCYPPv2QTXS2rweFC9J4HPGms7bvRAzkjuiPAndjCxuijRJp-Xe0kzncZRUmiQVIjRA-u6fIz8HnRjSMGa0FGFTlvmg3ZJpQNkiy4E9zP8G9_n72AQAgK8_NbwxEcW5XdFRvQ-fVlufyxxSg_6JZw7JZNCZ8wrY3Jno3XHaSSc0ROT5KjOp-apAX5s7CXmdmPqQpG9sNVRpPUlZWeYrpAxzx4pgR5T"
-        ]
-      },
-      {
-        "topic": "Intellectual Property",
-        "counter": "The client owning all intellectual property is standard practice.",
-        "confidence": "HIGH",
-        "industry_context": "Freelancers should include clauses that specify ownership of the code and any other work produced.",
-        "references": [
-          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFHyr3XvYp3BNFo13XxfKRfVy0g3ewR5_wKf6HB0Ttpvy_a-1GA5YcGzYCkUWBObsn7nmwY5I66XWjOHZ1XoaQdzwl_i8wEKzMazouASCrN-d7jZFykdVxyu1r27mV1TlTfEDzOzt_1e4plWMX9B31JigrGsQsFbRJ90m9Y8zmdqKqGSmEFmkJWQgghd1LNKTBgBEhARaJrTy3SM5880DO3dZJjNCa-7bqMKTpqiKtYkJe4PC9uaz8ro0y9kT7NBqQiYcyJeDslNNA7dkTY5ZE_"
-        ]
-      },
-      {
-        "topic": "Hourly Rate",
-        "counter": "$100/hr is a reasonable rate for Python development.",
-        "confidence": "HIGH",
-        "industry_context": "Python developer hourly rates can vary, but senior developers can charge $100-$150+.",
-        "references": [
-          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEaE8DZ9K6vTYxi897KrgitL92LhSZUpDrgfB0-nVUfiSvA4U46g4_U9CxZ7xEsbJNUixEHmLJm_eoWREw8qJ8u_V8c_EyRn6BYiWhsmGuhUvipCggv9EAmjEGVNiBHNGVQpBLZ1PQHmju-lhenId_C59aYPzp2_OntcW7g",
-          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHhcCi27g3KX9qoECo9yAZeBom7qYD7VK5uoSK9gd6mDqawKgHvaRFT2D8cKrF-sFEMgEknfRKfv0YHvepkS7wijxlAIi7ateKrMxP5-J-llbZx2VpZGpMOP5EtnnRgtirnjhfq1PvVYf3ZPbGr7kfNXjiYshkZtTEbSPHgKvqLDxKcJZ96g1DLLKMno6vYloR_-IMDLexiHNIrVVjArg==",
-          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEqAExy_JiQvVsIqy06XjI4zTv1WI8Fn9VyVhIK8mUep5Ku1PJFDXwU4uPjaf7SPZlHw-z2Hbrc3arzKJKuc-255tVt_2zrIE3t1s6Lae0KAT5pKmjOE73BWLJn9tQPhGLRSEZszjNCQ6hoM4A5XQx5d4Pm8Wo=",
-          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG_SQmelEoW20iiBCRJaQGR4lv7CpOg_0_IOb4Nnn7w9uG6jHf3XiyySCZUOLxvvwtB1GDsppBe7t6EUO3-hPLNlfoPUFCl2DQ_Ol7qCgHuShwvsEvyG795fOeV1-o7aNsQV8d3B-e3nflwAp4xlm0CnFbix50P7REJ"
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFelxrsmTg_RaGLuh_vr-6bwsAuIdT_v_v921vAvnrubigANlh3fCrFpGQghmYy93Sm4Cp0oLNqE4ac71K9J16M4JjdFQTkX60EbM2VKSouhMD01_LftuodEZLsTk3OKb6zhG5xls11tVrPCI36PvSk0DthKXX3jmr94wRdX95cB-fFFkW3ML_lY__WTAzDoAtS1kpB4pl7weHW7BeS23Ru3y3LR-dOxCz_2Vv27Hs=",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJ8BicPvBe4mYRI9Q1y3u1cVHFHMFZWGVyheH-sKPb-4Ppf_d9OpU8Tv-0ib8KeP7A7BMwauA7Yklbb6X23xaWSHJdL-y-vqR9Z-T4bt_KFQ31erKm4TSw28SICqOHXep1sg==",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHH4_HV6qk8kTxyjOQteyJEspQgro65arQQ7DE34fq45XIGptP_0KHm0_NiS9RV_KIPb2aXg94AZY8IuIIRbNDY03q6NXJ_vPjxbKJHMn-gGJbjPwBNW980nzitALRlgHyrchBFZG7-diMvO8co0WD0WKgIHnffh1Rm",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFcOta4Q5QxIrq3sPvniXr7xC1G3wWsBKNQPi6fwfDoBacOWyTsFn6cL2e3QlcWVstb7wfNZougZ63yWTLc066rJoM5LYa2d7a_6LKkPs4OIvoKF-qg4dX3N6tuRKxl5h0jJsNb4FE63aFXdfAVhq0RB8B4H7PflqM_i9QXw4TQyDICriPnBkShdbA1rxTzQMFCCKEPj3Je"
         ]
       },
       {
         "topic": "Termination Clause",
-        "counter": "30 days' notice is a common and fair termination clause.",
+        "counter": "A 14-day notice for termination is within a reasonable range, as notice periods typically range from 14 to 30 days.",
         "confidence": "HIGH",
-        "industry_context": "The last technicality involves termination of the contract.",
+        "industry_context": "Termination clauses are essential to protect both parties, specifying grounds for termination and the notice period. They also address financial implications and the return of materials upon termination.",
         "references": [
-          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGMH8TuKGpZAiSAgEXo2DgnhcYCYPPv2QTXS2rweFC9J4HPGms7bvRAzkjuiPAndjCxuijRJp-Xe0kzncZRUmiQVIjRA-u6fIz8HnRjSMGa0FGFTlvmg3ZJpQNkiy4E9zP8G9_n72AQAgK8_NbwxEcW5XdFRvQ-fVlufyxxSg_6JZw7JZNCZ8wrY3Jno3XHaSSc0ROT5KjOp-apAX5s7CXmdmPqQpG9sNVRpPUlZWeYrpAxzx4pgR5T"
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFelxrsmTg_RaGLuh_vr-6bwsAuIdT_v_v921vAvnrubigANlh3fCrFpGQghmYy93Sm4Cp0oLNqE4ac71K9J16M4JjdFQTkX60EbM2VKSouhMD01_LftuodEZLsTk3OKb6zhG5xls11tVrPCI36PvSk0DthKXX3jmr94wRdX95cB-fFFkW3ML_lY__WTAzDoAtS1kpB4pl7weHW7BeS23Ru3y3LR-dOxCz_2Vv27Hs=",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHm5sSphbM6SOYKOEpNcff3cImjhaHYJp_E1JP_ID5L47HdmEeBtMrdfzLz1P-WAQbdd3l-_IyZKelOn36_MlhKX_J6F9RiuuNTFGwEU_hYtqKfH9hYK7J2GD6VroAJiSySgPyi1RRfEfjLLLFSh6CBAEMcri2V7sZR1uNAIqR-IlNFB_UIo4Jw1Wm_FbAwd_Bu4iWSKsaVWRF9",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFZPIhYHsyLKGJRDfUk694dyb7ds5q9XN2M9hoVymMkwX94YtJrBM_SBF3dAGfXEQAAnlUZqpjAo2HTX4cvHNBXD8ivhH_LcIVJxIcNtfC8_lBMpIZHeCdD0MMSwCYzgCl9Kk-T18Uv3lhF3qmslwW8oX47_Q15WVsVZch4YNS2nXfyWLLPZozIkwc6RHOep6HxcVMO5g=="
         ]
       }
     ]
   },
   "verdict": {
     "verdict": "CAUTION",
-    "risk_score": 85,
-    "confidence": 96,
-    "summary": "This contract presents a mixed risk profile. While many terms such as the hourly rate, IP ownership, and termination clause are standard and fair, there are three significant points of concern that heavily favor the client. The liability cap is exceptionally low, exposing the freelancer to substantial uncovered risk. The Net 60 payment terms can create cash flow problems, and the ambiguous scope of work opens the door to 'scope creep' without additional compensation. Therefore, proceeding with caution is advised, and the freelancer should not accept the agreement without significant negotiation on these key points.",
+    "risk_score": 80,
+    "confidence": 90,
+    "summary": "This contract forms a solid foundation for a working relationship, with reasonable terms for payment, liability, and termination. However, it requires modifications before execution. The absence of a defined Effective Date creates ambiguity about the start of obligations, and the lack of a Dispute Resolution clause exposes both parties to potentially expensive and lengthy legal battles. These omissions present moderate risks that should be addressed.",
     "key_factors": [
-      "The liability cap is critically low at $1,000, which is insufficient for software development.",
-      "The vague scope of work, described only as 'Python Development', creates a high risk of uncompensated work.",
-      "The Net 60 payment terms are lengthy for a freelancer and negatively impact cash flow."
+      "Missing Dispute Resolution Clause",
+      "Absence of an Effective Date",
+      "Reasonable core terms (Liability, Payment, IP)"
     ],
     "negotiation_points": [
-      "Increase the liability cap to be commensurate with the total contract value or a standard industry amount (e.g., $25,000).",
-      "Request a reduction in payment terms from Net 60 to Net 30.",
-      "Insist on a detailed Statement of Work (SOW) addendum that clearly defines project deliverables, timelines, and milestones."
+      "Introduce a clause specifying a method for Dispute Resolution, such as mediation or arbitration.",
+      "Add a specific Effective Date to clarify when the contract's terms begin.",
+      "Request clarification on the invoicing process to ensure smooth application of the Net 30 payment term."
     ]
   },
   "toolkit": {
-    "strategy_notes": "- **Liability Cap:** This is a critical point. A low liability cap leaves you exposed. Push hard for the increase; it's almost a deal-breaker. Frame it as standard industry practice.\n- **Payment Terms:** Net 30 is preferable and a common ask. Be prepared to compromise here if necessary, but try to get as close to your preferred terms as possible.\n- **Statement of Work (SOW):** The SOW is crucial to manage expectations and ensure accountability. This is another area to stand firm on. A detailed SOW protects both parties.",
-    "email_subject": "Contract Negotiation - [Your Company Name] - [Project Name]",
-    "email_body": "Dear [Opposing Party Name],\n\nThank you for providing the contract. We have reviewed it and have a few points we'd like to discuss to ensure clarity and mutual benefit.\n\nSpecifically, we propose the following:\n\n*   **Liability Cap:** We recommend increasing the liability cap to be commensurate with the total contract value. We believe a cap of [Specify amount, e.g., $25,000] is a reasonable standard for this type of agreement and provides adequate protection for both parties.\n*   **Payment Terms:** We would like to request a revision to the payment terms from Net 60 to Net 30. This aligns with our standard payment practices and improves cash flow management.\n*   **Statement of Work (SOW):** To ensure a clear understanding of the project scope and deliverables, we propose including a detailed Statement of Work (SOW) addendum. This addendum would clearly define the project deliverables, timelines, and key milestones.\n\nWe are confident that addressing these points will strengthen the contract and provide a solid foundation for a successful partnership. Please let us know if you are open to discussing these revisions. We are available to schedule a call at your earliest convenience.\n\nSincerely,\n[Your Name]"
+    "strategy_notes": "- Dispute Resolution: Mediation or arbitration is a must-have to avoid costly litigation. This is a deal-breaker.\n- Effective Date: Absolutely essential. Without it, the entire agreement is ambiguous.\n- Invoicing Process: Clarifying this upfront avoids payment delays. This is a nice-to-have; be willing to compromise.",
+    "email_subject": "Contract Review - [Contract Name] - Request for Clarification",
+    "email_body": "Dear [Counterparty Name],\n\nFollowing our review of the contract, we have a few points requiring clarification to ensure a mutually beneficial agreement.\n\n1.  Dispute Resolution: To mitigate potential disputes, we propose adding a clause specifying a method for resolution, such as mediation or arbitration. This will provide a clear process for addressing disagreements efficiently and cost-effectively.\n\n2.  Effective Date: To avoid any ambiguity, we request that a specific Effective Date be included to clarify when the contract's terms officially commence.\n\n3.  Invoicing Process: Given the Net 30 payment term, we would appreciate further clarification on the invoicing process, including preferred methods for invoice submission and any required supporting documentation. This will ensure timely and accurate payments.\n\nThank you for your attention to these matters. We believe these adjustments will contribute to a stronger and more transparent agreement. Please let me know when you're available to discuss these points further.\n\nSincerely,\n\n[Your Name]"
   }
 }

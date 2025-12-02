@@ -1,0 +1,134 @@
+{
+  "risks": [
+    {
+      "risk": "Unfair Termination Clause",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The Overlord can terminate at any time, while The Peasant faces an absurd and impossible condition for termination. This creates a situation where The Peasant is effectively locked into the agreement indefinitely at the Overlord's whim."
+    },
+    {
+      "risk": "Absurd Payment Terms",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "Payment of 0.0001 Bitcoin per century, only when Mercury is in retrograde, is effectively non-payment. The Peasant is essentially working for free."
+    },
+    {
+      "risk": "Unlimited Liability",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract lacks a clause limiting The Peasant's liability. This means The Peasant could be held responsible for potentially unlimited damages, which is an unacceptable risk."
+    },
+    {
+      "risk": "IP Assignment Too Broad",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The IP assignment clause is overly broad, assigning all thoughts, dreams, and ideas to The Overlord. This includes anything conceived, not just work product, which is unduly restrictive and unfair to The Peasant."
+    },
+    {
+      "risk": "Perpetual Non-Compete",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "A non-compete lasting for eternity is unreasonably restrictive and unenforceable. It effectively bars The Peasant from ever working in their field again."
+    },
+    {
+      "risk": "Exotic Dispute Resolution",
+      "severity": "HIGH",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "Governing law under the 'Galactic Empire' is nonsensical and unenforceable. The Peasant needs a clearly defined and accessible legal jurisdiction, and should insist on changing this term to a recognizable jurisdiction."
+    },
+    {
+      "risk": "Unreasonable Indemnification",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "Indemnifying The Overlord against all claims, including acts of God and alien invasion, is overly broad and unreasonable. The Peasant should only be responsible for losses arising from their own negligence or willful misconduct."
+    },
+    {
+      "risk": "Missing Effective Date",
+      "severity": "LOW",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract does not specify an effective date, making it ambiguous when the agreement comes into force. This should be clearly defined."
+    }
+  ],
+  "counters": [
+    {
+      "topic": "Termination Clause",
+      "counter": "The Overlord's termination clause is extremely one-sided. Standard software development contracts include termination for cause (breach of contract) with a cure period and termination for convenience with a notice period. The Peasant's termination clause is absurd and unrealistic.",
+      "confidence": "HIGH",
+      "industry_context": "A balanced termination clause is essential. 35% of software projects face scope creep, making clear specifications vital. Research shows that 25% of contract disputes arise from insufficient notice, underscoring the need for clear communication timelines.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQElKvXxNJYGtbDJDIGr4pD83ync2I8rxwox-EG01TiXZfRHZrTrmqZ1SM5B5JRAmIPoQ5-5GlQJ30QRw4KNnBIuUYrAO2DWGjKGiodPktdrDa7jNe3FMVZLom7obVm5ArtEoKAlYpij6BW9W_lrh0bxnqzdDQU3YAea1QO7tqH4aGV7PA4q91SJJyt8Y4aOk-lpuIvRtai0Ijm7",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEqV71k6sh-kKFg8vPqO6RnE0-D-H4uwjKA89MoLBOrJF1DNEtNxrzvQKoeg9etJuwkcO46UqwA7FHtfPvdndvLMwmisY0Meu5VyagJl5VTCMnGs__xIN4B0RY2m6TNAFHyxypmH0BUUfbTNFqVt52BGnpPJ_lgjy0MigBfdvV851oq74f6WKLG-xyFQVRhC9imuZPDA7_JUgnovHUau-u09x5AIhzS2SIXy_jQTk_XR7AfMQ=="
+      ]
+    },
+    {
+      "topic": "Payment Terms",
+      "counter": "The payment terms are a joke. Payment of 0.0001 Bitcoin per century, payable only when Mercury is in retrograde, is not commercially reasonable.",
+      "confidence": "HIGH",
+      "industry_context": "Software development contracts typically involve upfront deposits (20-50%), milestone payments, or time and materials billing with monthly payments.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQExmeEBF9xZ8MsmpP4AQaF3U1p69lHXdfYYVd59kUMuoIhPGYccQ9peJzPrNhxHf6v49eTJ_oAq3QFtd6YSnU3TGePXPPjB8-XDrXylqddkVmeTN2fpItYXkQZfudTWalTS0ESOx9DZhbTWhi-OXTP5CFguTnz7m07ow-2yxTjHRCmKVlRWj0DYXcNoSSIAbMIXLLLWi74="
+      ]
+    },
+    {
+      "topic": "Intellectual Property",
+      "counter": "The clause stating that all thoughts, dreams, and ideas of The Peasant belong to The Overlord is unconscionable. At minimum the IP created as part of the work should be owned by the client.",
+      "confidence": "HIGH",
+      "industry_context": "Software intellectual property rights encompass the legal framework that protects computer programs, applications, and digital innovations from unauthorized copying, distribution, modification, or commercial exploitation. Clear ownership of IP is critical, and the terms must be explicit about who owns what, especially after termination.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGX_HQhPkURHXfQkAxoXTUINGNRf8d1VTtVfmsWLSOmbq0RGSXEUALg-GCwRtT35gLB1yHVO22aCPMod7y5vRbxcjwvHq8jlus4GP6dcxXQ2FvLrMDepfQQysVpoSvYtMUeeyRSf9rZSIsWQJHSZv5H3yRSykjrLN2GJwMgTS-moIk=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGKZ1cxx15uq8xrWzGalWEK77I3TWrEBxIDmmrZLbqib45zecLJiwJnHH2sLxca7F5HXsPy1YBDzLMONr2LLtAc5wGv8gPLMiQ9if-px2TC02NB_WAbc24WlQWgj6D-x9cRuXZlWDL794hhaBXZUdL1tovCvl5Y7CQydVbarNHH_pS-5ct5VdY1unNB0Q9_hT-V3FcHeNU=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGhGpIqurbHA10clU0FliGXLmqz-UUZmal13yj5EOd3sAetUCUlP_3zv2QQ_rCM7EUU7y_pAIBYHfyVCzU0QXxsFvr4posohtRSjDo2aDJE_wjM-ewT-I6AZ67qUrAyWCvS5W6FU66bVTrJD5LhggWLVvlfHQxv1lO-9ds993VlfjfNNQTZyp5n8szyTqXdb8LTvwK48SiqPELmyQSl0iAz"
+      ]
+    },
+    {
+      "topic": "Non-Compete Clause",
+      "counter": "A perpetual non-compete clause is almost certainly unenforceable. Non-compete agreements should be reasonable in scope, duration, and geographic area.",
+      "confidence": "HIGH",
+      "industry_context": "Courts typically view six months to one year as reasonable for non-compete duration. The agreement should protect legitimate business interests like trade secrets and customer relationships. Alternatives like NDAs and non-solicitation agreements may be more appropriate.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGRWoXR5d_t7EKOkTXdffvctKK2nGlT36skPB4HlvCXmKc5wLD_7atJVvJEkfUSsoZ4ytx1JM459DdmExS-ecAt6uNS4mX_Spn2KAqfO46lfq4UZ8-98i5VMW776z7L2UdCHW9Xn4w2gKWQxqNJTl405UMB7vnEFekJcZOODboHZJvDSnUPmoaPkJvMfrYUgg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFDuKuKqo2ByDkvUIzIl4YQVDq7D0U6q7LAO_x0MjK6Cd5IPKr8qtXQ1VV5ln0hxDFZmyTcuhfwZ7CCtrc1aX270QBjn5kfIFCnw28M9fGOeKtLz57Vn-MZdJJFK21py2AK1m0fBUzltX8DRavaHzKauO9-4HVTikwT1L9FDJXDLl6iPZPvZqm_aJ_U36xP7z7RVr0=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFw0ID-lyWHYRJPuwEdGTIF6gDIdzcDKbGD1Ys8ltPDdCFmIN3JFvy2-7D3J-ik5-IXD4kyn3vT6PHpR8VS6_LyUXqG7_f26VxqrIqDafZB8t_4XhA9MQ4X1ejlgVtG8s_BTXqpmDsfPCSIhOEnAwPzLhzPsmtH6JmX2F6UTbQ6L-3l4Ng4cQdkYYLlkc6zKSSWeOriQKKi3RMXXdE6vMetRJ4="
+      ]
+    },
+    {
+      "topic": "Dispute Resolution",
+      "counter": "Governing the agreement by the laws of the Galactic Empire is absurd, as it is not a recognized legal jurisdiction. The dispute resolution clause should specify a recognized legal jurisdiction.",
+      "confidence": "HIGH",
+      "industry_context": "A standard dispute resolution clause should outline the process for resolving disputes, such as mediation or arbitration, and specify the governing law. Arbitration is common in tech contracts due to its efficiency and confidentiality.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGsQeIn6GyGOrexYdtDpnA1ppZLUQvWZG9pJZjZzeZxY9eclrUrAGio-jWxZW8eav-Bi00Pzdiygs5tzxxPmyy6B1XDuWnPwL4fKKmnUVUtwPEbG-3tNG-4Eb7fD0ZcNG7nXRwdB5OakO1y-1KkihYF1Pswcont65MwcgZ8d2-X",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGqiRZZ8eub74xrn62mTgcr9FIZrzZLheg75Pb58TEH9qInBS68iqNF63RYJ4BrRCWSOuOyo7n4PDFPWWEjX0e8ppokRcN3WR9ZZ84fL7Te-DtJ6f1Y0jbVnmAhYmKTI3_6qS7lRI0B9qBt_XHUqXikWI41unw39Qrp8au9OrBdsiVJNidvhuFXjXtkD3TmXsrzA5R6gfIe3eMspevL8v1zOS8N",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH6jrIRfkNj5OOOugdfqEOSyTKjQmdTb2kDWwcLMrYsnEdJCFUontPJghW_QH6QFUpvV3nKP8dZCyHXHS8Crqq4yJ6qfh8vshQlbQTSSF05m5v9Nyf2aQWjGeVEpT1BUd0MYWTh99mZRh0uA-Y1x1jE6R3LVB1_NYnC5-gC-kQyjKvxR2RPKf1pxv4FeKpiHsjBc0UgEJWGtmON8w==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGhMkpuYmcFEw0iR6x4YWZx50DXeDm9n4Odro2kxKsyt10mT2E-4s3j9byRUyWFLlaR36fq7hRqdCVMvcreyrDlxcOEHGqPDVspGbYdGMNf-OWdDVdUw0vPwAZFTa6GxlSHHEPICSQF3BZO-v_O11hNRfP7mIWec-rrFb029OpgpzrFqSH-7tQI6nzGQNlHi3PQsUNZAqOB6auqPC4v6T4RBMD3Flnz4XZur3gJK_t2zsswh0vznCicRKs0oy_xaV3rjyCTggSsdvKia5a4MNji7PdvTx3dF7vfgDS2X7gvsBxYaw3etNhoQcazUbgSNPuD"
+      ]
+    },
+    {
+      "topic": "Key Obligations and Indemnification",
+      "counter": "Requiring The Peasant to indemnify The Overlord against all claims, including acts of God and alien invasion, is excessive and unreasonable. Indemnification should be related to the services provided and limited to foreseeable events.",
+      "confidence": "HIGH",
+      "industry_context": "Software developers often carry professional indemnity insurance to protect against claims of negligence, errors, or omissions. The insurance covers legal expenses and any settlement or compensation.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGfI1GKQmhHLTtZ_yQSd2UnIhp47gbw-UlAuWPbtbKi-in9sbeGBnGyMZhNZdIdja6NDdHEy0rA-M8nb83dQyoIlvYGjnzmrVD-vnRVKgIMs_g7ARkXkdYZ8fgSQZ6d1mt1HdIS7YqLwQf31bHlIpIkA-izQolttYu8kIxX26wtu5UVWWz7sDU=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGRxrWmH91Kvd5dmEVBbKrH5NeVBLDH0bGByy6KzX2O-cxe4SGBIHAtNCljJm6tXWaBp7S9aIFA8gR8ud5skgKUdUzCpQGxHEU7otN--59z3YbVyDZgCz2eLZAeP7Jyuu7Pr1ngvLF-t3OKTggaSZGR",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEOXcJDN_8cRAh4Qx0CRSDMaujuOi4dHVNrgGswv-wwVh9YMM_cmtvB2DAClc5o3LYQvCZ4FJHM-iihwiqXH0Xo2IWtkR5Tj7LSxYPcXQW8r1l3de3_Rw9Sj3hceGRuwgr3ay04J4vvHl6h6wTgf5LzdzW8JEcmRl42-4jKIbISm1Z8IBxv"
+      ]
+    }
+  ]
+}

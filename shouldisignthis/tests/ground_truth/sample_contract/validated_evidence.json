@@ -1,0 +1,74 @@
+{
+  "risks": [
+    {
+      "risk": "Missing Effective Date",
+      "severity": "LOW",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract does not specify an effective date, which can lead to ambiguity about when the agreement is considered valid and enforceable. This should be explicitly stated."
+    },
+    {
+      "risk": "Unfavorable Intellectual Property Assignment",
+      "severity": "HIGH",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The contract states that the Client owns all work product. This means the Contractor relinquishes all rights to the code they create, potentially preventing them from reusing or showcasing it in their portfolio. There is no consideration for Contractor's prior IP or open-source contributions."
+    },
+    {
+      "risk": "Missing Dispute Resolution Clause",
+      "severity": "MEDIUM",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract lacks a dispute resolution clause, which means that any disagreements would default to litigation. Litigation can be expensive and time-consuming. A clause specifying mediation or arbitration would be beneficial."
+    }
+  ],
+  "counters": [
+    {
+      "topic": "Liability Cap",
+      "counter": "A $5,000 liability cap is relatively low, but may be acceptable for smaller freelance coding projects. It's important to consider the potential risks and value of the project when evaluating this term. Some sources suggest defining the scope of liability and setting reasonable financial caps.",
+      "confidence": "MEDIUM",
+      "industry_context": "It's crucial to define the scope of work and potential risks to ensure the cap is appropriate. Increased liability risks for freelancers have been noted as of 2025.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHjsmlH_IJ7-rDK5n5AOkyspI4V3rzYtRUuAUmqUPk8HYZ75nvOwnRyM-gADK8Fqoeu2o6sHprZTAa8A5Mm-5V4EfpeJjrL5OtUFtpisOg68A5fuWTmlE-jCjL9AyDZf1nubxUumeIrcY-ELlaWpgh6hHrjTuNAGZEb_Byfqr8cznzkdeM5XRoiwg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE--abTWrId3AxG2_4Tl1OLjFRweODRhElf0S5BffU_cMWq5yUc8ESd8Pjuflwa_26_FssnCN77lhGhEe_ZDkY6X-KFVSJhOZG9BaIBgPS9TVM0FHAwEYzGg8wx2XyUP5kq_Mr86UrrhoaX2I6th25R7wEiVIKFLFlUj2AewZoWx_-uBnX2oMmuuCVfaiV6AzwoJISAcrtw3cvB70XerEWKG-rH-bz4jNWaCi0Eew==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG9XST-f-pdzZr6wYpTcB4UlQvTJ4O8p9smggxBSdnAdoBQ0V7yxQt9fzXnrwZdcx1bONJ8rgcgKcuzENLaS9UJTtQM7JDQE5UHj5_Py2xth04-Y9fbHZ7aqqFd8uxZCkAXA3lYCa6YUwg55lghJXV16XyNYpoi-S3jCGCU9aAnnhIv9isavuCeI5owapmbSvC7A0H4G5FumibS-X8rczdusQ=="
+      ]
+    },
+    {
+      "topic": "Termination Clause",
+      "counter": "A 14-day termination notice is fairly standard, although some suggest 30 days as more reasonable.",
+      "confidence": "HIGH",
+      "industry_context": "Consider that projects may need to be finished or brought to a stopping point, and the client may need time to find a replacement.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGeTOuKFY0mKMRDtGQcFyJA4bGK4YcYAMnzIyRsw_T1piSbZQpvdkkoQixiE1Hr-W2-zrTAkjhIocNS8xnjt4WcwjiulfrBLhNoQ0HYPi1esRCjf5RDoNMz0QkJQFlSr-xMqaTV2dAUok_X-aFKUKCzWzITDO5D",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFoICao8Cs7lKHVrm315ZyGZQR_L5vF2TCjliLUNKbMMbWfqCLTaftfXZBV_G-kSGc3dsmnJcEMA8LJQ652nFUtInLIR3FGNvjxRfgvS5rfA8yuLdN6faXR98MIpoQbCZDuFJbaArj8TQIhGGnUtlbvIKu-4exMCvKhtDpgXdCxMdBDQObibsNURLzDeQus"
+      ]
+    },
+    {
+      "topic": "Payment Terms (Net 30)",
+      "counter": "Net 30 is a fairly standard payment term, meaning the client has 30 days from the invoice date to pay.",
+      "confidence": "HIGH",
+      "industry_context": "While common, Net 30 can put pressure on cash flow. Some freelancers prefer Net 14 or Net 7 terms. Consider including late fees for delayed payments.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGijNdrL8eUi6QG1A9OYD8E_SjH6-p7xt2lVbq1sYzEF-J5n41AGcMeIFwTBVNnSHKlm_Xzk5fd_5T91EebU-4TpZFsX6S6lNOcKzB5Q17IPtQfvkgkUvdlTDdtJzPkFy_pOWs=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEc2rvD8yp9VYD44xd0F4QQMevqOBlEyvS4R72olouzidWJzFZbeqW1yXKDUyCvllCwomr-Jy2tFuqG3WKV-mWKSC_UY5kzt1XGc5cYDxgWRlHvCLkQdiZDkKsk2piHNmlEGKYnergyy6931KKZ",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF9Sul0_E0EeHyW8_lIluQOqfLv9-J6CjxF3vycQAECaWBeosuLJK7vtkH9kGevB9C3yO2V3nwtoPgVGfiaKgr52wfA55sPgUmnlN_yOpZV7-SJqJjxLP9hcNF100_Z4iMRw-P2KoEovywaUo1gN6K6Nx8bUVTBDKW1rw==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH6RzV3Lk5EE2Z-QhnLat-znRCcMHf2a_RlCsGkx4IrxoqV-GBlZadxPQHiA3Y0bqsEHsn53oUUHpTIwl_ti1L2GsOReH5um2kdXsM1_K8Es9Yo17ChOUK5kIsXH9wJNroPt5LskYFqGJrG2SYLDlHli07-O-Zn-ws49unXY6djEJuiMhXPO7NWNA9dDXgshypYfECfqYp3iRmsu1LvJowRgLgZIcDqcU6bvSGrhIWdmJo=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZCujbau4bqtv4IweqZzcDiZklDsK4kPsu_MQC17P-Ufp9dDaCgn14qEL1XcmaLiS9y6LtC2W_3HH9_9tNSJYtjCDbyEG5lwb_cwJfOcPamt3Ik7vnk4AzMNemYlxeY-xq_1tUMWM=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG4Nc0UEmAjLPs7AD-YgCTir4mPUpwKA8lo_jqj76Bwn0dwez3B5WR39MS3EQH6wTo4wgfZl5_hpb8vTPpfj0yoC6xOfzX89-1jMn5AX47lso_LVKfpHc34dNrvcaWZmJjV9uG2josUttijevCYPiBxEGz5KaLsxXFOuL2-9iTSe8W5t2zr5JGfK_NUf0yKZITHPy_zwNCXQQi0XVyCL-DGDbtLH1WgoSaz160PXWLZ"
+      ]
+    },
+    {
+      "topic": "Intellectual Property",
+      "counter": "The client owning all work product is a common arrangement, but the contractor should ensure they are paid in full before the client uses the work.  The IP clause should state that the contractor retains ownership until the client pays in full.",
+      "confidence": "MEDIUM",
+      "industry_context": "The contract should specify that you keep ownership until the client pays in full. This protects your interests if clients use your work without paying.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHjsmlH_IJ7-rDK5n5AOkyspI4V3rzYtRUuAUmqUPk8HYZ75nvOwnRyM-gADK8Fqoeu2o6sHprZTAa8A5Mm-5V4EfpeJjrL5OtUFtpisOg68A5fuWTmlE-jCjL9AyDZf1nubxUumeIrcY-ELlaWpgh6hHrjTuNAGZEb_Byfqr8cznzkdeM5XRoiwg=="
+      ]
+    }
+  ]
+}

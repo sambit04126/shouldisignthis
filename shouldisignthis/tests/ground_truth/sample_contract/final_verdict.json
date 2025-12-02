@@ -1,0 +1,16 @@
+{
+  "verdict": "CAUTION",
+  "risk_score": 55,
+  "confidence": 95,
+  "summary": "This contract presents significant risks that require negotiation before acceptance. The primary concerns are the unfavorable intellectual property clause, which grants the client full ownership of all work product without consideration for the contractor's prior IP, and the complete absence of a dispute resolution clause, defaulting any disagreements to costly litigation. While core terms like payment and termination are within standard industry ranges, these critical omissions and unfavorable terms necessitate significant revisions to protect the contractor's interests.",
+  "key_factors": [
+    "The intellectual property clause transfers all rights to the client, preventing the contractor from reusing their own code or showcasing it in a portfolio.",
+    "The absence of a dispute resolution clause creates significant uncertainty and potential for expensive legal battles.",
+    "The contract is missing an effective date, which leads to ambiguity regarding its start."
+  ],
+  "negotiation_points": [
+    "Modify the IP clause to grant the client a license to use the final work product, while allowing the contractor to retain rights to the underlying and pre-existing code.",
+    "Introduce a dispute resolution clause that mandates mediation or arbitration as a first step before litigation.",
+    "Add a clearly defined 'Effective Date' to ensure both parties know when the contract's terms begin."
+  ]
+}

@@ -3,12 +3,15 @@
     "status": "CLEAN",
     "corrections_needed": [],
     "verified_arguments": {
-      "counters": [
+      "risks": [
         {
-          "topic": "Liability Cap",
-          "counter": "The contract caps liability at $5,000.",
-          "confidence": "HIGH"
-        },
+          "risk": "Liability is capped at $5,000",
+          "severity": "LOW",
+          "risk_type": "FAVORABLE_TERM",
+          "explanation": "Liability is limited to $5,000."
+        }
+      ],
+      "counters": [
         {
           "topic": "Payment",
           "counter": "The contract says payment is Net 30.",
@@ -17,6 +20,6 @@
       ]
     }
   },
-  "final_arguments": "Case closed.\n",
-  "duration": 6.762186050415039
+  "final_arguments": "EVIDENCE_APPROVED\n",
+  "duration": 6.8920512199401855
 }

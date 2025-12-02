@@ -1,0 +1,166 @@
+{
+  "risks": [
+    {
+      "risk": "Unlimited Liability",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The contract stipulates unlimited liability for the Developer. This means the Developer is financially responsible for any and all damages, regardless of the amount, which is an unacceptable risk."
+    },
+    {
+      "risk": "Unilateral Termination Clause",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The agreement states that the Developer cannot terminate the agreement for any reason while the Client seemingly can. This is extremely unfavorable as it binds the Developer indefinitely without recourse."
+    },
+    {
+      "risk": "Discretionary Payment Terms",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "Payment is discretionary and contingent on the Client being 'delighted'. This ambiguous term gives the Client complete control over payment, essentially allowing them to withhold payment at will, regardless of the work performed."
+    },
+    {
+      "risk": "Complete IP Assignment (Including Thoughts/Dreams)",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The agreement grants the Client ownership of all IP created by the Developer, including past, present, and future creations, and even the Developer's 'thoughts and dreams.' This is an overbroad assignment of IP that is highly unfavorable to the Developer and likely unenforceable in its entirety."
+    },
+    {
+      "risk": "Overly Broad Non-Compete",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The non-compete clause prevents the Developer from working for any other client or on personal projects, effectively preventing the Developer from earning a living outside of this agreement. This is far too broad and unduly restricts the Developer's professional activities."
+    },
+    {
+      "risk": "Missing Dispute Resolution Clause",
+      "severity": "HIGH",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract lacks a dispute resolution clause (e.g., mediation, arbitration, venue). Without this, any disagreement will likely lead to expensive and time-consuming litigation, with the venue potentially chosen by the Client."
+    },
+    {
+      "risk": "Unrealistic Availability Requirement",
+      "severity": "HIGH",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The Developer is required to be available 24/7/365. This is an unreasonable and unsustainable obligation that is not conducive to a healthy work-life balance and could lead to burnout."
+    },
+    {
+      "risk": "Severe Penalty for Quitting",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The Developer owes the Client $1,000,000 if they attempt to quit. This is an absurdly high penalty that effectively traps the Developer in the agreement, regardless of the circumstances."
+    },
+    {
+      "risk": "Financial Penalties and Damages",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The Developer is liable for all damages, lost profits, and emotional distress of the Client. This is an excessively broad liability provision that exposes the Developer to significant financial risk."
+    },
+    {
+      "risk": "Physical Harm Clause",
+      "severity": "CRITICAL",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The agreement states that if the Developer misses a deadline, the Client may seize one of the Developer's kidneys. This is an illegal and unconscionable clause."
+    },
+    {
+      "risk": "Extremely Low Wage",
+      "severity": "HIGH",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The Developer is paid only $1.00 per hour, which is far below minimum wage and grossly unfair compensation for development work."
+    },
+    {
+      "risk": "No Effective Date",
+      "severity": "LOW",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract lacks a specified effective date.  While the absence isn't immediately critical, it can create ambiguity about when the agreement started and when obligations began."
+    }
+  ],
+  "counters": [
+    {
+      "topic": "Termination Clause",
+      "counter": "The term 'Perpetual' with the developer unable to terminate for any reason is highly unusual and unfavorable. Standard contracts include clauses allowing termination for cause (breach of contract) or convenience (with notice). The inability to terminate places the developer in a position of indefinite obligation, regardless of changing circumstances.",
+      "confidence": "HIGH",
+      "industry_context": "Typical agreements define conditions for termination, notice periods, and consequences. Approximately 30% of tech collaborations fail due to poorly structured agreements.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGnuNXVTHuJYK_P5t91GVbneKE8U4K-P3eVFtVBJdG92ikJ7-r6rB7GURMG4ZsVdSZ7-3MDoXsBiI1JVurflOs8Vshb4iBUguHCOU3N_Y8legd3sp7zorNT0tYKb2cVKoNCMaCuiOhaTst7KYdN8t38fUsyHYJnVw3Vu7L3SiUmcY08faP0ZYU_27hxw0cnjEsbx7V9_lEN",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGZneyqxVs6X1q2pLJlkkzSvzrdyDIBXWtapPXDCjUwH1rVkZ35tlzYQ6tl7xy0H9xudKiynYrqauFp20ldzgNQaILGKy0EiDKPWvaQubebZ3-4KkgCTn1AeLcEXlUrXjlWC64fhpJQ5RYMX9wFQ0nGyBQvABj1FwtQJmEnJ1ChdPGZKL_nyvD_J91XQrQIXr23VERSXvXohhc8Fcft6nD8mPy1xjBj7oL2oMbUEedbGyBhrQ=="
+      ]
+    },
+    {
+      "topic": "Payment Terms",
+      "counter": "A rate of $1.00 per hour is far below market value for software developers. Discretionary payment based on 'delight' is also highly unusual and unfavorable.  Developers in the US earn a median salary of $120,000 yearly, translating to an hourly rate significantly higher than $1.00.  Even offshore developers typically command far higher rates.",
+      "confidence": "HIGH",
+      "industry_context": "Mid-market custom software development companies charge $120 to $250 per hour. Salaries for software developers in the US continue to rise, driven by strong demand.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE7nnZB2-xG_nPCsGTC4W7Xqr9noVlqJAVf07AjOuRHXnwcB847gRaJ_-qmc2r9CGWrJ4wvFV_3LW0o75Rr5aH8nYJgvXA1qoIUgQKtL5m-Nu6BhrY188ZVbcdzFep__nN9rQj8c7Vs9Ni52wn8d3wN8nmirs-ioNS50kVz6M2fzDmnLkXpi7ogvfGTs2LOOhNarEU2aJO11rEZyG5MBo_1",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHjDpZZFO1_r84EHuoKS8ltMC-I4wLAZTyT-6LhR9UTjoqm1FUiiyPxaKo0TRdoLbnwgfc5YUy4fhimjcVB5BDv2pEQ7jRhpJh2c13rSawSBJhq59Z9uBkwxtTAlc-xxzf9qfg4hG4bJieILXq3lYaLWR2RnZy8"
+      ]
+    },
+    {
+      "topic": "Liability Cap",
+      "counter": "While the contract states liability is unlimited, this is generally unfavorable and unusual.  While unlimited liability might seem beneficial to the client, it can be detrimental as it may deter qualified developers.",
+      "confidence": "MEDIUM",
+      "industry_context": "It is more common to have a liability cap.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEpfavOy1yYC1DaMNsl8hA5jFbfZtEGzd_zfPkCkToW1xna_KAi1-32me07A6XmDhFiD0dIIaZLIAmR4aGZtskfTY3qLWr-Fad10c8MI2kXgAm3EQeI3unDrYj_ZC39E4SiqJR1YSvnCi7BKsSgqAfKnAc40Apu448yrbTM3tVg-Uh38prVUYkJvXM51JdPHr29-hwCgykiH0nO"
+      ]
+    },
+    {
+      "topic": "Intellectual Property",
+      "counter": "The client owning all IP, past, present, and future, including the developer's thoughts and dreams, is excessively broad and highly unfavorable. Standard IP clauses grant the client ownership of work created specifically for the project upon final payment. The developer should retain rights to pre-existing IP and general knowledge.",
+      "confidence": "HIGH",
+      "industry_context": "Typical agreements specify that the client owns the custom work upon final payment, excluding the developer's pre-existing IP.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEpfavOy1yYC1DaMNsl8hA5jFbfZtEGzd_zfPkCkToW1xna_KAi1-32me07A6XmDhFiD0dIIaZLIAmR4aGZtskfTY3qLWr-Fad10c8MI2kXgAm3EQeI3unDrYj_ZC39E4SiqJR1YSvnCi7BKsSgqAfKnAc40Apu448yrbTM3tVg-Uh38prVUYkJvXM51JdPHr29-hwCgykiH0nO",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGnuNXVTHuJYK_P5t91GVbneKE8U4K-P3eVFtVBJdG92ikJ7-r6rB7GURMG4ZsVdSZ7-3MDoXsBiI1JVurflOs8Vshb4iBUguHCOU3N_Y8legd3sp7zorNT0tYKb2cVKoNCMaCuiOhaTst7KYdN8t38fUsyHYJnVw3Vu7L3SiUmcY08faP0ZYU_27hxw0cnjEsbx7V9_lEN",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF32y40f-Xo-8XWXjPjL4_ILo4QfbFt_j1-ETWAvRHZ1Efr_s_eUYOp6K-HP-s9SH3XHeWQbtX2rr2Xrs2dSpm_qzhTrggZ15A4ecNmhgs1DSCntv-sRXcO6Lzn7FXNV_zX6OLZDFiPvKqa-kcGIqGeNlON19ccNHYLrfm2Mq5r7Bcz1XFBktKN0Q=="
+      ]
+    },
+    {
+      "topic": "Non-Compete Clause",
+      "counter": "A non-compete clause preventing the developer from working for any other client or on personal projects is overly restrictive.  Such clauses are scrutinized and must be reasonable in scope, duration, and geographic reach to be enforceable. The UK government is considering reforms to non-compete clauses, potentially limiting their duration or banning them below a certain salary threshold. A complete ban is also under consideration.",
+      "confidence": "HIGH",
+      "industry_context": "The government estimates that around 5 million employees in Great Britain are subject to a non-compete. The FTC in the US has also taken steps to ban non-competes.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEUsVb3SPrShjDwuC0CBsjFWGYfmzqSqbS7ePf2Esy8Dk18HIdnPd_AKX3uryVXQUULlKbA8mQyRm_DlL10otTUcOo5WX77ka8VLjd8EuxDeeMPekQYEovKbiDvk_iI_dxtsiQL9J-6v1QnXQFSFxWLDnTTQUK2WrpjNbtREJO-pNmKg0aIDkfDCidQFq1JoIoDlOuhhqWvegy0LuT7jWcYePHIYbdjhg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEtV66xC7adH4xjXxwcOZk8ijh8P4OJ6XTwYcSPALC-1rEyj_wFyPCjRMCRoY59U5c8MUCc8hKrY2dUemXQWkGrulpQNwtiDj9j6aYlKc0LYTDotmW88hzHS5hGVJEmU4Y1iPJLxOURfeNLUcYSP0LH1EtUu_hcxeXANKxGckkWmlg8t-ypigkwYZcFz_9Fu6kcnBf7NS3TehyECRUUnT46SMHStH17j_EVP_52rgZ6PoIQsmsxXwObRw==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHC4ul5zGoB8Olo1_7nteAnyrktzuOTzn19uc9jX41_QZw96ppdjutlX0A1JQ4frxyUVgiNtkOwYGx3TUnhmoeVuQj0mCCCKAaypMUB7xBoxWonYKKQzqm80fzF2b__bdEkeD0vagz0RkeSFBvRqkEosAM3cKahRFm1xgaEpUNojJ2pFlg_NI_hcVPfSyfhy_9dpqsgB655SfiDnX4ZXBByxBNcq5SYHHejcJX9YasbUv4EGDxh-N-XeEqu8qrwvJ8O8g==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEBzYeXU_CYlufam13QW-cvwdTwWkk1uYX43NlIh6XVD9sojvR7e8GT4WvnrAwJd-NHyEL3Ub0B_0bw3G7TnVTVqqscRjil1WwBbuWQGBez7oOVvLNuiAGOQfQNxTB-LpaqUt_pgXhywNp28TDqrJyr-54sPwxuZbwUjSWfJItWqk9br-ArmWktSi2CIcKwE3mzElbZvwLDVNhLIzRdPzxR-k63VTi5QAberUiCJi6fwWQPYgTSDVr-My2H4LxZKJyP6MLj30cjkSgTJrvKxknXHJgk_qkLacisgnDFUUqRxo8a53jSS4TDLY8cZgw1CkM85bKBrbeQws8KPGFN"
+      ]
+    },
+    {
+      "topic": "Key Obligations",
+      "counter": "Requiring the developer to be available 24/7/365 is unreasonable.  The clause allowing the client to seize a kidney for missed deadlines is unconscionable and unenforceable.",
+      "confidence": "HIGH",
+      "industry_context": "N/A"
+    },
+    {
+      "topic": "Financial Terms",
+      "counter": "Developer liability for all damages, lost profits, and emotional distress of the client is excessively broad and unfavorable. Requiring the developer to pay $1,000,000 for attempting to quit is also unconscionable and likely unenforceable.",
+      "confidence": "HIGH",
+      "industry_context": "N/A"
+    }
+  ]
+}

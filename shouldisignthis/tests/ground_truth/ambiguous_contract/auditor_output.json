@@ -1,13 +1,13 @@
 {
   "is_contract": true,
-  "contract_type": "Consulting Agreement",
+  "contract_type": "Consulting Arrangement",
   "is_safe": true,
   "full_text": "CONSULTING ARRANGEMENT\n1. Work: Consultant will do stuff.\n2. Pay: We will pay you what we think is fair, eventually.\n3. IP: We own it.\n4. Termination: We can fire you. You can't quit.\n5. Liability: You are responsible for everything.",
   "fact_sheet": {
     "parties": {
-      "value": "Consultant and We (Client)",
+      "value": "Consultant and the engaging party ('We').",
       "page": 1,
-      "confidence": "HIGH"
+      "confidence": "LOW"
     },
     "effective_date": {
       "value": "NOT FOUND",
@@ -47,13 +47,6 @@
     "key_obligations": [
       {
         "value": "Consultant will do stuff.",
-        "page": 1,
-        "confidence": "HIGH"
-      }
-    ],
-    "financial_terms": [
-      {
-        "value": "We will pay you what we think is fair, eventually.",
         "page": 1,
         "confidence": "HIGH"
       }

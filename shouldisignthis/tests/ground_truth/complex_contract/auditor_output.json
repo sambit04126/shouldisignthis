@@ -1,0 +1,72 @@
+{
+  "is_contract": true,
+  "contract_type": "Servitude and Soul Binding Agreement",
+  "is_safe": true,
+  "full_text": "MASTER UNIVERSAL SERVITUDE & SOUL BINDING AGREEMENT This Agreement is made between MegaCorp Global ('The Overlord') and John Doe ('The Peasant'). 1. SERVICES The Peasant shall provide software engineering, janitorial duties, and emotional support. 2. PAYMENT TERMS The Overlord shall pay 0.0001 Bitcoin per century, payable only when Mercury is in retrograde. 3. EXCLUSIVITY & NON-COMPETE The Peasant shall not work for any other entity, living or dead, for eternity (Perpetual). 4. INTELLECTUAL PROPERTY All thoughts, dreams, and ideas of The Peasant belong to The Overlord immediately upon conception. 5. INDEMNIFICATION The Peasant indemnifies The Overlord against all claims, including acts of God and alien invasion. 6. TERMINATION The Overlord may terminate at any time. The Peasant may terminate with a written notice carved in stone and delivered to the summit of Mount Everest. 7. GOVERNING LAW This Agreement shall be governed by the laws of the Galactic Empire.",
+  "fact_sheet": {
+    "parties": {
+      "value": "MegaCorp Global ('The Overlord') and John Doe ('The Peasant')",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "effective_date": {
+      "value": "NOT FOUND",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "termination_clause": {
+      "value": "The Overlord may terminate at any time. The Peasant may terminate with a written notice carved in stone and delivered to the summit of Mount Everest.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "payment_terms": {
+      "value": "The Overlord shall pay 0.0001 Bitcoin per century, payable only when Mercury is in retrograde.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "liability_cap": {
+      "value": "NOT FOUND",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "intellectual_property": {
+      "value": "All thoughts, dreams, and ideas of The Peasant belong to The Overlord immediately upon conception.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "non_compete_clause": {
+      "value": "The Peasant shall not work for any other entity, living or dead, for eternity (Perpetual).",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "dispute_resolution": {
+      "value": "This Agreement shall be governed by the laws of the Galactic Empire.",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "key_obligations": [
+      {
+        "value": "The Peasant shall provide software engineering, janitorial duties, and emotional support.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "The Peasant indemnifies The Overlord against all claims, including acts of God and alien invasion.",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    ],
+    "financial_terms": [
+      {
+        "value": "0.0001 Bitcoin per century",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Payable only when Mercury is in retrograde",
+        "page": 1,
+        "confidence": "HIGH"
+      }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "counters": [
+    {
+      "topic": "Liability Cap",
+      "counter": "The contractor's liability cap is limited to the fees paid in the preceding 12 months, with exceptions for gross negligence or willful misconduct. While the client might prefer a higher cap, or no cap at all, it's common in software development agreements to limit liability to a multiple of fees paid.",
+      "confidence": "HIGH",
+      "industry_context": "Many software agreements cap liability between 1x-2x the fees paid. This clause also provides exceptions for gross negligence and willful misconduct, which is favorable for the client.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFy8Tm3baz38lnMgVPY605Xn8UkjLz4BJApx-ciTNy7ivIgEqIDW5oh0jZKuvYyebKSH0MaZyul1ax48-DIckf9pTahFsxvmcyjxJGIUF2tBQmKzd1xnVmmbLoOnOxdyhP_3TioHeOlIJ254MFoE1PzqA==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG84KNSdSRJ1kYmjb4HBil2jlhCput4PcDbpoF4IX16ybSu6w1BEw5QGI-UhaBXOVxTqdLKCPvZhC14Vsoj1I9RxczgJE7el9N0HpCXCZTscW3zKBUt-gDHcTacgUocd7kQ2qlWAj8_5gfbEzULoweq8SI5EvNoIcOUHN7GNKCHGU7cte9KzVpXx2gH_ruvGrRcbPEN6ca4lWzqC8Y_XR_G_2hv84JXmY2tRjrPpg==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHHs3I-y4KfuwVV83N-Xi7Tu_1figO3BvjICRD5ywpNGS9FdJx2jsk3yazf0slGzINi6TFgMS3ipkeQvtISLld-KVdmhWw3iT55Dwxgu95TRaLJTmbC3UHk-KOGIhSMABemSe3N6L5iwXnDVTVBBAQo60d1bW7wUnwTmhpZtj5fVFyqf9yE",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEoJuKfJbIPfK41C44tX7OwkcVUFiWWPHkCoAy3WEkPkZ_DtaCSqxd1R0PBijVs09LzDHfNCsWoSV6fE0NMJyGmj7CfXYoXeBrRz3tekheQ4fE3tBVFMruY6yt6kJLVY70eTn79J861hnohHAZ6piMxx6ue",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFAbs1aJ5rhghmla0SV-PRKgAXfYBuHMnV7knvEv8RccIJPf1x6pENNu9B0ymkrwN7Cq8CgubExcfPKpInt9ky3ami5KGb9hoPdu0o4cC4_mbRLUIYV7nXMzGbr53UORrU7X9qr5q1Ln1scpBbFlfZgAToBCNljfC7BsisJqnOzHo0ofYVqOVWoN3qKZmeao5pEthBfpCpG3ox51Sk3EH0Fiv413dANTb4wWNECdS8EmWbvTUoRyg8ndeDHarUKYaRR1n4uEgVbd7w=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnezB1HDfwmjXDtQFOiuG9TW_zUVtuG6cqqEfLEhcp0N3kt5ZZIKnuWmOXULzUpqKiQ2p02dy-89IF9mW-KgrP1oEuu5nd2tjD6ox9jdShPI7DigTRgK2F1w53ntbKZQ76zJ-ZKdBMekNONQqTkkCECgmDaNRjPPzgtXbsBVPyqaRy6X3LKXn-KCeozxikNEkfGzfmHbFqNcgvJoPaNjQdc2-o",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHQaZ60U_gyxeYVC2vNubVXmLoU5fH28WJs3UlJYc6POpZorPJC_PxskSJ_2Ackv7vaR9-fz4-O3yEYL6VYFO48HnzcKa3VhCwJwCa1rWFWpHoNJPMBDXpo7bdiwZre2B6bGVNrUEYLXzrWo1A2SBJkN4O8ARWCeOM1SlZZJ0aXzNv1AhJ4Foshif1ibOtMLJICJ92CkLOEhyXHGh5qPGhl-mba70fg4fpEfZF4lt3GEBv0XtSCAZpgDfzUPymmEVjML36RiDnzz5tePw=="
+      ]
+    },
+    {
+      "topic": "Mutual Indemnification",
+      "counter": "The contract includes mutual indemnification, where each party indemnifies the other against claims arising from their own negligence. While this appears balanced, it's important to understand the scope and potential implications.",
+      "confidence": "MEDIUM",
+      "industry_context": "Mutual indemnification is common. However, some sources suggest 'mutual indemnity' can be a misnomer, and it's vital to ensure each party is truly indemnifying different potential claims. The client should ensure they are not exposed to excessive liability due to the contractor's actions and vice versa.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHPSU2aK78eFC9bYdg3UlUu6w0dMK2iy6y2n6jWzc_4yj0VXKi42pkRydF8dG3d_2IPpEDGs60uMJn2dLgDdCxBPsUnFFeq51pqDvx95X0iW-DV7rXpUyHjR5uvehiDF6lq_jxPfA==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGVdxqdz9EsNvvf8lhqRQ_PApJK3pNk580Ci64qo_2wyDndL90AqwzgN97YXHkwE5iamv39EF2i8Ff16KQMQv1g1A0ryHsO_SzuvH3orbmIj88Rzw_YWLyB0vt-G7b5_LIfLJGGvnS0cAOtNf2yQcx52Yb03uc7db2BQONlgEhB2Fi_5Qwd-2Mk5blFywb9E7E=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGGHMncdtA4Set9c4rM49g6T0Jx8MgJFjms9S91hbcUYTVujamQQerJJyqqYz8TdoZXa48t72reX2Z39aTKn8swN0mhWjJ9-6f0N-uaDwkJycZ4lVac9VhcWZE90VFbkUy4arLI6iKTygNw_Q=="
+      ]
+    }
+  ]
+}

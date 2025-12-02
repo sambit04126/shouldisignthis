@@ -1,0 +1,28 @@
+{
+  "risks": [
+    {
+      "risk": "Missing Effective Date",
+      "severity": "LOW",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract does not specify an effective date, which can lead to ambiguity about when the agreement is considered valid and enforceable. This should be explicitly stated."
+    },
+    {
+      "risk": "Unfavorable Intellectual Property Assignment",
+      "severity": "HIGH",
+      "page": 1,
+      "risk_type": "UNFAVORABLE_TERM",
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The contract states that the Client owns all work product. This means the Contractor relinquishes all rights to the code they create, potentially preventing them from reusing or showcasing it in their portfolio. There is no consideration for Contractor's prior IP or open-source contributions."
+    },
+    {
+      "risk": "Missing Dispute Resolution Clause",
+      "severity": "MEDIUM",
+      "page": 1,
+      "risk_type": "MISSING_CLAUSE",
+      "deviation_type": "NON_STANDARD",
+      "explanation": "The contract lacks a dispute resolution clause, which means that any disagreements would default to litigation. Litigation can be expensive and time-consuming. A clause specifying mediation or arbitration would be beneficial."
+    }
+  ]
+}

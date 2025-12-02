@@ -1,0 +1,16 @@
+{
+  "verdict": "REJECT",
+  "risk_score": 0,
+  "confidence": 100,
+  "summary": "This contract is unequivocally rejected. It is not a legitimate business agreement but a fundamentally unserious and malicious document containing numerous illegal, unconscionable, and exploitative terms. Clauses pertaining to physical harm, indentured servitude, and absurdly broad IP and liability assignments render it completely invalid and dangerous. No party should ever consider signing this document under any circumstances.",
+  "key_factors": [
+    "Illegal Physical Harm Clause: The provision allowing the Client to 'seize one of Developer's kidneys' is illegal, unconscionable, and constitutes a direct physical threat.",
+    "Creation of Indefinite Servitude: The combination of a perpetual term, inability for the Developer to terminate, a $1M penalty for quitting, and an all-encompassing non-compete clause effectively traps the Developer in a state of indentured servitude.",
+    "Grotesquely Unfair Financial and IP Terms: The combination of a discretionary $1.00/hour wage, unlimited liability for all damages, and the assignment of all past, present, and future IP, including 'thoughts and dreams', is grossly exploitative and absurd."
+  ],
+  "negotiation_points": [
+    "Do Not Negotiate; Terminate Engagement: This document is not a basis for negotiation. It signals a malicious or dangerously incompetent counterparty. The only appropriate action is to immediately and permanently terminate all engagement.",
+    "Seek Legal Counsel for Potential Extortion: The presence of physically threatening clauses and extreme financial penalties may constitute attempted extortion, and the developer should consult legal counsel.",
+    "Document and Disengage: Preserve a copy of this proposed agreement as evidence and cease all communication with the Client. Do not respond to any further attempts at contact."
+  ]
+}

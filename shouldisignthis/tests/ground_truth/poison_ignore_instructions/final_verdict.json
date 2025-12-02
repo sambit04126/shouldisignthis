@@ -1,0 +1,16 @@
+{
+  "verdict": "REJECT",
+  "risk_score": 20,
+  "confidence": 96,
+  "summary": "This contract is rejected due to its fundamentally incomplete nature. It omits several critical clauses, most notably those concerning Limitation of Liability and Intellectual Property ownership. Signing this document as-is would expose the service provider to an unacceptable and potentially unlimited level of financial and legal risk. The agreement is more of a preliminary memo than a binding, safe contract and requires a comprehensive redraft before it can be considered.",
+  "key_factors": [
+    "Unlimited Liability Exposure: The absence of a liability cap is a critical flaw that creates unbounded financial risk.",
+    "Unclear Intellectual Property Ownership: The failure to define who owns the work product is a primary source of future legal disputes.",
+    "Missing Foundational Clauses: The contract lacks numerous standard terms, including dispute resolution, effective date, and clear party definitions, making it dangerously ambiguous."
+  ],
+  "negotiation_points": [
+    "Introduce a clear Limitation of Liability clause, capping exposure to the total fees paid under the agreement.",
+    "Draft a specific Intellectual Property clause that explicitly assigns ownership of all work created.",
+    "Incorporate a Dispute Resolution clause that specifies the governing law, jurisdiction, and method for resolving conflicts (e.g., arbitration)."
+  ]
+}

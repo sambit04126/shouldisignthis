@@ -2,65 +2,100 @@
   "filename": "perfect_contract.pdf",
   "auditor": {
     "is_contract": true,
-    "contract_type": "Freelance Agreement",
+    "contract_type": "Professional Services Agreement",
     "is_safe": true,
-    "full_text": "DREAM FREELANCE AGREEMENT\nThis Agreement is between Client and Rockstar Developer (You).\n1. Compensation: Client shall pay Developer $1,000,000 per hour.\nPayment is due immediately upon receipt of invoice.\nLate payments incur a 50% daily interest fee.\n2. Work Schedule: Developer works whenever they feel like it.\n3. Intellectual Property: Developer owns 100% of all work product.\nClient gets a non-exclusive, revocable license.\n4. Liability: Client indemnifies Developer for EVERYTHING.\nDeveloper's liability is capped at $0.00.\n5. Termination: Developer may terminate immediately for any reason.\nClient may never terminate this agreement.\n6. Perks: Client shall provide unlimited coffee and snacks.",
+    "full_text": "PROFESSIONAL SERVICES AGREEMENT (STANDARD)\n\n1. Services: Contractor shall provide software development services as described in the SOW.\n2. Payment: Client shall pay Contractor $150 per hour, payable Net 15 days from invoice.\n3. Late Fees: Late payments shall incur interest at 1.5% per month.\n4. Intellectual Property: Upon full payment, Contractor assigns all rights in the Work Product to Client. Contractor retains background IP.\n5. Termination: Either party may terminate this Agreement with 30 days written notice. Client shall pay for all work performed up to the termination date.\n6. Liability: Contractor's total liability shall not exceed the total fees paid in the preceding 12 months. Exceptions: No cap for gross negligence or willful misconduct.\n7. Indemnification: Mutual Indemnification. Each party agrees to indemnify the other against claims arising from their own ne\n8. Governing Law: State of California.\n9. Independent Contractor: Contractor is an independent contractor, not an employee.\n\nEXHIBIT A: STATEMENT OF WORK\nProject: Web Application Development\nDeliverables: 1. Frontend React App, 2. Backend Python API, 3. Documentation.\nTimeline: Start Date: Jan 1, 2025. End Date: Mar 31, 2025.\nAcceptance Criteria: Client has 5 days to review deliverables.",
     "fact_sheet": {
       "parties": {
-        "value": "Client and Rockstar Developer (You)",
+        "value": "Contractor and Client",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "effective_date": {
+        "value": "Jan 1, 2025",
         "page": 1,
         "confidence": "HIGH"
       },
       "termination_clause": {
-        "value": "Developer may terminate immediately for any reason. Client may never terminate this agreement.",
+        "value": "Either party may terminate this Agreement with 30 days written notice. Client shall pay for all work performed up to the termination date.",
         "page": 1,
         "confidence": "HIGH"
       },
       "payment_terms": {
-        "value": "Client shall pay Developer $1,000,000 per hour. Payment is due immediately upon receipt of invoice. Late payments incur a 50% daily interest fee.",
+        "value": "Client shall pay Contractor $150 per hour, payable Net 15 days from invoice.",
         "page": 1,
         "confidence": "HIGH"
       },
       "liability_cap": {
-        "value": "Developer's liability is capped at $0.00.",
+        "value": "Contractor's total liability shall not exceed the total fees paid in the preceding 12 months. Exceptions: No cap for gross negligence or willful misconduct.",
         "page": 1,
         "confidence": "HIGH"
       },
       "intellectual_property": {
-        "value": "Developer owns 100% of all work product. Client gets a non-exclusive, revocable license.",
+        "value": "Upon full payment, Contractor assigns all rights in the Work Product to Client. Contractor retains background IP.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "non_compete_clause": {
+        "value": "NOT FOUND",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "dispute_resolution": {
+        "value": "Governing Law: State of California.",
         "page": 1,
         "confidence": "HIGH"
       },
       "key_obligations": [
         {
-          "value": "Client shall pay Developer $1,000,000 per hour.",
+          "value": "Contractor shall provide software development services as described in the SOW.",
           "page": 1,
           "confidence": "HIGH"
         },
         {
-          "value": "Developer works whenever they feel like it.",
+          "value": "Deliverables: 1. Frontend React App, 2. Backend Python API, 3. Documentation.",
           "page": 1,
           "confidence": "HIGH"
         },
         {
-          "value": "Client indemnifies Developer for EVERYTHING.",
+          "value": "Timeline: Start Date: Jan 1, 2025. End Date: Mar 31, 2025.",
           "page": 1,
           "confidence": "HIGH"
         },
         {
-          "value": "Client shall provide unlimited coffee and snacks.",
+          "value": "Acceptance Criteria: Client has 5 days to review deliverables.",
+          "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "Each party agrees to indemnify the other against claims arising from their own negligence.",
+          "page": 1,
+          "confidence": "MEDIUM"
+        },
+        {
+          "value": "Contractor is an independent contractor, not an employee.",
           "page": 1,
           "confidence": "HIGH"
         }
       ],
       "financial_terms": [
         {
-          "value": "Client shall pay Developer $1,000,000 per hour.",
+          "value": "Client shall pay Contractor $150 per hour",
           "page": 1,
           "confidence": "HIGH"
         },
         {
-          "value": "Late payments incur a 50% daily interest fee.",
+          "value": "Payable Net 15 days from invoice.",
+          "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "Late payments shall incur interest at 1.5% per month.",
+          "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "Client shall pay for all work performed up to the termination date.",
           "page": 1,
           "confidence": "HIGH"
         }
@@ -70,69 +105,53 @@
   "skeptic": {
     "risks": [
       {
-        "risk": "Client cannot terminate the agreement.",
-        "severity": "HIGH",
+        "risk": "Short Acceptance Period for Deliverables",
+        "severity": "MEDIUM",
         "page": 1,
         "risk_type": "UNFAVORABLE_TERM",
-        "deviation_type": "NON_STANDARD",
-        "explanation": "This is extremely unusual and creates an unbalanced power dynamic. The client is locked in, regardless of developer performance or any other issues."
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "The Client has only 5 days to review deliverables. This might not be sufficient time for thorough testing and feedback, especially for complex software projects. A longer acceptance period (e.g., 10-15 days) would be more reasonable."
       },
       {
-        "risk": "Developer's liability is capped at $0.00.",
-        "severity": "HIGH",
-        "page": 1,
-        "risk_type": "UNFAVORABLE_TERM",
-        "deviation_type": "NON_STANDARD",
-        "explanation": "This shields the developer from virtually all consequences of their actions, incentivizing negligence.  It's highly unusual for a service provider to have no liability."
-      },
-      {
-        "risk": "Client indemnifies Developer for EVERYTHING.",
-        "severity": "HIGH",
-        "page": 1,
-        "risk_type": "UNFAVORABLE_TERM",
-        "deviation_type": "NON_STANDARD",
-        "explanation": "This shifts all potential liabilities, including those arising from the developer's negligence or misconduct, onto the client. This is extremely one-sided and a massive risk."
-      },
-      {
-        "risk": "Client pays $1,000,000 per hour, has no termination rights, and must provide unlimited coffee and snacks.",
+        "risk": "One-Sided Indemnification",
         "severity": "MEDIUM",
         "page": 1,
         "risk_type": "UNFAVORABLE_TERM",
         "deviation_type": "NON_STANDARD",
-        "explanation": "While this looks initially beneficial for the developer, it implies a client that may not be sustainable or serious. The lack of control and extremely high cost raises serious questions about the client's intentions or the likelihood of the project's completion."
+        "explanation": "Each party indemnifies the other only against claims arising from their *own* negligence. This is a fairly narrow indemnity. A broader indemnification clause (e.g., covering all claims related to the services, or arising from breach of contract) is more typical and would offer better protection for the Contractor. If the client is more likely to be sued due to the contractor's work, and the contractor's negligence is hard to prove, it leaves the contractor exposed."
       },
       {
-        "risk": "Developer owns 100% of all work product and grants a non-exclusive, revocable license.",
+        "risk": "Liability Cap Exception for Gross Negligence and Willful Misconduct Could Be Problematic",
         "severity": "HIGH",
         "page": 1,
         "risk_type": "UNFAVORABLE_TERM",
-        "deviation_type": "NON_STANDARD",
-        "explanation": "This gives the client very little in return for such high payments. A non-exclusive and revocable license severely limits the value the client gets from the work and allows the developer to potentially sell the same work to others simultaneously. Coupled with the lack of client termination rights, this puts the client at a massive disadvantage."
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "While a liability cap exists, the exception for gross negligence and willful misconduct could potentially expose the contractor to significant liability. The definition of gross negligence is often subjective, and a client could argue that even a mistake rises to that level, thereby circumventing the liability cap. It is better to negotiate a clearer definition, or to have a higher cap."
       },
       {
-        "risk": "High Interest Rate on Late Payments",
-        "severity": "MEDIUM",
+        "risk": "Net 15 Payment Terms are Very Short",
+        "severity": "HIGH",
         "page": 1,
         "risk_type": "UNFAVORABLE_TERM",
-        "deviation_type": "NON_STANDARD",
-        "explanation": "While beneficial for the developer, the 50% *daily* interest is a predatory rate and may not be legally enforceable. It also suggests that the client may have cashflow issues and be unable to make payments. This increases the risk for the developer."
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "Net 15 payment terms are unusually short and may create cash flow issues for the Contractor. Standard payment terms are often Net 30, and sometimes even longer. Negotiating for Net 30 would be beneficial."
       }
     ]
   },
   "verdict": {
-    "verdict": "REJECT",
-    "risk_score": 24,
-    "confidence": 94,
-    "summary": "This contract is fundamentally unbalanced and poses an extreme and unacceptable level of risk to the Client. The terms are extraordinarily one-sided in favor of the Developer, stripping the Client of basic commercial protections such as the ability to terminate, recourse for non-performance via liability, and ownership of the intellectual property for which they are paying an exorbitant fee. The agreement lacks commercial reasonableness to such a degree that it should be rejected outright.",
+    "verdict": "CAUTION",
+    "risk_score": 65,
+    "confidence": 95,
+    "summary": "This contract presents a mixed risk profile. While its foundational elements like intellectual property rights and termination clauses are standard and fair, it contains several terms highly unfavorable to the contractor. The aggressive Net 15 payment schedule, the ambiguous and high-risk exception for 'gross negligence' in the liability cap, and the short deliverable review period collectively create significant financial and legal exposure. These issues are substantial enough to warrant a 'CAUTION' verdict, and the contract should not be signed in its current form without material revisions.",
     "key_factors": [
-      "The complete indemnification of the Developer by the Client for all matters, which is an extreme and non-standard shifting of risk.",
-      "The Developer's liability is capped at $0.00, offering no recourse for negligence, misconduct, or failure to deliver.",
-      "The Client has no right to terminate the agreement, effectively locking them into a potentially perpetual and damaging relationship."
+      "The liability cap's exception for 'gross negligence' creates a potential loophole for unlimited liability.",
+      "Net 15 payment terms are unusually short and pose a significant cash flow risk to the contractor.",
+      "The 5-day acceptance period for deliverables is insufficient for thorough testing and could lead to disputes."
     ],
     "negotiation_points": [
-      "Introduce a mutual termination clause, allowing the Client to terminate for cause at a minimum.",
-      "Replace the $0.00 liability cap with a reasonable figure (e.g., total fees paid) and limit the indemnification clause to third-party claims resulting from the Developer's direct negligence.",
-      "Revise the intellectual property clause to grant the Client full ownership or, at the very least, an exclusive, perpetual, and irrevocable license to the work product."
+      "Extend payment terms from 'Net 15' to a minimum of 'Net 30' to align with industry standards.",
+      "Define 'gross negligence' more precisely or remove it as an exception to the liability cap.",
+      "Increase the client's acceptance period for deliverables from 5 days to at least 10 business days."
     ]
   }
 }

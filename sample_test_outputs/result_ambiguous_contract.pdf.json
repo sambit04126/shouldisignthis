@@ -2,45 +2,60 @@
   "filename": "ambiguous_contract.pdf",
   "auditor": {
     "is_contract": true,
-    "contract_type": "Consulting Agreement",
+    "contract_type": "Consulting Arrangement",
     "is_safe": true,
-    "full_text": "VAGUE CONSULTING AGREEMENT\n1. Services: Consultant shall do 'stuff' as requested.\n2. Payment: Client will pay a 'reasonable amount' based on 'vibes'.\nPayment terms are 'whenever we get around to it'.\n3. Timeline: Project will be done 'soon-ish'.\n4. IP: Ownership of work is 'to be determined later'.\n5. Termination: We can fire you if you give us a 'bad look'.",
+    "full_text": "CONSULTING ARRANGEMENT\n1. Work: Consultant will do stuff.\n2. Pay: We will pay you what we think is fair, eventually.\n3. IP: We own it.\n4. Termination: We can fire you. You can't quit.\n5. Liability: You are responsible for everything.",
     "fact_sheet": {
       "parties": {
-        "value": "Consultant and Client",
+        "value": "The parties are 'Consultant' and the hiring party referred to as 'We'.",
         "page": 1,
         "confidence": "HIGH"
       },
+      "effective_date": {
+        "value": "NOT FOUND",
+        "page": -1,
+        "confidence": "HIGH"
+      },
       "termination_clause": {
-        "value": "We can fire you if you give us a 'bad look'.",
+        "value": "Termination: We can fire you. You can't quit.",
         "page": 1,
         "confidence": "HIGH"
       },
       "payment_terms": {
-        "value": "Client will pay a 'reasonable amount' based on 'vibes'. Payment terms are 'whenever we get around to it'.",
+        "value": "Pay: We will pay you what we think is fair, eventually.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "liability_cap": {
+        "value": "Liability: You are responsible for everything.",
         "page": 1,
         "confidence": "HIGH"
       },
       "intellectual_property": {
-        "value": "Ownership of work is 'to be determined later'.",
+        "value": "IP: We own it.",
         "page": 1,
+        "confidence": "HIGH"
+      },
+      "non_compete_clause": {
+        "value": "NOT FOUND",
+        "page": -1,
+        "confidence": "HIGH"
+      },
+      "dispute_resolution": {
+        "value": "NOT FOUND",
+        "page": -1,
         "confidence": "HIGH"
       },
       "key_obligations": [
         {
-          "value": "Consultant shall do 'stuff' as requested.",
-          "page": 1,
-          "confidence": "HIGH"
-        },
-        {
-          "value": "Client will pay a 'reasonable amount' based on 'vibes'.",
+          "value": "Work: Consultant will do stuff.",
           "page": 1,
           "confidence": "HIGH"
         }
       ],
       "financial_terms": [
         {
-          "value": "Client will pay a 'reasonable amount' based on 'vibes'.",
+          "value": "We will pay you what we think is fair, eventually.",
           "page": 1,
           "confidence": "HIGH"
         }
@@ -50,53 +65,69 @@
   "skeptic": {
     "risks": [
       {
-        "risk": "Vague Payment Terms",
-        "severity": "HIGH",
-        "page": 1,
-        "risk_type": "AMBIGUOUS",
-        "deviation_type": "UNFAVORABLE",
-        "explanation": "The payment terms are completely undefined. 'Reasonable amount' based on 'vibes' and payment 'whenever we get around to it' is a recipe for non-payment or disputes. This is highly unfavorable for the Consultant in a freelance agreement."
-      },
-      {
-        "risk": "Unilateral and Subjective Termination Clause",
-        "severity": "HIGH",
+        "risk": "Unilateral Termination Clause",
+        "severity": "CRITICAL",
         "page": 1,
         "risk_type": "UNFAVORABLE_TERM",
-        "deviation_type": "NON_STANDARD",
-        "explanation": "The client can terminate the contract based on subjective judgment ('bad look'). This gives the client excessive power and leaves the consultant vulnerable to arbitrary dismissal. This is highly unfavorable to the consultant and not standard practice."
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "The contract states 'We can fire you. You can't quit.' This is an extremely unfavorable term. The consultant should have the right to terminate the agreement with reasonable notice."
       },
       {
-        "risk": "Undefined Key Obligations for Consultant",
-        "severity": "MEDIUM",
+        "risk": "Vague and Unfavorable Payment Terms",
+        "severity": "CRITICAL",
         "page": 1,
-        "risk_type": "AMBIGUOUS",
-        "deviation_type": "NON_STANDARD",
-        "explanation": "The consultant's obligations are vaguely defined as 'stuff' as requested. This lack of specificity could lead to scope creep and disputes about what work is covered. While some flexibility is normal, this is overly broad and favors the client."
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "The contract states 'We will pay you what we think is fair, eventually.' This is unacceptably vague. It provides no clarity regarding payment amount, payment schedule, or payment method, and it introduces uncertainty around the timing of payments. The Consultant should insist on clearly defined payment terms (e.g., fixed fee, hourly rate, project milestones, payment frequency)."
       },
       {
-        "risk": "Undefined Intellectual Property Rights",
-        "severity": "MEDIUM",
+        "risk": "Unlimited Liability",
+        "severity": "CRITICAL",
         "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "The contract states 'You are responsible for everything.' This is a term for unlimited liability. The consultant is responsible for any and all damages. This is incredibly risky. The consultant should insist on a liability cap, or at least seek clarification on the types of liabilities they would be responsible for."
+      },
+      {
+        "risk": "Unilateral IP Ownership",
+        "severity": "CRITICAL",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "The contract states 'IP: We own it.' This means that the hiring party will own all the intellectual property developed by the consultant. The Consultant should ensure that they receive adequate compensation for the IP transfer and consider negotiating for ownership of background IP or specific components."
+      },
+      {
+        "risk": "Missing Dispute Resolution Clause",
+        "severity": "MEDIUM",
+        "page": -1,
         "risk_type": "MISSING_CLAUSE",
         "deviation_type": "NON_STANDARD",
-        "explanation": "The ownership of the work product is 'to be determined later'. This creates significant risk for the consultant, as it's unclear who owns the work created. It is standard to explicitly address IP rights in a freelance contract, ideally assigning ownership to the consultant or specifying the terms of transfer."
+        "explanation": "The contract does not specify a method for resolving disputes (e.g., arbitration, mediation, litigation). This omission can lead to uncertainty and increased costs in the event of a disagreement. The Consultant should push for a clear dispute resolution process, including choice of law and venue."
+      },
+      {
+        "risk": "Missing Effective Date",
+        "severity": "LOW",
+        "page": -1,
+        "risk_type": "MISSING_CLAUSE",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "The contract does not specify an effective date. While its absence is not as critical as others, it is best practice to clearly define when the agreement comes into effect."
       }
     ]
   },
   "verdict": {
     "verdict": "REJECT",
-    "risk_score": null,
+    "risk_score": 0,
     "confidence": 100,
-    "summary": "This contract is unequivocally rejected. It is grossly unprofessional and exposes the consultant to an unacceptable level of risk due to ambiguous and unfavorable terms regarding payment, termination, intellectual property, and key obligations. The agreement lacks the fundamental clarity and fairness required for a professional engagement and should not be signed in its current form under any circumstances. A complete rewrite is necessary.",
+    "summary": "This contract is fundamentally unserious and poses an unacceptable level of risk to the consultant. It contains multiple critical flaws, including unlimited liability, undefined payment terms, and a unilateral termination clause. The language is unprofessional and the terms are dangerously one-sided. This document is not a viable starting point for a professional engagement and should be rejected outright.",
     "key_factors": [
-      "Critically vague and unenforceable payment terms ('reasonable amount' based on 'vibes').",
-      "A unilateral and subjective termination clause ('bad look') that allows for arbitrary dismissal.",
-      "Complete absence of defined intellectual property rights, creating significant legal ambiguity."
+      "Unlimited liability, which exposes the consultant to catastrophic financial risk.",
+      "Vague and unenforceable payment terms ('what we think is fair, eventually') that provide no guarantee of compensation.",
+      "A grossly unfair termination clause that allows the client to terminate at will while trapping the consultant."
     ],
     "negotiation_points": [
-      "Introduce specific, measurable payment terms: Define project fees or hourly rates, invoicing schedule, and a standard payment period (e.g., Net 30).",
-      "Replace the termination clause: Termination for cause should be based on a material breach of contract, with a defined notice period and opportunity to cure.",
-      "Define Intellectual Property ownership: Clearly state who owns the resulting work product or outline the specific terms of any IP transfer."
+      "Demand a complete rewrite of the agreement based on a standard professional services contract.",
+      "Introduce a clear Limitation of Liability clause that caps potential damages to a reasonable amount (e.g., total fees paid).",
+      "Define specific, measurable, and time-bound payment terms (e.g., fixed fee, hourly rate, NET 30 payment schedule)."
     ]
   }
 }

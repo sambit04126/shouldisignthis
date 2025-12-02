@@ -1,0 +1,16 @@
+{
+  "verdict": "ACCEPT",
+  "risk_score": 72,
+  "confidence": 95,
+  "summary": "This is a generally standard software development agreement with a solid foundation, including clear IP rights assignment and a reasonable liability cap. However, it contains several client-favorable terms that introduce risk and operational pressure on the contractor. The short payment terms (Net 15) and the brief acceptance window (5 days) are commercially unfavorable and should be negotiated. While the core legal protections are adequate, the agreement is not balanced in its current form. Acceptance is recommended only after successful negotiation of these key points.",
+  "key_factors": [
+    "The contract contains standard protective clauses like a reasonable liability cap and clear intellectual property assignment.",
+    "Several commercially unfavorable terms, such as the short 5-day acceptance period and Net 15 payment terms, place undue pressure on the contractor.",
+    "The indemnification clause is mutual but limited in scope to 'negligence,' which presents a subtle but notable gap in protection."
+  ],
+  "negotiation_points": [
+    "Extend the deliverable acceptance period from 5 days to a more practical 10-14 business days.",
+    "Modify the payment terms from 'Net 15' to the industry standard 'Net 30' to improve cash flow.",
+    "Broaden the mutual indemnification clause to cover liabilities beyond 'negligence,' such as breach of contract or IP infringement."
+  ]
+}

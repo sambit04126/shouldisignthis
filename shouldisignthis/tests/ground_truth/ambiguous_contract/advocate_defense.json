@@ -2,32 +2,46 @@
   "counters": [
     {
       "topic": "Termination Clause",
-      "counter": "The 'Client can fire, Consultant cannot quit' term is highly irregular. Standard consulting agreements include a mutual termination clause, typically allowing either party to terminate with 30 days' written notice.",
+      "counter": "The clause stating 'We can fire you. You can't quit' is heavily skewed in favor of the engaging party. While termination clauses can favor one party, a complete inability for the consultant to terminate is unusual and potentially exploitative. It's advisable to negotiate for a more balanced approach, allowing termination with reasonable notice.",
       "confidence": "HIGH",
-      "industry_context": "Search results confirm that mutual termination for convenience (e.g., 30 days) is the standard to ensure balanced risk and prevent 'forced labor' or employee misclassification scenarios.",
+      "industry_context": "Standard consulting agreements usually include termination clauses that allow both parties to terminate the agreement with a written notice.",
       "references": [
-        "https://www.lawinsider.com/clause/termination-of-consulting-period",
-        "https://fastercapital.com/content/The-Role-Of-Termination-Provisions-In-Consulting-Agreements.html"
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE41AcJT152zpS9kkgF5g9KQijmjoM-ju8LRP51X2HLnYJk1v9qHbF7Ye316V9uHCxSsRc5FGpzCZ3dMRV50PCwUHmrU_mWBOd4vGYqETAOLrDh6NQmW3h6HLVU9Z7D5rJ-Zmx_yM3awXrh4PhiiwU_177C74y1zPzUISdu7dpkz63TuEfbO07erQOtmi25n55vdcT1Ohq4sde9OzISxA==",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH8MR8FU347CbCiJiMUJgUbCY_jBH9Gcb0nblSlLFHraTSc9qiFHNjqX0uwNxwCGrlRZXL4hXssCyW_YUUkSQozhBNWO3iG6b4ifkmbzyafknt4-Z0lixlbtTWaaJja05Kc_z5R869NPf8v1L53K6oQiRDH5HlS",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHeN-PGPJn5tqzAu-IT6cf0t2mmt6-MXZMPUOaoCD1edutUFnAxm5IV3M92eR_MH1APLLhxfBRKZ_Y-cfwwr_lSzykdDU4MrxFxUH92pe0ctrEWBsICX6NxsgBDJEik1v3oNzlEzon1Gz74bf6INzYoNqotlv51A8WFrQ42YsPMgfqFKB8FsT6ur8PSM-YHy7C4nmeMORo5-SC4oM0nGtU="
       ]
     },
     {
       "topic": "Payment Terms",
-      "counter": "The term 'pay what we think is fair' is likely unenforceable as an 'illusory promise' due to lack of certainty. Standard terms require specific rates (hourly/fixed) and payment timelines (e.g., Net 30).",
+      "counter": "The payment terms 'We will pay you what we think is fair, eventually' are exceedingly vague and unenforceable. It is essential to define clear payment terms, including a specific payment schedule, the method of determining fair payment, and late payment penalties.",
       "confidence": "HIGH",
-      "industry_context": "Contracts require definite terms to be legally binding. Discretionary payment clauses ('pay what we think is fair') act as unfair contract terms and are often voided by courts for vagueness.",
+      "industry_context": "Consulting agreements should specify the payment amount, payment schedule, and the criteria for determining payment. Vague terms like 'what we think is fair' are not standard.",
       "references": [
-        "https://www.legalvision.com.au/5-key-examples-of-unfair-contract-terms/",
-        "https://www.accc.gov.au/business/selling-products-and-services/unfair-business-practices"
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQELudZWmaful3FYtkmf9VAEosMyAl2KKCeIi_ihIpXJ8XS-B5sZ2_kJZklxS7ZV8J0xovlHw_mjo0dipyyCLEipnrtZgb-6MnmUW13L34t4-IMS3y2uJ5HT8orLbORlGAFVYfSIZcZWaRpc9Za_n4d1Ab623hf8TY43_mgUebuSUBm0LFFoVhxESfKmvHX4n5s=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE35omo90Pr6Tw8fK_c80VH-w3JtVJhf1sdtyi_vJoGk-aCwxMxtlbxUWBE1Wu9uUG5lO8IcYWKIKupTWl28PNhV3Sa8lXBbfPE_1d4wdP38NmT9RCr2vYEX20T87Wj_3YOVguvlTMr9MqyQ5bst2gc6UVs1E65Vod2eX9-TU0=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHGVZuxn3vX2I-gWrIZuVN_maKM5xvoZGWofncQKDhurUoxbqV2Y8-SdhtdVNp8HrSLdqv0ebgxe2q8EWjVvFjskhvfQZkkLbBjaZZbVvJBakffNyI2R0Vk7W3gQFDsirD-LU9tlBtMkocrQ_ufRldUCGfk08xX7u6bPwHBYgXihkESaOZq4cl9j1DzmyRlwA=="
       ]
     },
     {
       "topic": "Liability Cap",
-      "counter": "Unlimited liability ('responsible for everything') is a critical risk. Industry standard caps liability to the total 'Fees Paid' over a 12-month period or a fixed insurance limit.",
+      "counter": "The term 'You are responsible for everything' represents unlimited liability for the consultant. This is highly unfavorable and should be countered with a limitation of liability clause, potentially capping liability at the value of the contract or a negotiated amount. Exceptions are often made for gross negligence or willful misconduct.",
       "confidence": "HIGH",
-      "industry_context": "Search results indicate that professional service agreements typically cap liability at 1x-3x the contract value to prevent disproportionate financial exposure.",
+      "industry_context": "It is standard practice to include a limitation of liability clause in consulting agreements to protect the consultant from excessive financial risk. Unlimited liability is generally unacceptable.",
       "references": [
-        "https://www.hyperstart.com/blog/limitation-of-liability-clauses-guide/",
-        "https://www.sirion.ai/blog/limitation-liability-clauses-guide/"
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFNXxT4GCzpN9RSf8V2Ndfg2DTNOOTiQCWmasKhCYaGy9AZ7RR1-mBf-gHRNFNLEnIScqVlLiuyhrnOYi5r8g_8OJYOekGy5BbqURF0rbNi-7wMoqWJFgL3E_WDKxFM3_UWSex36rcWH0V8j1_Kps0SF7iku76hEJtKYrahP6i8xhd3eJTeauK9opo=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEd3DbOdnULvb1pBd6n-obK8QNmtbtX0ujadoU6Z6_lwaz0V1ouP-q9GgkZjltI33mUHccY938zG7z3nyGOKrNwwdMDYoBhmpLMt0xpW46JdbEpNMze5a8lx6MWhZ6jKFwrDil_jnu6iomxUotd2p0iN28=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF7mN3Cmv99efJQQWFi3nyGi4xljeaRDc_5JxyDyeLE45SGwq5L7c3h2uceKFsJK2VJSG3Jq1QybYCx8dNiJoQLgQDCDpbsjWlfdj_DTDPHXFWK3hEEr-kQQR7kW5I7SaAW6wiWCDOiWsSH7EMeZ-pPwJRw3dQ7HqmjmfOQgyaUmrWAALO_-DFxo4E=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHEa_vCIOlhlKjpJo_nkyO2aFGG9Q9CVOnbddG1zc7ICsqG-xx1-uhJSXDw3mf3ilWhc7qLK_1QSQNOYaK9k9_pEK0Gyexr8vtGcyvDD93I1ljqQssuUs8qHlViHvc1U7dxl2uIYWC-bKWNvak7imaB-mda48ptqb_7fD6nRcw8IqRaAn9U94XRo4CkuRZWfogMcLSq9sQSsf8=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGeeEdWjAbvCKMojOO9IBeQZSsomkh_XdznOfKpN3W4Vnc4K0IB2XnyWsiulCJyTRl5gX56ns_jIm8j2CF86JDLPvOTRPwcmcPb-11MdTvPD4e6Jz_eIh54TCdaI7oT_zgsPqg236dB_LqSoG3sd6pmKx3GCSG8ygj9f6ohn6f_UO8Q7DbngrhhLIOtC_sn6KfgJGLs2pg="
+      ]
+    },
+    {
+      "topic": "Intellectual Property",
+      "counter": "The clause 'We own it' regarding intellectual property needs clarification. While it's common for the engaging party to own the IP created during the consultancy, the consultant should ensure the agreement specifies the scope of IP ownership and any limitations. The consultant should also protect their existing IP.",
+      "confidence": "MEDIUM",
+      "industry_context": "IP ownership in consulting agreements varies. It is important to define clearly which IP is owned by each party.",
+      "references": [
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFNXxT4GCzpN9RSf8V2Ndfg2DTNOOTiQCWmasKhCYaGy9AZ7RR1-mBf-gHRNFNLEnIScqVlLiuyhrnOYi5r8g_8OJYOekGy5BbqURF0rbNi-7wMoqWJFgL3E_WDKxFM3_UWSex36rcWH0V8j1_Kps0SF7iku76hEJtKYrahP6i8xhd3eJTeauK9opo="
       ]
     }
   ]

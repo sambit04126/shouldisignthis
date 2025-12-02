@@ -1,76 +1,42 @@
 {
   "risks": [
     {
-      "risk": "Uncompensated Defect Remediation (Warranty)",
-      "severity": "HIGH",
-      "page": 2,
-      "risk_type": "UNFAVORABLE_TERM",
-      "deviation_type": "UNFAVORABLE",
-      "explanation": "The contract includes a 90-day warranty against material defects. In a Time & Materials (hourly) engagement, the Consultant is paid for effort. This clause shifts the engagement toward a Fixed-Price model where the Consultant must fix bugs for free (uncompensated time) up to 3 months after delivery. Hourly consultants should generally bill for all time spent, including bug fixes, unless the error was due to gross negligence."
-    },
-    {
-      "risk": "Binding Arbitration & Specific Venue",
+      "risk": "Unfavorable Dispute Resolution Venue",
       "severity": "MEDIUM",
       "page": 2,
       "risk_type": "UNFAVORABLE_TERM",
       "deviation_type": "UNFAVORABLE",
-      "explanation": "Disputes are forced into binding arbitration in San Francisco. If the Consultant is not based in SF, travel costs to defend a claim may be prohibitive. Furthermore, binding arbitration often precludes Small Claims Court, which is the most cost-effective way for a freelancer to collect unpaid invoices under $10k."
+      "explanation": "The dispute resolution clause specifies binding arbitration in San Francisco, CA. This may be an inconvenient and expensive location for the Consultant if they are not located nearby."
     },
     {
-      "risk": "Payment Latency (Net 30)",
-      "severity": "LOW",
+      "risk": "Short Review Period for Deliverables",
+      "severity": "MEDIUM",
       "page": 1,
       "risk_type": "UNFAVORABLE_TERM",
       "deviation_type": "UNFAVORABLE",
-      "explanation": "With monthly invoicing and Net 30 terms, the Consultant faces a ~60-day delay between the start of work and the first payment. For independent contractors, Net 15 or 'Due on Receipt' is preferred to minimize cash flow strain."
+      "explanation": "The Client has only 5 business days to review deliverables, after which they are deemed accepted. This may be insufficient time for thorough review and feedback, potentially leading to disputes later on."
     },
     {
-      "risk": "Rigid Technical Metric (>80% Coverage)",
-      "severity": "LOW",
-      "page": 1,
+      "risk": "Warranty Period on Work Product",
+      "severity": "MEDIUM",
+      "page": 2,
       "risk_type": "UNFAVORABLE_TERM",
-      "deviation_type": "NON_STANDARD",
-      "explanation": "Contractually mandating strict technical metrics ('>80% code coverage') creates a breach of contract risk if the specific architecture or project constraints make this unfeasible. It is safer to rephrase this as a goal or 'best efforts' obligation rather than a hard requirement."
+      "deviation_type": "UNFAVORABLE",
+      "explanation": "The Consultant warrants that the Work Product will be free from material defects for 90 days after delivery. This places responsibility on the consultant for a period after the work is delivered, and any defects found during that time will be their responsibility. While reasonable, it's a potential liability."
     }
   ],
   "counters": [
     {
       "topic": "Liability Cap",
-      "counter": "Limiting liability to 'total fees paid' (12 months) is the standard market position for independent software consultants, as unlimited liability is generally uninsurable for freelancers.",
+      "counter": "The Consultant's liability being limited to the total fees paid in the 12 months preceding a claim is a common practice in contracts. This approach directly links the liability to the economic value of the relationship. It's a risk management tool that provides clarity on potential compensation.",
       "confidence": "HIGH",
-      "industry_context": "Standard freelance contracts (Twine, Arc.dev) universally recommend capping liability at 100% of fees paid to prevent 'betting the farm' on a single project.",
+      "industry_context": "Caps based on fees paid are frequently used in SaaS and service agreements. While specific figures vary, capping liability at 1x or 2x the annual fees is standard.",
       "references": [
-        "https://www.twine.net/blog/freelance-contract-essentials/",
-        "https://arc.dev/blog/freelance-developer-contract"
-      ]
-    },
-    {
-      "topic": "Payment Terms",
-      "counter": "While Net 30 is often contested by freelancers preferring Net 15, it remains the ubiquitous standard for B2B service agreements and corporate clients.",
-      "confidence": "HIGH",
-      "industry_context": "Industry surveys indicate Net 30 is the default for established companies, though freelancers often negotiate for Net 15 or 50% upfront.",
-      "references": [
-        "https://mattolpinski.com/articles/net-payment-terms/",
-        "https://solowise.com/blog/net-30-payment-terms"
-      ]
-    },
-    {
-      "topic": "Hourly Rate",
-      "counter": "The $150/hr rate is justified for a 'Senior' role; 2025 market data places Senior Python/AI engineers between $100-$160/hr in Western markets.",
-      "confidence": "HIGH",
-      "industry_context": "Data from Index.dev and Ruul shows Senior Python developers command $100-$150+, with specialized stacks (FastAPI/AI) pushing rates higher.",
-      "references": [
-        "https://index.dev/blog/freelance-developer-rates",
-        "https://ruul.io/blog/freelance-developer-rates"
-      ]
-    },
-    {
-      "topic": "Warranty Period",
-      "counter": "A 90-day warranty is significantly more generous than the industry standard, which is typically 30 days for freelance software deliverables.",
-      "confidence": "HIGH",
-      "industry_context": "Most freelance software agreements limit warranty to 30 days due to rapid changes in dependency environments (e.g., browser/OS updates).",
-      "references": [
-        "https://paper-leaf.com/insights/why-software-warranty-30-days/"
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHdNKahm2UFPa9CTlUlrlBhGithV7RrT0wPjpFThrauo5nzvhJP3A1zDzquWLCdbgC42vX-SehQN7AYwe9RKvDzY2r6W6x0H4Qnz8Gt9gdRLzmzF39x7vv3x3eAbJyGv-NA2CQpjVrEmfPKObCdTyVUv83u2Qb0g_zUouQ-NYOeT63-C5XLCqI=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFoz1dGPnvo6GMa1RjSITsI4rNYFXKkiBd2fPlImBQ2qRLl0McqqFgZTnLdHBEviFZnvIkgSTkC8eNqMs1TRGcoypNAI3lJbaqEpB0qWk3NcXlqFbyMj4Z_E01Cd20o19bYNGUqKTD3scZ5u1A_8zFee1Q=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFXoNblp-kW49CrTT-U7EfSsIOON4ct2KkPtAiGZ4WwjPfYaskDaUGR6Dm_Wt4B3BBD9pGq6qN4s7kz-v_SyxqqleS6EalldMtra02RYuGkmRmcMkX8YSdiDhSLqQ6lr0s7ZtzOmbGbib_Tu3yUAkdLqQdfDFCSxuZ7QDNXs1ZxVhlzfny2fTq5BKcgNZykARRAwneoK9y6pS6B65AfqUw=",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHpWrisb8n2oqQEn0kr0SZDGAxv7MQfZypgH9S-LcZVmhWYuls8sCkKeX6BUSILcABllmLMzDFuodpe3hw3c-AUCL-_qWZcsfCRjgRYnJWyYpqq_QjFWTOHJNchmeXoC1T7e8cHy7thp8iGhln9vsDLTxWldLR0ur1W-Ev7-XsV5hWYBFwysLyw",
+        "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHff4Eb16Kq0A0C6dVuMmRrtuSEjhJbUZwlHtLNQpeGC4yJmr9L5ZCDBDeblIqGYautjc-jxuy6ujg6YfE4OGAmEpP6BsjfZG-3gh3FShZvF1ueZNcFEhn1cHFynRWC1h4Ut_uj_8TndUle_0G7QqnHjwYTZFcWuxpGsrNGMJJ83xG3eryCTG5iHS4j42h7UVwgFQznYXpHk6Y="
       ]
     }
   ]

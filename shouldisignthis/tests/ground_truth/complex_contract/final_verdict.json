@@ -1,0 +1,16 @@
+{
+  "verdict": "REJECT",
+  "risk_score": 0,
+  "confidence": 100,
+  "summary": "This contract is fundamentally unserious and unconscionable. It contains numerous clauses that are absurd, predatory, and legally unenforceable, including illusory payment terms, a perpetual non-compete, impossible termination conditions, and a nonsensical dispute resolution jurisdiction. The agreement is so grotesquely one-sided that it cannot be considered a good-faith basis for any professional relationship. It must be rejected outright without consideration for negotiation, as it would need to be rewritten in its entirety.",
+  "key_factors": [
+    "The payment terms are illusory and effectively constitute unpaid labor.",
+    "The perpetual non-compete, overly broad IP assignment, and impossible termination clause for 'The Peasant' are unconscionable and unenforceable.",
+    "The combination of unlimited liability, unreasonable indemnification, and a non-existent legal jurisdiction ('Galactic Empire') creates unacceptable and absurd risk."
+  ],
+  "negotiation_points": [
+    "The contract is beyond negotiation and requires a complete redraft using a standard industry agreement as a starting point.",
+    "Introduce commercially reasonable payment terms, a standard IP clause limited to work product, and a mutual termination clause with fair notice periods.",
+    "Define a legitimate governing law and jurisdiction, and include a standard limitation of liability clause."
+  ]
+}

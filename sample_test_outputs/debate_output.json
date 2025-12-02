@@ -1,6 +1,65 @@
 {
-  "skeptic": null,
-  "advocate": null,
-  "duration": 0.07426595687866211,
-  "speedup_pct": 99.46952887943813
+  "skeptic": {
+    "risks": [
+      {
+        "risk": "Client Ownership of Work Product",
+        "severity": "MEDIUM",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "The contract states the client owns all work product. As the contractor, Bob should ensure he can reuse his general knowledge and skills. Bob should also clarify if he can showcase the work in his portfolio, as this is very important for career advancement."
+      }
+    ]
+  },
+  "advocate": {
+    "counters": [
+      {
+        "topic": "Liability Cap",
+        "counter": "A liability cap of $5,000 is within the typical range for freelance contracts, although it's on the lower end. Many contracts use a cap equal to the annual fees, but fixed amounts are also common. It's a point that could be negotiated for a higher limit depending on the scope and potential risks of the work.",
+        "confidence": "MEDIUM",
+        "industry_context": "Common caps range from 1x annual fees to fixed amounts depending on industry and risk.",
+        "references": [
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGRNNhQdup0EaM7GTNqXh942h0_H8y4Nz5vqt0dLxsRlwqOI3tvDlFw0Jd9NtEkZTgVqoha1p0Swz3BJfWLaX3caNXccuhDiz5AB9IadyYA3BlG9ZeW09fbT0rlBVhR6LXy54Y0MqkME81pJZSCRVz5dCMef2WaMvcv872wqkmiE29ehOZIIyzhbA=",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEh6v6rxGQcsZL5iX0jnt85MQ13L9JdGqBb8WNNoub4RctnqLFRSi5jOaf48gxX6mjpd5cDuznUepz3ULZuX9b3UYNGtW6ijynp8SVSU4774IvTzT5aUlqqr0U1Lpu3rTBY7Y6sbUsHPq_8aiA2zDPVekcBOCHxvb9hrB0s0II4MhuGLJ-SiOuTfRA=",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG_3DBTTEs7dosTcknib1QZIJgGPKzRd2b1SzDRm2ys6DskjsEiG6bZosh9if9lXhBlXXxU6p3nAFZngwzo69XZ8LQJwrQlGeNg27guXTNdDyFAHjzXrdC6U6lynnJCw-UpfJyrD_gvA_iVsihtUGkQ2eyS",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE3paidv-h3yXN6aVo1bBJKBubRCOmVt3ud0Xxy9Aad9v9TN9OwghsM0pdlWxLXW2NqAVNZGI0ShyfsAXtiyMEDkUZuCOJQD64zFfWkYgv3z40zmS3OIHs0S2IfWjPCqS-L2-CHkJnZct1tIn7quV7o67FPtk6cX01R_DEkc6PrLYnNWCID7y-rkbBtJZMwez846Cs="
+        ]
+      },
+      {
+        "topic": "Payment Terms",
+        "counter": "Net 30 is a common payment term for freelance work, meaning the client has 30 days from the invoice date to pay. Freelancers should ensure the invoice clearly states the due date and any late fees.",
+        "confidence": "HIGH",
+        "industry_context": "Net 30 is widely used in B2B transactions, including creative services and consulting.",
+        "references": [
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFranXtFUZLJuxHd66oE6kS_TpmFrdpB35LkfHvmLygjwU9hjI1fGyJazdRfDEYb7d6VebDgL9A0-uTCJrW_-L64zrHW3hXSjDArY0d9znGV8VuYbTxtCP7YCaK-_PDpMqIIBY=",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHqFU8VcZzadMj2MNonch_d0F7O0Mxq4CXD1QqhBlvgaxWD5EmnLUO4Ce5yaZA2j-qLArVbEZz6Z-b1vl_GgO770Jz1QEgGbmmjcPrT0nKazjttJT-SdqNLvUXk5jUznjQY8GhSzgrnR37ckKfZ",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFfCEoKHTmqsxg8hS1I4K582PM8n0MPZL2cnST_z0-CwMB0Zpdi_qFZp4UvF8SOjiApzV8LRy8CGfTdmwWZHSPaW1nxJh5hty5lc5eo511XZhCYheHO5bW-QIYMapKI_0ly35MTFgkeaOgozXHfxU7HXIrytszsRcuYH6Sz9-fevWkcEnGIvfVNS8qjsh0="
+        ]
+      },
+      {
+        "topic": "Termination Clause",
+        "counter": "A 14-day termination notice is fairly standard for freelance contracts. It is important to provide written notice following the procedure in the contract to avoid breach of contract.",
+        "confidence": "HIGH",
+        "industry_context": "While notice periods can vary, two weeks to a month is common.",
+        "references": [
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG8O7OUfNVIGQBV9lo7lxovhbCu6GS8mJDhpYNl6GN8koqO_uOQqvn4ilw210fd8FHAbedFUEIo8f4Vo7r7LXWqsHSb_cJfmXz4pV6FiqtkhDJcKK3gxdk1a_oHo83shxYsoMDHUH2tAKOmP9Fs",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEsbLodQObAZfTn0kJD3TACIEZwgG0tBNkGylCjixVEeN2czaDBuJXqHnAKqgTEJSM-YUzNE0M9-Aw8O0VK731Z3j96zMmScXAO-6G4kZOhFAwndiN4mEU31mswlDtx99pZtzlxFRjkt41MXdYRewZ24zfmq8KWzx6R6umS"
+        ]
+      },
+      {
+        "topic": "Intellectual Property",
+        "counter": "The client owning all work product is a common arrangement, especially in work-for-hire situations. However, freelancers should ensure they are compensated fairly for this transfer of rights and the contract clearly defines the scope of ownership.",
+        "confidence": "MEDIUM",
+        "industry_context": "While clients often expect ownership, the freelancer automatically retains copyright unless it's specifically transferred.",
+        "references": [
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGrK6b_gGa6v7zQM9fK-0EQ7NqzHlXD_bn3KiOSoUgsH8yBQIpSVA89VjoqimF9NK9V8HSRuXfpXaOxAE_IG3tyK4P12RYiGwFNj3NvSdZg4FD14i61sv5mNMX5TmA341x7AHDFwwvg6Zy07XcABM2qOi7iUn5iS_im9yPh3pxFKRCfBcHmoqoDWfAwZLbn7SkYBblQ4yGrzBj9",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHzqr1fsdJolI-0qpWjPkdeSyRu2gFm8Wazp0xR_DYLDBl7_Fd5vE14aV5YBcvzBo2Y7b2Pv__3p-2qJ32pxJfriu-xssl86I_-e7_vXVV45EFlgBH8uEOLPPkSqMntqmEAlH5ZT5itucSfr_9K0OldXyKtPd2I7NKt4r3xVfd464h7OFKWlPSuaaYzyjRm67S3U6q3wIGOni88Xl3127xVi-H94PpQ5l3FWjs",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHvIwyz8pLUe6gyez466oUrw-JRgNqstXVtz72S-M05frPjqrJ8AsGFni75HkuiSIGqw91ynhbpOqkqNgEUFHQVtIsFKYCFI-FfWXLUkntk72QfkjtBvj-nk2CFGFvmD1-kosRI6G37Z0P9m0AIUw==",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHIrj2vlN1FbIYMpyRBPGjq3OYNgvUwfxPlBYSq-kRegUjHbX6Mhpv_1A8MCyEkNXUcjgE6YlDRyA3QMmiVTGM0CTUF2VF_7murvzqzki70BxLZ34Q8NrE7RF38PPwWmS5TZvrAYK9XhS8EXeBAv7-1Qs2tmAAIFL9rFuUhKmg94jbMamEam5-FMw=="
+        ]
+      }
+    ]
+  },
+  "duration": 14.477684020996094,
+  "speedup_pct": -3.4120287214006693
 }

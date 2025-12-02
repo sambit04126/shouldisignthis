@@ -1,0 +1,111 @@
+{
+  "filename": "sample_contract.pdf",
+  "auditor": {
+    "is_contract": true,
+    "contract_type": "Independent Contractor Agreement",
+    "is_safe": true,
+    "full_text": "INDEPENDENT CONTRACTOR AGREEMENT\nThis Agreement is made between Alice (Client) and Bob (Contractor).\n1. Services: Contractor shall provide coding services.\n2. Payment: Client shall pay $100 per hour, Net 30.\n3. Termination: Either party may terminate with 14 days notice.\n4. Liability: Liability is limited to $5,000.\n5. IP: Client owns all work product.\nSigned: ____________________",
+    "fact_sheet": {
+      "parties": {
+        "value": "Alice (Client) and Bob (Contractor)",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "effective_date": {
+        "value": "NOT FOUND",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "termination_clause": {
+        "value": "Either party may terminate with 14 days notice.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "payment_terms": {
+        "value": "Client shall pay $100 per hour, Net 30.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "liability_cap": {
+        "value": "Liability is limited to $5,000.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "intellectual_property": {
+        "value": "Client owns all work product.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "non_compete_clause": {
+        "value": "NOT FOUND",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "dispute_resolution": {
+        "value": "NOT FOUND",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      "key_obligations": [
+        {
+          "value": "Contractor shall provide coding services.",
+          "page": 1,
+          "confidence": "HIGH"
+        }
+      ],
+      "financial_terms": [
+        {
+          "value": "$100 per hour",
+          "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "Net 30 payment terms",
+          "page": 1,
+          "confidence": "HIGH"
+        },
+        {
+          "value": "Liability is limited to $5,000.",
+          "page": 1,
+          "confidence": "HIGH"
+        }
+      ]
+    }
+  },
+  "skeptic": {
+    "risks": [
+      {
+        "risk": "Client Ownership of Work Product",
+        "severity": "MEDIUM",
+        "page": 1,
+        "risk_type": "UNFAVORABLE_TERM",
+        "deviation_type": "UNFAVORABLE",
+        "explanation": "The client owning all work product means the contractor relinquishes all rights to the code they create. While standard, the contractor should consider negotiating for a license to use the work product for their portfolio or other purposes, especially if it contains generally applicable code or techniques."
+      },
+      {
+        "risk": "Missing Dispute Resolution Clause",
+        "severity": "MEDIUM",
+        "page": 1,
+        "risk_type": "MISSING_CLAUSE",
+        "deviation_type": "NON_STANDARD",
+        "explanation": "The absence of a dispute resolution clause (e.g., mediation, arbitration, or forum selection) could lead to uncertainty and increased costs in case of disagreements. It's better to agree on a process upfront."
+      }
+    ]
+  },
+  "verdict": {
+    "verdict": "CAUTION",
+    "risk_score": 80,
+    "confidence": 92,
+    "summary": "This contract represents a standard freelance agreement with generally favorable terms. However, it contains notable omissions that introduce ambiguity and potential for future conflict. The absence of an effective date and a dispute resolution clause are significant gaps that must be addressed before signing. While the core financial and operational terms are acceptable, the contract should be revised to include these standard protective clauses.",
+    "key_factors": [
+      "Missing Dispute Resolution Clause, which creates uncertainty in case of disagreements.",
+      "Absence of a specified Effective Date, making the start of obligations unclear.",
+      "Client ownership of all IP is standard but a point for potential negotiation for portfolio rights."
+    ],
+    "negotiation_points": [
+      "Introduce a clear 'Effective Date' to formalize the start of the agreement.",
+      "Add a 'Dispute Resolution' clause specifying a method like mediation and a governing jurisdiction.",
+      "Request a clause granting the contractor a license to showcase the completed work in their professional portfolio."
+    ]
+  }
+}

@@ -1,11 +1,16 @@
 {
   "is_contract": true,
-  "contract_type": "Independent Contractor Agreement",
+  "contract_type": "INDEPENDENT CONTRACTOR AGREEMENT",
   "is_safe": true,
   "full_text": "INDEPENDENT CONTRACTOR AGREEMENT\nThis Agreement is made between Alice (Client) and Bob (Contractor).\n1. Services: Contractor shall provide coding services.\n2. Payment: Client shall pay $100 per hour, Net 30.\n3. Termination: Either party may terminate with 14 days notice.\n4. Liability: Liability is limited to $5,000.\n5. IP: Client owns all work product.\nSigned: ____________________",
   "fact_sheet": {
     "parties": {
       "value": "Alice (Client) and Bob (Contractor)",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "effective_date": {
+      "value": "NOT FOUND",
       "page": 1,
       "confidence": "HIGH"
     },
@@ -29,26 +34,36 @@
       "page": 1,
       "confidence": "HIGH"
     },
+    "non_compete_clause": {
+      "value": "NOT FOUND",
+      "page": 1,
+      "confidence": "HIGH"
+    },
+    "dispute_resolution": {
+      "value": "NOT FOUND",
+      "page": 1,
+      "confidence": "HIGH"
+    },
     "key_obligations": [
       {
         "value": "Contractor shall provide coding services.",
-        "page": 1,
-        "confidence": "HIGH"
-      },
-      {
-        "value": "Client shall pay $100 per hour, Net 30.",
         "page": 1,
         "confidence": "HIGH"
       }
     ],
     "financial_terms": [
       {
-        "value": "Payment: Client shall pay $100 per hour, Net 30.",
+        "value": "Client shall pay $100 per hour.",
         "page": 1,
         "confidence": "HIGH"
       },
       {
-        "value": "Liability: Liability is limited to $5,000.",
+        "value": "Payment terms are Net 30.",
+        "page": 1,
+        "confidence": "HIGH"
+      },
+      {
+        "value": "Liability is limited to $5,000.",
         "page": 1,
         "confidence": "HIGH"
       }

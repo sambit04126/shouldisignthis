@@ -1,16 +1,16 @@
 {
-  "verdict": "ACCEPT",
-  "risk_score": 77,
-  "confidence": 98,
-  "summary": "This is a generally favorable agreement for the Consultant, driven by strong economic terms ($150/hr) and critical legal protections (Liability Cap limited to fees paid; IP transfer conditioned on payment). While the 90-day warranty on hourly work creates a risk of unpaid maintenance, and the fixed venue in San Francisco adds logistical friction, these are outweighed by the high rate and favorable liability limitation. The contract is safe to sign after minor adjustments.",
+  "verdict": "CAUTION",
+  "risk_score": 70,
+  "confidence": 88,
+  "summary": "This is a standard consulting agreement with clear and fair terms regarding payment, IP, and termination. However, there are three medium-risk items that warrant negotiation before signing. The dispute resolution venue is potentially costly for the consultant, the deliverable review period is short, and the 90-day warranty creates a post-delivery liability. These points are not deal-breakers but should be addressed to create a more balanced and favorable agreement for the consultant.",
   "key_factors": [
-    "Liability Cap is limited to 'fees paid' (highly protective)",
-    "IP Transfer is contingent on full payment (ensures leverage)",
-    "Hourly Rate ($150/hr) is at the top of the market"
+    "The contract contains well-defined standard clauses for payment, IP assignment, and termination.",
+    "The identified risks (dispute venue, review period, warranty) are all moderate and represent common points of negotiation.",
+    "The presence of a standard liability cap (limited to 12 months of fees) is a significant positive countermeasure."
   ],
   "negotiation_points": [
-    "Reduce the 90-day warranty to 30 days (standard for hourly/T&M work)",
-    "Request a 'Virtual/Remote' option for arbitration to mitigate the San Francisco venue risk",
-    "Soften the '>80% test coverage' requirement to 'commercially reasonable efforts' to prevent binary payment disputes"
+    "Propose changing the binding arbitration venue to a neutral location or the consultant's home city.",
+    "Request an extension of the deliverable review period from 5 business days to 10-15 business days to allow for more thorough feedback.",
+    "Negotiate the 90-day warranty to be more specific, limiting it to fixing bugs in the delivered code rather than covering all 'material defects'."
   ]
 }

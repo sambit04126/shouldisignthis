@@ -1,7 +1,5 @@
 {
   "contract_name": "balanced_contract",
-  "test_run_timestamp": "2025-11-26T14:27:05.932196",
-  "purpose": "Test run output for comparison with ground truth",
-  "note": "To update ground truth, copy these files to shouldisignthis/tests/ground_truth/{contract_name}/",
-  "last_stage_tested": null
+  "capture_timestamp": "c0c934e5-e71f-4c60-9952-1fb6fd3ad8f9",
+  "model_version": "gemini-2.5-pro"
 }
