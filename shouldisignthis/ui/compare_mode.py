@@ -39,60 +39,73 @@ def render_compare_mode(api_key):
         st.session_state.comparison_result = None
     if "analyzing" not in st.session_state:
         st.session_state.analyzing = False
+    if "error_message" not in st.session_state:
+        st.session_state.error_message = None
 
     # --- HELPER: Run Single Pipeline ---
     async def run_pipeline(file_bytes, mime_type, user_id, session_id, pipeline_key, status_container):
         """Runs Stages 1-3 for a single contract."""
         
         # STAGE 1: Auditor
-        with status_container:
-            st.write("🔍 Stage 1: Auditing...")
-            auditor_out = await run_stage_1(file_bytes, mime_type, user_id, session_id, api_key=api_key)
-            if not auditor_out or not auditor_out.get("is_contract"):
-                st.error("Invalid Contract")
-                return None
-            st.session_state[pipeline_key]['auditor'] = auditor_out
-            
-            # SAFETY CHECK
-            if auditor_out.get("is_safe") is False:
-                st.error(f"⚠️ Flagged as UNSAFE: {auditor_out.get('safety_reason')}")
-                # Return Synthetic Verdict
-                synthetic_verdict = {
-                    "verdict": "REJECT",
-                    "risk_score": 0,
-                    "confidence": 100,
-                    "summary": f"The document was flagged as unsafe or illegal by the Auditor. Reason: {auditor_out.get('safety_reason', 'Unknown')}",
-                    "key_factors": ["Illegal/Unsafe Content"],
-                    "negotiation_points": ["Do not sign."]
-                }
-                st.session_state[pipeline_key]['verdict'] = synthetic_verdict
-                return synthetic_verdict
+        try:
+            with status_container:
+                st.write("🔍 Stage 1: Auditing...")
+                auditor_out = await run_stage_1(file_bytes, mime_type, user_id, session_id, api_key=api_key)
+                if not auditor_out or not auditor_out.get("is_contract"):
+                    raise Exception("Invalid Contract")
+                st.session_state[pipeline_key]['auditor'] = auditor_out
+                
+                # SAFETY CHECK
+                if auditor_out.get("is_safe") is False:
+                    raise Exception(f"Flagged as UNSAFE: {auditor_out.get('safety_reason')}")
+    
+                st.write("✅ Stage 1 Complete")
+        except Exception as e:
+            with status_container:
+                st.error(f"⚠️ Stage 1 Failed: {e}")
+            raise e
 
-            st.write("✅ Stage 1 Complete")
+        # STAGE 2: Debate
+        try:
+            with status_container:
+                st.write("⚔️ Stage 2: Debating...")
+                fact_sheet = auditor_out.get('fact_sheet')
+                state, _ = await run_stage_2(user_id, session_id, fact_sheet, api_key=api_key)
+                st.session_state[pipeline_key]['stage2_state'] = state
+                st.write("✅ Stage 2 Complete")
+        except Exception as e:
+            with status_container:
+                st.error(f"⚠️ Stage 2 Failed: {e}")
+            raise e
 
-            # STAGE 2: Debate
-            st.write("⚔️ Stage 2: Debating...")
-            fact_sheet = auditor_out.get('fact_sheet')
-            state, _ = await run_stage_2(user_id, session_id, fact_sheet, api_key=api_key)
-            st.session_state[pipeline_key]['stage2_state'] = state
-            st.write("✅ Stage 2 Complete")
+        # STAGE 2.5: Bailiff
+        try:
+            with status_container:
+                st.write("🕵️ Stage 2.5: Verifying...")
+                risks = parse_json(state.get('skeptic_risks', {})).get('risks', [])
+                counters = parse_json(state.get('advocate_defense', {})).get('counters', [])
+                full_text = auditor_out.get('full_text')
+                validated_evidence = await run_stage_2_5(user_id, session_id, risks, counters, full_text, api_key=api_key)
+                st.session_state[pipeline_key]['evidence'] = validated_evidence
+                st.write("✅ Stage 2.5 Complete")
+        except Exception as e:
+            with status_container:
+                st.error(f"⚠️ Stage 2.5 Failed: {e}")
+            raise e
 
-            # STAGE 2.5: Bailiff
-            st.write("🕵️ Stage 2.5: Verifying...")
-            risks = parse_json(state.get('skeptic_risks', {})).get('risks', [])
-            counters = parse_json(state.get('advocate_defense', {})).get('counters', [])
-            full_text = auditor_out.get('full_text')
-            validated_evidence = await run_stage_2_5(user_id, session_id, risks, counters, full_text, api_key=api_key)
-            st.session_state[pipeline_key]['evidence'] = validated_evidence
-            st.write("✅ Stage 2.5 Complete")
-
-            # STAGE 3: Judge
-            st.write("👨‍⚖️ Stage 3: Judging...")
-            verdict = await run_stage_3(user_id, session_id, fact_sheet, validated_evidence, api_key=api_key)
-            st.session_state[pipeline_key]['verdict'] = verdict
-            st.write("✅ Stage 3 Complete")
-            
-            return verdict
+        # STAGE 3: Judge
+        try:
+            with status_container:
+                st.write("👨‍⚖️ Stage 3: Judging...")
+                verdict = await run_stage_3(user_id, session_id, fact_sheet, validated_evidence, api_key=api_key)
+                st.session_state[pipeline_key]['verdict'] = verdict
+                st.write("✅ Stage 3 Complete")
+                
+                return verdict
+        except Exception as e:
+            with status_container:
+                st.error(f"⚠️ Stage 3 Failed: {e}")
+            raise e
 
     # --- UI LAYOUT ---
     col1, col2 = st.columns(2)
@@ -123,31 +136,43 @@ def render_compare_mode(api_key):
                 del st.session_state.comp_subject
             if 'comp_body' in st.session_state:
                 del st.session_state.comp_body
+            if 'comp_body' in st.session_state:
+                del st.session_state.comp_body
+            st.session_state.error_message = None
             st.rerun()
+
+    # Display Error if any
+    if st.session_state.error_message:
+        st.error(st.session_state.error_message)
 
     # RUN LOGIC
     if st.session_state.analyzing:
-        try:
-            # Run Parallel Pipelines
-            async def run_parallel():
-                task_a = run_pipeline(file_a.getvalue(), file_a.type, "user_a", st.session_state.session_id_a, "pipeline_data_a", col1)
-                task_b = run_pipeline(file_b.getvalue(), file_b.type, "user_b", st.session_state.session_id_b, "pipeline_data_b", col2)
-                return await asyncio.gather(task_a, task_b)
+        # Run Parallel Pipelines
+        async def run_parallel():
+            task_a = run_pipeline(file_a.getvalue(), file_a.type, "user_a", st.session_state.session_id_a, "pipeline_data_a", col1)
+            task_b = run_pipeline(file_b.getvalue(), file_b.type, "user_b", st.session_state.session_id_b, "pipeline_data_b", col2)
+            return await asyncio.gather(task_a, task_b)
 
-            with st.spinner("Running parallel analysis..."):
+        with st.spinner("Running parallel analysis..."):
+            try:
                 verdict_a, verdict_b = asyncio.run(run_parallel())
-            
-            if verdict_a and verdict_b:
+            except Exception as e:
+                st.session_state.error_message = f"⚠️ Parallel Analysis Failed: {e}"
+                st.session_state.analyzing = False
+                st.rerun()
+        
+        if verdict_a and verdict_b:
+            try:
                 with st.spinner("🤔 The Arbiter is deciding the winner..."):
                     comparison = asyncio.run(run_stage_5_arbiter("comparator_user", str(uuid.uuid4()), verdict_a, verdict_b, api_key=api_key))
                     st.session_state.comparison_result = comparison
-            
-            st.session_state.analyzing = False
-            st.rerun()
-            
-        except Exception as e:
-            st.error(f"An error occurred: {e}")
-            st.session_state.analyzing = False
+            except Exception as e:
+                st.session_state.error_message = f"⚠️ Arbiter Failed: {e}"
+                st.session_state.analyzing = False
+                st.rerun()
+        
+        st.session_state.analyzing = False
+        st.rerun()
 
     # --- RESULTS ---
     if st.session_state.comparison_result:
@@ -194,9 +219,12 @@ def render_compare_mode(api_key):
         st.header("📧 Decision Brief")
         
         if 'comparison_email' not in st.session_state:
-            with st.spinner("Writing decision email..."):
-                email_toolkit = asyncio.run(run_stage_6_comparison_drafter("comparator_user", str(uuid.uuid4()), res, api_key=api_key))
-                st.session_state.comparison_email = email_toolkit
+            try:
+                with st.spinner("Writing decision email..."):
+                    email_toolkit = asyncio.run(run_stage_6_comparison_drafter("comparator_user", str(uuid.uuid4()), res, api_key=api_key))
+                    st.session_state.comparison_email = email_toolkit
+            except Exception as e:
+                st.error(f"⚠️ Drafter Failed: {e}")
                 
         if 'comparison_email' in st.session_state:
             email_data = st.session_state.comparison_email
